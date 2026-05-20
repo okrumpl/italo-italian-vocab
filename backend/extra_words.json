@@ -1,0 +1,902 @@
+[
+  {
+    "italian": "il sole",
+    "czech": "slunce",
+    "category": "Příroda a počasí",
+    "difficulty": "A1",
+    "pronunciation": "il sóle",
+    "example_it": "Ecco il sole.",
+    "example_cz": "Tady je slunce."
+  },
+  {
+    "italian": "la luna",
+    "czech": "měsíc",
+    "category": "Příroda a počasí",
+    "difficulty": "A1",
+    "pronunciation": "la lúna",
+    "example_it": "Ecco la luna.",
+    "example_cz": "Tady je měsíc."
+  },
+  {
+    "italian": "l'albero",
+    "czech": "strom",
+    "category": "Příroda a počasí",
+    "difficulty": "A1",
+    "pronunciation": "lálbero",
+    "example_it": "Ecco l'albero.",
+    "example_cz": "Tady je strom."
+  },
+  {
+    "italian": "il bosco",
+    "czech": "les",
+    "category": "Příroda a počasí",
+    "difficulty": "A1",
+    "pronunciation": "il bósko",
+    "example_it": "Ecco il bosco.",
+    "example_cz": "Tady je les."
+  },
+  {
+    "italian": "il fiume",
+    "czech": "řeka",
+    "category": "Příroda a počasí",
+    "difficulty": "A1",
+    "pronunciation": "il fjúme",
+    "example_it": "Ecco il fiume.",
+    "example_cz": "Tady je řeka."
+  },
+  {
+    "italian": "la pioggia",
+    "czech": "déšť",
+    "category": "Příroda a počasí",
+    "difficulty": "A1",
+    "pronunciation": "la pjóža",
+    "example_it": "Ecco la pioggia.",
+    "example_cz": "Tady je déšť."
+  },
+  {
+    "italian": "la neve",
+    "czech": "sníh",
+    "category": "Příroda a počasí",
+    "difficulty": "A1",
+    "pronunciation": "la néve",
+    "example_it": "Ecco la neve.",
+    "example_cz": "Tady je sníh."
+  },
+  {
+    "italian": "la nuvola",
+    "czech": "mrak",
+    "category": "Příroda a počasí",
+    "difficulty": "A1",
+    "pronunciation": "la núvola",
+    "example_it": "Ecco la nuvola.",
+    "example_cz": "Tady je mrak."
+  },
+  {
+    "italian": "il vento",
+    "czech": "vítr",
+    "category": "Příroda a počasí",
+    "difficulty": "A1",
+    "pronunciation": "il vénto",
+    "example_it": "Ecco il vento.",
+    "example_cz": "Tady je vítr."
+  },
+  {
+    "italian": "il fiore",
+    "czech": "květina",
+    "category": "Příroda a počasí",
+    "difficulty": "A1",
+    "pronunciation": "il fjóre",
+    "example_it": "Ecco il fiore.",
+    "example_cz": "Tady je květina."
+  },
+  {
+    "italian": "la montagna",
+    "czech": "hora",
+    "category": "Příroda a počasí",
+    "difficulty": "A1",
+    "pronunciation": "la montáňa",
+    "example_it": "Ecco la montagna.",
+    "example_cz": "Tady je hora."
+  },
+  {
+    "italian": "la valle",
+    "czech": "údolí",
+    "category": "Příroda a počasí",
+    "difficulty": "A1",
+    "pronunciation": "la vále",
+    "example_it": "Ecco la valle.",
+    "example_cz": "Tady je údolí."
+  },
+  {
+    "italian": "il lago",
+    "czech": "jezero",
+    "category": "Příroda a počasí",
+    "difficulty": "A1",
+    "pronunciation": "il lágo",
+    "example_it": "Ecco il lago.",
+    "example_cz": "Tady je jezero."
+  },
+  {
+    "italian": "il mare",
+    "czech": "moře",
+    "category": "Příroda a počasí",
+    "difficulty": "A1",
+    "pronunciation": "il máre",
+    "example_it": "Ecco il mare.",
+    "example_cz": "Tady je moře."
+  },
+  {
+    "italian": "l'isola",
+    "czech": "ostrov",
+    "category": "Příroda a počasí",
+    "difficulty": "A1",
+    "pronunciation": "lízola",
+    "example_it": "Ecco l'isola.",
+    "example_cz": "Tady je ostrov."
+  },
+  {
+    "italian": "felice",
+    "czech": "šťastný",
+    "category": "Emoce a vlastnosti",
+    "difficulty": "A1",
+    "pronunciation": "felíče",
+    "example_it": "Ecco felice.",
+    "example_cz": "Tady je šťastný."
+  },
+  {
+    "italian": "triste",
+    "czech": "smutný",
+    "category": "Emoce a vlastnosti",
+    "difficulty": "A1",
+    "pronunciation": "tríste",
+    "example_it": "Ecco triste.",
+    "example_cz": "Tady je smutný."
+  },
+  {
+    "italian": "arrabbiato",
+    "czech": "naštvaný",
+    "category": "Emoce a vlastnosti",
+    "difficulty": "A1",
+    "pronunciation": "arabiáto",
+    "example_it": "Ecco arrabbiato.",
+    "example_cz": "Tady je naštvaný."
+  },
+  {
+    "italian": "stanco",
+    "czech": "unavený",
+    "category": "Emoce a vlastnosti",
+    "difficulty": "A1",
+    "pronunciation": "stánko",
+    "example_it": "Ecco stanco.",
+    "example_cz": "Tady je unavený."
+  },
+  {
+    "italian": "sorpreso",
+    "czech": "překvapený",
+    "category": "Emoce a vlastnosti",
+    "difficulty": "A1",
+    "pronunciation": "sorprézo",
+    "example_it": "Ecco sorpreso.",
+    "example_cz": "Tady je překvapený."
+  },
+  {
+    "italian": "noioso",
+    "czech": "nudný",
+    "category": "Emoce a vlastnosti",
+    "difficulty": "A1",
+    "pronunciation": "nojózo",
+    "example_it": "Ecco noioso.",
+    "example_cz": "Tady je nudný."
+  },
+  {
+    "italian": "interessante",
+    "czech": "zajímavý",
+    "category": "Emoce a vlastnosti",
+    "difficulty": "A1",
+    "pronunciation": "interesánte",
+    "example_it": "Ecco interessante.",
+    "example_cz": "Tady je zajímavý."
+  },
+  {
+    "italian": "bello",
+    "czech": "hezký",
+    "category": "Emoce a vlastnosti",
+    "difficulty": "A1",
+    "pronunciation": "bélo",
+    "example_it": "Ecco bello.",
+    "example_cz": "Tady je hezký."
+  },
+  {
+    "italian": "brutto",
+    "czech": "ošklivý",
+    "category": "Emoce a vlastnosti",
+    "difficulty": "A1",
+    "pronunciation": "brúto",
+    "example_it": "Ecco brutto.",
+    "example_cz": "Tady je ošklivý."
+  },
+  {
+    "italian": "intelligente",
+    "czech": "chytrý",
+    "category": "Emoce a vlastnosti",
+    "difficulty": "A1",
+    "pronunciation": "intelidžénte",
+    "example_it": "Ecco intelligente.",
+    "example_cz": "Tady je chytrý."
+  },
+  {
+    "italian": "stupido",
+    "czech": "hloupý",
+    "category": "Emoce a vlastnosti",
+    "difficulty": "A1",
+    "pronunciation": "stúpido",
+    "example_it": "Ecco stupido.",
+    "example_cz": "Tady je hloupý."
+  },
+  {
+    "italian": "veloce",
+    "czech": "rychlý",
+    "category": "Emoce a vlastnosti",
+    "difficulty": "A1",
+    "pronunciation": "velóče",
+    "example_it": "Ecco veloce.",
+    "example_cz": "Tady je rychlý."
+  },
+  {
+    "italian": "lento",
+    "czech": "pomalý",
+    "category": "Emoce a vlastnosti",
+    "difficulty": "A1",
+    "pronunciation": "lénto",
+    "example_it": "Ecco lento.",
+    "example_cz": "Tady je pomalý."
+  },
+  {
+    "italian": "grande",
+    "czech": "velký",
+    "category": "Emoce a vlastnosti",
+    "difficulty": "A1",
+    "pronunciation": "gránde",
+    "example_it": "Ecco grande.",
+    "example_cz": "Tady je velký."
+  },
+  {
+    "italian": "piccolo",
+    "czech": "malý",
+    "category": "Emoce a vlastnosti",
+    "difficulty": "A1",
+    "pronunciation": "píkolo",
+    "example_it": "Ecco piccolo.",
+    "example_cz": "Tady je malý."
+  },
+  {
+    "italian": "la macchina",
+    "czech": "auto",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "la mákina",
+    "example_it": "Ecco la macchina.",
+    "example_cz": "Tady je auto."
+  },
+  {
+    "italian": "l'autobus",
+    "czech": "autobus",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "lautobus",
+    "example_it": "Ecco l'autobus.",
+    "example_cz": "Tady je autobus."
+  },
+  {
+    "italian": "il tram",
+    "czech": "tramvaj",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "il tram",
+    "example_it": "Ecco il tram.",
+    "example_cz": "Tady je tramvaj."
+  },
+  {
+    "italian": "la metropolitana",
+    "czech": "metro",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "la metropolitána",
+    "example_it": "Ecco la metropolitana.",
+    "example_cz": "Tady je metro."
+  },
+  {
+    "italian": "la strada",
+    "czech": "ulice",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "la stráda",
+    "example_it": "Ecco la strada.",
+    "example_cz": "Tady je ulice."
+  },
+  {
+    "italian": "la piazza",
+    "czech": "náměstí",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "la pjáca",
+    "example_it": "Ecco la piazza.",
+    "example_cz": "Tady je náměstí."
+  },
+  {
+    "italian": "il negozio",
+    "czech": "obchod",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "il negócjo",
+    "example_it": "Ecco il negozio.",
+    "example_cz": "Tady je obchod."
+  },
+  {
+    "italian": "il ristorante",
+    "czech": "restaurace",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "il ristoránte",
+    "example_it": "Ecco il ristorante.",
+    "example_cz": "Tady je restaurace."
+  },
+  {
+    "italian": "la scuola",
+    "czech": "škola",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "la skuóla",
+    "example_it": "Ecco la scuola.",
+    "example_cz": "Tady je škola."
+  },
+  {
+    "italian": "l'ospedale",
+    "czech": "nemocnice",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "lospedále",
+    "example_it": "Ecco l'ospedale.",
+    "example_cz": "Tady je nemocnice."
+  },
+  {
+    "italian": "la banca",
+    "czech": "banka",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "la bánka",
+    "example_it": "Ecco la banca.",
+    "example_cz": "Tady je banka."
+  },
+  {
+    "italian": "la posta",
+    "czech": "pošta",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "la pósta",
+    "example_it": "Ecco la posta.",
+    "example_cz": "Tady je pošta."
+  },
+  {
+    "italian": "il parco",
+    "czech": "park",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "il párko",
+    "example_it": "Ecco il parco.",
+    "example_cz": "Tady je park."
+  },
+  {
+    "italian": "il ponte",
+    "czech": "most",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "il pónte",
+    "example_it": "Ecco il ponte.",
+    "example_cz": "Tady je most."
+  },
+  {
+    "italian": "il semaforo",
+    "czech": "semafor",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "il semáforo",
+    "example_it": "Ecco il semaforo.",
+    "example_cz": "Tady je semafor."
+  },
+  {
+    "italian": "il tavolo",
+    "czech": "stůl",
+    "category": "Dům a domácnost",
+    "difficulty": "A1",
+    "pronunciation": "il távolo",
+    "example_it": "Ecco il tavolo.",
+    "example_cz": "Tady je stůl."
+  },
+  {
+    "italian": "la sedia",
+    "czech": "židle",
+    "category": "Dům a domácnost",
+    "difficulty": "A1",
+    "pronunciation": "la sédja",
+    "example_it": "Ecco la sedia.",
+    "example_cz": "Tady je židle."
+  },
+  {
+    "italian": "il letto",
+    "czech": "postel",
+    "category": "Dům a domácnost",
+    "difficulty": "A1",
+    "pronunciation": "il léto",
+    "example_it": "Ecco il letto.",
+    "example_cz": "Tady je postel."
+  },
+  {
+    "italian": "l'armadio",
+    "czech": "skříň",
+    "category": "Dům a domácnost",
+    "difficulty": "A1",
+    "pronunciation": "larmádjo",
+    "example_it": "Ecco l'armadio.",
+    "example_cz": "Tady je skříň."
+  },
+  {
+    "italian": "la porta",
+    "czech": "dveře",
+    "category": "Dům a domácnost",
+    "difficulty": "A1",
+    "pronunciation": "la pórta",
+    "example_it": "Ecco la porta.",
+    "example_cz": "Tady je dveře."
+  },
+  {
+    "italian": "la finestra",
+    "czech": "okno",
+    "category": "Dům a domácnost",
+    "difficulty": "A1",
+    "pronunciation": "la finéstra",
+    "example_it": "Ecco la finestra.",
+    "example_cz": "Tady je okno."
+  },
+  {
+    "italian": "la cucina",
+    "czech": "kuchyně",
+    "category": "Dům a domácnost",
+    "difficulty": "A1",
+    "pronunciation": "la kučína",
+    "example_it": "Ecco la cucina.",
+    "example_cz": "Tady je kuchyně."
+  },
+  {
+    "italian": "il bagno",
+    "czech": "koupelna",
+    "category": "Dům a domácnost",
+    "difficulty": "A1",
+    "pronunciation": "il báňo",
+    "example_it": "Ecco il bagno.",
+    "example_cz": "Tady je koupelna."
+  },
+  {
+    "italian": "il water",
+    "czech": "záchod",
+    "category": "Dům a domácnost",
+    "difficulty": "A1",
+    "pronunciation": "il váter",
+    "example_it": "Ecco il water.",
+    "example_cz": "Tady je záchod."
+  },
+  {
+    "italian": "la televisione",
+    "czech": "televize",
+    "category": "Dům a domácnost",
+    "difficulty": "A1",
+    "pronunciation": "la televizjóne",
+    "example_it": "Ecco la televisione.",
+    "example_cz": "Tady je televize."
+  },
+  {
+    "italian": "il computer",
+    "czech": "počítač",
+    "category": "Dům a domácnost",
+    "difficulty": "A1",
+    "pronunciation": "il kompjúter",
+    "example_it": "Ecco il computer.",
+    "example_cz": "Tady je počítač."
+  },
+  {
+    "italian": "il libro",
+    "czech": "kniha",
+    "category": "Dům a domácnost",
+    "difficulty": "A1",
+    "pronunciation": "il líbro",
+    "example_it": "Ecco il libro.",
+    "example_cz": "Tady je kniha."
+  },
+  {
+    "italian": "la lampada",
+    "czech": "lampa",
+    "category": "Dům a domácnost",
+    "difficulty": "A1",
+    "pronunciation": "la lámpada",
+    "example_it": "Ecco la lampada.",
+    "example_cz": "Tady je lampa."
+  },
+  {
+    "italian": "lo specchio",
+    "czech": "zrcadlo",
+    "category": "Dům a domácnost",
+    "difficulty": "A1",
+    "pronunciation": "lo spékjo",
+    "example_it": "Ecco lo specchio.",
+    "example_cz": "Tady je zrcadlo."
+  },
+  {
+    "italian": "la chiave",
+    "czech": "klíč",
+    "category": "Dům a domácnost",
+    "difficulty": "A1",
+    "pronunciation": "la kjáve",
+    "example_it": "Ecco la chiave.",
+    "example_cz": "Tady je klíč."
+  },
+  {
+    "italian": "l'insegnante",
+    "czech": "učitel",
+    "category": "Práce a povolání",
+    "difficulty": "A1",
+    "pronunciation": "linseňánte",
+    "example_it": "Ecco l'insegnante.",
+    "example_cz": "Tady je učitel."
+  },
+  {
+    "italian": "il medico",
+    "czech": "doktor",
+    "category": "Práce a povolání",
+    "difficulty": "A1",
+    "pronunciation": "il médiko",
+    "example_it": "Ecco il medico.",
+    "example_cz": "Tady je doktor."
+  },
+  {
+    "italian": "l'ingegnere",
+    "czech": "inženýr",
+    "category": "Práce a povolání",
+    "difficulty": "A1",
+    "pronunciation": "lindžeňére",
+    "example_it": "Ecco l'ingegnere.",
+    "example_cz": "Tady je inženýr."
+  },
+  {
+    "italian": "l'avvocato",
+    "czech": "právník",
+    "category": "Práce a povolání",
+    "difficulty": "A1",
+    "pronunciation": "lavokáto",
+    "example_it": "Ecco l'avvocato.",
+    "example_cz": "Tady je právník."
+  },
+  {
+    "italian": "il cuoco",
+    "czech": "kuchař",
+    "category": "Práce a povolání",
+    "difficulty": "A1",
+    "pronunciation": "il kuóko",
+    "example_it": "Ecco il cuoco.",
+    "example_cz": "Tady je kuchař."
+  },
+  {
+    "italian": "il cameriere",
+    "czech": "číšník",
+    "category": "Práce a povolání",
+    "difficulty": "A1",
+    "pronunciation": "il kamerjére",
+    "example_it": "Ecco il cameriere.",
+    "example_cz": "Tady je číšník."
+  },
+  {
+    "italian": "il poliziotto",
+    "czech": "policista",
+    "category": "Práce a povolání",
+    "difficulty": "A1",
+    "pronunciation": "il policjóto",
+    "example_it": "Ecco il poliziotto.",
+    "example_cz": "Tady je policista."
+  },
+  {
+    "italian": "il pompiere",
+    "czech": "hasič",
+    "category": "Práce a povolání",
+    "difficulty": "A1",
+    "pronunciation": "il pompjére",
+    "example_it": "Ecco il pompiere.",
+    "example_cz": "Tady je hasič."
+  },
+  {
+    "italian": "il commesso",
+    "czech": "prodavač",
+    "category": "Práce a povolání",
+    "difficulty": "A1",
+    "pronunciation": "il koméso",
+    "example_it": "Ecco il commesso.",
+    "example_cz": "Tady je prodavač."
+  },
+  {
+    "italian": "il manager",
+    "czech": "manažer",
+    "category": "Práce a povolání",
+    "difficulty": "A1",
+    "pronunciation": "il menedžer",
+    "example_it": "Ecco il manager.",
+    "example_cz": "Tady je manažer."
+  },
+  {
+    "italian": "l'autista",
+    "czech": "řidič",
+    "category": "Práce a povolání",
+    "difficulty": "A1",
+    "pronunciation": "lautísta",
+    "example_it": "Ecco l'autista.",
+    "example_cz": "Tady je řidič."
+  },
+  {
+    "italian": "l'artista",
+    "czech": "umělec",
+    "category": "Práce a povolání",
+    "difficulty": "A1",
+    "pronunciation": "lartísta",
+    "example_it": "Ecco l'artista.",
+    "example_cz": "Tady je umělec."
+  },
+  {
+    "italian": "l'attore",
+    "czech": "herec",
+    "category": "Práce a povolání",
+    "difficulty": "A1",
+    "pronunciation": "latóre",
+    "example_it": "Ecco l'attore.",
+    "example_cz": "Tady je herec."
+  },
+  {
+    "italian": "il cantante",
+    "czech": "zpěvák",
+    "category": "Práce a povolání",
+    "difficulty": "A1",
+    "pronunciation": "il kantánte",
+    "example_it": "Ecco il cantante.",
+    "example_cz": "Tady je zpěvák."
+  },
+  {
+    "italian": "lo studente",
+    "czech": "student",
+    "category": "Práce a povolání",
+    "difficulty": "A1",
+    "pronunciation": "lo studénte",
+    "example_it": "Ecco lo studente.",
+    "example_cz": "Tady je student."
+  },
+  {
+    "italian": "la testa",
+    "czech": "hlava",
+    "category": "Tělo a zdraví",
+    "difficulty": "A1",
+    "pronunciation": "la tésta",
+    "example_it": "Ecco la testa.",
+    "example_cz": "Tady je hlava."
+  },
+  {
+    "italian": "il braccio",
+    "czech": "paže",
+    "category": "Tělo a zdraví",
+    "difficulty": "A1",
+    "pronunciation": "il bráčo",
+    "example_it": "Ecco il braccio.",
+    "example_cz": "Tady je paže."
+  },
+  {
+    "italian": "la mano",
+    "czech": "ruka",
+    "category": "Tělo a zdraví",
+    "difficulty": "A1",
+    "pronunciation": "la máno",
+    "example_it": "Ecco la mano.",
+    "example_cz": "Tady je ruka."
+  },
+  {
+    "italian": "la gamba",
+    "czech": "noha",
+    "category": "Tělo a zdraví",
+    "difficulty": "A1",
+    "pronunciation": "la gámba",
+    "example_it": "Ecco la gamba.",
+    "example_cz": "Tady je noha."
+  },
+  {
+    "italian": "il piede",
+    "czech": "chodidlo",
+    "category": "Tělo a zdraví",
+    "difficulty": "A1",
+    "pronunciation": "il pjéde",
+    "example_it": "Ecco il piede.",
+    "example_cz": "Tady je chodidlo."
+  },
+  {
+    "italian": "l'occhio",
+    "czech": "oko",
+    "category": "Tělo a zdraví",
+    "difficulty": "A1",
+    "pronunciation": "lókjo",
+    "example_it": "Ecco l'occhio.",
+    "example_cz": "Tady je oko."
+  },
+  {
+    "italian": "l'orecchio",
+    "czech": "ucho",
+    "category": "Tělo a zdraví",
+    "difficulty": "A1",
+    "pronunciation": "lorékjo",
+    "example_it": "Ecco l'orecchio.",
+    "example_cz": "Tady je ucho."
+  },
+  {
+    "italian": "il naso",
+    "czech": "nos",
+    "category": "Tělo a zdraví",
+    "difficulty": "A1",
+    "pronunciation": "il názo",
+    "example_it": "Ecco il naso.",
+    "example_cz": "Tady je nos."
+  },
+  {
+    "italian": "la bocca",
+    "czech": "ústa",
+    "category": "Tělo a zdraví",
+    "difficulty": "A1",
+    "pronunciation": "la bóka",
+    "example_it": "Ecco la bocca.",
+    "example_cz": "Tady je ústa."
+  },
+  {
+    "italian": "il dente",
+    "czech": "zub",
+    "category": "Tělo a zdraví",
+    "difficulty": "A1",
+    "pronunciation": "il dénte",
+    "example_it": "Ecco il dente.",
+    "example_cz": "Tady je zub."
+  },
+  {
+    "italian": "i capelli",
+    "czech": "vlasy",
+    "category": "Tělo a zdraví",
+    "difficulty": "A1",
+    "pronunciation": "i kapéli",
+    "example_it": "Ecco i capelli.",
+    "example_cz": "Tady je vlasy."
+  },
+  {
+    "italian": "il cuore",
+    "czech": "srdce",
+    "category": "Tělo a zdraví",
+    "difficulty": "A1",
+    "pronunciation": "il kuóre",
+    "example_it": "Ecco il cuore.",
+    "example_cz": "Tady je srdce."
+  },
+  {
+    "italian": "il sangue",
+    "czech": "krev",
+    "category": "Tělo a zdraví",
+    "difficulty": "A1",
+    "pronunciation": "il sángue",
+    "example_it": "Ecco il sangue.",
+    "example_cz": "Tady je krev."
+  },
+  {
+    "italian": "il dolore",
+    "czech": "bolest",
+    "category": "Tělo a zdraví",
+    "difficulty": "A1",
+    "pronunciation": "il dolóre",
+    "example_it": "Ecco il dolore.",
+    "example_cz": "Tady je bolest."
+  },
+  {
+    "italian": "la medicina",
+    "czech": "lék",
+    "category": "Tělo a zdraví",
+    "difficulty": "A1",
+    "pronunciation": "la medičína",
+    "example_it": "Ecco la medicina.",
+    "example_cz": "Tady je lék."
+  },
+  {
+    "italian": "l'esame",
+    "czech": "zkouška",
+    "category": "Škola a vzdělávání",
+    "difficulty": "A1",
+    "pronunciation": "lezáme",
+    "example_it": "Ecco l'esame.",
+    "example_cz": "Tady je zkouška."
+  },
+  {
+    "italian": "i compiti",
+    "czech": "úkoly",
+    "category": "Škola a vzdělávání",
+    "difficulty": "A1",
+    "pronunciation": "i kómpiti",
+    "example_it": "Ecco i compiti.",
+    "example_cz": "Tady je úkoly."
+  },
+  {
+    "italian": "la lezione",
+    "czech": "lekce",
+    "category": "Škola a vzdělávání",
+    "difficulty": "A1",
+    "pronunciation": "la lecióne",
+    "example_it": "Ecco la lezione.",
+    "example_cz": "Tady je lekce."
+  },
+  {
+    "italian": "il quaderno",
+    "czech": "sešit",
+    "category": "Škola a vzdělávání",
+    "difficulty": "A1",
+    "pronunciation": "il kuadérno",
+    "example_it": "Ecco il quaderno.",
+    "example_cz": "Tady je sešit."
+  },
+  {
+    "italian": "la penna",
+    "czech": "pero",
+    "category": "Škola a vzdělávání",
+    "difficulty": "A1",
+    "pronunciation": "la péna",
+    "example_it": "Ecco la penna.",
+    "example_cz": "Tady je pero."
+  },
+  {
+    "italian": "la matita",
+    "czech": "tužka",
+    "category": "Škola a vzdělávání",
+    "difficulty": "A1",
+    "pronunciation": "la matíta",
+    "example_it": "Ecco la matita.",
+    "example_cz": "Tady je tužka."
+  },
+  {
+    "italian": "la lavagna",
+    "czech": "tabule",
+    "category": "Škola a vzdělávání",
+    "difficulty": "A1",
+    "pronunciation": "la laváňa",
+    "example_it": "Ecco la lavagna.",
+    "example_cz": "Tady je tabule."
+  },
+  {
+    "italian": "lo zaino",
+    "czech": "batoh",
+    "category": "Škola a vzdělávání",
+    "difficulty": "A1",
+    "pronunciation": "lo zájno",
+    "example_it": "Ecco lo zaino.",
+    "example_cz": "Tady je batoh."
+  },
+  {
+    "italian": "l'università",
+    "czech": "univerzita",
+    "category": "Škola a vzdělávání",
+    "difficulty": "A1",
+    "pronunciation": "luniversitá",
+    "example_it": "Ecco l'università.",
+    "example_cz": "Tady je univerzita."
+  },
+  {
+    "italian": "la classe",
+    "czech": "třída",
+    "category": "Škola a vzdělávání",
+    "difficulty": "A1",
+    "pronunciation": "la kláse",
+    "example_it": "Ecco la classe.",
+    "example_cz": "Tady je třída."
+  }
+]

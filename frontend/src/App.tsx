@@ -1,0 +1,134 @@
+import { useState } from 'react';
+import { BookOpen, Search, BarChart2 } from 'lucide-react';
+import { Dashboard } from './components/Dashboard';
+import { Dictionary } from './components/Dictionary';
+import { Stats } from './components/Stats';
+import { Lesson } from './components/Lesson';
+
+type ScreenState = 'dashboard' | 'dictionary' | 'stats' | 'lesson';
+
+const NAV_ITEMS = [
+  { id: 'dashboard' as ScreenState, label: 'Učení', icon: BookOpen },
+  { id: 'dictionary' as ScreenState, label: 'Slovník', icon: Search },
+  { id: 'stats' as ScreenState, label: 'Profil', icon: BarChart2 },
+];
+
+export default function App() {
+  const [activeScreen, setActiveScreen] = useState<ScreenState>('dashboard');
+  const [lessonCategory, setLessonCategory] = useState<string | null>(null);
+  const [refreshKey, setRefreshKey] = useState(0);
+
+  const handleCloseLesson = () => {
+    setActiveScreen('dashboard');
+    setLessonCategory(null);
+    setRefreshKey(prev => prev + 1);
+  };
+
+  const handleStartLesson = (category: string) => {
+    setLessonCategory(category);
+    setActiveScreen('lesson');
+  };
+
+  const handleStartQuickReview = () => {
+    setLessonCategory(null);
+    setActiveScreen('lesson');
+  };
+
+  const renderScreen = () => {
+    switch (activeScreen) {
+      case 'dashboard':
+        return <Dashboard onStartLesson={handleStartLesson} onStartQuickReview={handleStartQuickReview} refreshKey={refreshKey} />;
+      case 'dictionary':
+        return <Dictionary />;
+      case 'stats':
+        return <Stats />;
+      case 'lesson':
+        return <Lesson category={lessonCategory} onClose={handleCloseLesson} />;
+      default:
+        return <Dashboard onStartLesson={handleStartLesson} onStartQuickReview={handleStartQuickReview} />;
+    }
+  };
+
+  return (
+    <div className="w-full flex-1 flex flex-col relative" style={{ height: '100dvh', overflow: 'hidden' }}>
+
+      {/* Hlavní obsah */}
+      <div className="flex-1 overflow-hidden">
+        {renderScreen()}
+      </div>
+
+      {/* Tab bar — skrytý během lekce */}
+      {activeScreen !== 'lesson' && (
+        <nav
+          style={{
+            position: 'absolute',
+            bottom: 0,
+            left: 0,
+            right: 0,
+            height: '72px',
+            backgroundColor: 'var(--surface)',
+            borderTop: '1px solid var(--border)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-around',
+            padding: '0 8px',
+            zIndex: 40,
+          }}
+        >
+          {NAV_ITEMS.map(({ id, label, icon: Icon }) => {
+            const isActive = activeScreen === id;
+            return (
+              <button
+                key={id}
+                onClick={() => setActiveScreen(id)}
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  gap: '4px',
+                  flex: 1,
+                  height: '100%',
+                  background: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
+                  padding: '8px 4px',
+                  borderRadius: '12px',
+                  transition: 'all 0.15s ease',
+                  color: isActive ? 'var(--green-500)' : 'var(--text-3)',
+                  fontFamily: 'var(--font)',
+                }}
+              >
+                <Icon
+                  size={22}
+                  strokeWidth={isActive ? 2.5 : 1.8}
+                />
+                <span
+                  style={{
+                    fontSize: '11px',
+                    fontWeight: isActive ? 700 : 500,
+                    letterSpacing: '0.1px',
+                  }}
+                >
+                  {label}
+                </span>
+                {/* Active dot indicator */}
+                {isActive && (
+                  <span
+                    style={{
+                      width: '4px',
+                      height: '4px',
+                      borderRadius: '99px',
+                      backgroundColor: 'var(--green-500)',
+                      position: 'absolute',
+                      bottom: '10px',
+                    }}
+                  />
+                )}
+              </button>
+            );
+          })}
+        </nav>
+      )}
+    </div>
+  );
+}

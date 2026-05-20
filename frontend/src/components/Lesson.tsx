@@ -1,0 +1,830 @@
+import React, { useEffect, useState } from 'react';
+import { X, Volume2, CheckCircle2, AlertCircle, Keyboard, Zap, Flame, Trophy } from 'lucide-react';
+import { Mascot, MascotState } from './Mascot';
+import { playSound, speakItalian, shuffle } from '../utils/audio';
+
+interface Word {
+  id: number;
+  italian: string;
+  czech: string;
+  category: string;
+  difficulty: string;
+  pronunciation: string;
+  example_it: string;
+  example_cz: string;
+  box: number;
+  attempts: number;
+  correct_count: number;
+  is_review: number;
+}
+
+interface LessonProps {
+  category: string | null;
+  onClose: () => void;
+}
+
+type QuestionType = 'flashcard' | 'multiple-choice-it-to-cz' | 'multiple-choice-cz-to-it' | 'typing' | 'scrambled-sentence' | 'matching';
+
+interface Exercise {
+  word: Word;
+  type: QuestionType;
+  options?: string[];
+  scrambledWords?: string[];
+  targetSentence?: string;
+  targetSentenceTranslation?: string;
+}
+
+export const Lesson: React.FC<LessonProps> = ({ category, onClose }) => {
+  const [words, setWords] = useState<Word[]>([]);
+  const [exercises, setExercises] = useState<Exercise[]>([]);
+  const [currentIdx, setCurrentIdx] = useState(0);
+
+  const [selectedOption, setSelectedOption] = useState<string | null>(null);
+  const [typedAnswer, setTypedAnswer] = useState('');
+  const [selectedPuzzleWords, setSelectedPuzzleWords] = useState<string[]>([]);
+
+  const [selectedItWord, setSelectedItWord] = useState<string | null>(null);
+  const [selectedCzWord, setSelectedCzWord] = useState<string | null>(null);
+  const [matchedPairs, setMatchedPairs] = useState<string[]>([]);
+
+  const [checked, setChecked] = useState(false);
+  const [isCorrect, setIsCorrect] = useState(false);
+  const [mascotState, setMascotState] = useState<MascotState>('idle');
+
+  const [failedWordIds, setFailedWordIds] = useState<Set<number>>(new Set());
+
+  const [completed, setCompleted] = useState(false);
+  const [resultsData, setResultsData] = useState<any>(null);
+  const [saving, setSaving] = useState(false);
+  const [confetti, setConfetti] = useState<{ id: number; color: string; style: any }[]>([]);
+
+  useEffect(() => {
+    const fetchWords = async () => {
+      try {
+        const url = category
+          ? `/api/lesson/${encodeURIComponent(category)}`
+          : '/api/lesson-quick';
+        const res = await fetch(url);
+        if (!res.ok) throw new Error('Nepodařilo se stáhnout slova lekce.');
+        const data = await res.json();
+        setWords(data);
+        generateExercises(data);
+      } catch (error) {
+        console.error(error);
+        alert('Chyba při načítání lekce.');
+        onClose();
+      }
+    };
+    if ('speechSynthesis' in window) window.speechSynthesis.getVoices();
+    fetchWords();
+  }, [category]);
+
+  const generateExercises = (loadedWords: Word[]) => {
+    const generated: Exercise[] = [];
+    const allItWords = loadedWords.map(w => w.italian);
+    const allCzWords = loadedWords.map(w => w.czech);
+
+    loadedWords.forEach(word => {
+      if (word.attempts === 0 && !category) {
+        // skip flashcard in quick review
+      } else if (word.attempts === 0) {
+        generated.push({ word, type: 'flashcard' });
+      }
+
+      const rand = Math.random();
+      if (rand < 0.3) {
+        generated.push({ word, type: 'multiple-choice-it-to-cz', options: getRandomOptions(word.czech, allCzWords) });
+      } else if (rand < 0.6) {
+        generated.push({ word, type: 'multiple-choice-cz-to-it', options: getRandomOptions(word.italian, allItWords) });
+      } else if (rand < 0.85) {
+        generated.push({ word, type: 'typing' });
+      } else {
+        const sentence = word.example_it;
+        const wordsInSentence = sentence.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?]/g, '').split(' ');
+        const scrambled = [...wordsInSentence];
+        const distractorPool = loadedWords
+          .filter(w => w.id !== word.id)
+          .flatMap(w => w.italian.split(' '))
+          .filter(w => !wordsInSentence.includes(w));
+        const pickedDistractors = shuffle([...new Set(distractorPool)]).slice(0, 2);
+        scrambled.push(...pickedDistractors);
+        generated.push({
+          word, type: 'scrambled-sentence',
+          scrambledWords: shuffle(scrambled),
+          targetSentence: sentence,
+          targetSentenceTranslation: word.example_cz,
+        });
+      }
+    });
+
+    if (loadedWords.length >= 5) {
+      const mid = Math.floor(generated.length / 2);
+      generated.splice(mid, 0, { word: loadedWords[0], type: 'matching' });
+    }
+
+    setExercises(generated);
+    if (generated.length > 0 && generated[0].type === 'flashcard') {
+      setTimeout(() => speakItalian(generated[0].word.italian), 500);
+    }
+  };
+
+  const getRandomOptions = (correctVal: string, allVals: string[]) => {
+    const opts = shuffle(allVals.filter(v => v !== correctVal)).slice(0, 3);
+    opts.push(correctVal);
+    return shuffle(opts);
+  };
+
+  const currentExercise = exercises[currentIdx];
+
+  const handleSpeak = () => {
+    if (!currentExercise) return;
+    speakItalian(currentExercise.type === 'scrambled-sentence'
+      ? currentExercise.targetSentence || ''
+      : currentExercise.word.italian);
+  };
+
+  const handleInsertChar = (char: string) => setTypedAnswer(prev => prev + char);
+
+  const handleCheck = () => {
+    if (checked) return;
+    let correct = false;
+    if (currentExercise.type === 'flashcard') {
+      correct = true;
+    } else if (currentExercise.type === 'multiple-choice-it-to-cz') {
+      correct = selectedOption === currentExercise.word.czech;
+    } else if (currentExercise.type === 'multiple-choice-cz-to-it') {
+      correct = selectedOption === currentExercise.word.italian;
+    } else if (currentExercise.type === 'typing') {
+      correct = typedAnswer.trim().toLowerCase() === currentExercise.word.italian.trim().toLowerCase();
+    } else if (currentExercise.type === 'scrambled-sentence') {
+      const assembled = selectedPuzzleWords.join(' ').toLowerCase().replace(/[.,]/g, '');
+      correct = assembled === (currentExercise.targetSentence?.toLowerCase().replace(/[.,]/g, '') || '');
+    } else if (currentExercise.type === 'matching') {
+      correct = matchedPairs.length === Math.min(words.length, 5);
+    }
+
+    setIsCorrect(correct);
+    setChecked(true);
+    if (correct) { setMascotState('happy'); playSound('correct'); }
+    else {
+      setMascotState('sad'); playSound('incorrect');
+      setFailedWordIds(prev => { const n = new Set(prev); n.add(currentExercise.word.id); return n; });
+    }
+    if (currentExercise.type !== 'flashcard' && currentExercise.type !== 'matching') handleSpeak();
+  };
+
+  const handleMatchingClick = (val: string, lang: 'it' | 'cz') => {
+    if (checked) return;
+    if (lang === 'it') {
+      setSelectedItWord(val);
+      if (selectedCzWord) checkMatchingPair(val, selectedCzWord);
+    } else {
+      setSelectedCzWord(val);
+      if (selectedItWord) checkMatchingPair(selectedItWord, val);
+    }
+  };
+
+  const checkMatchingPair = (itVal: string, czVal: string) => {
+    const isPair = words.some(w => w.italian === itVal && w.czech === czVal);
+    if (isPair) {
+      const newMatched = [...matchedPairs, itVal];
+      setMatchedPairs(newMatched);
+      setSelectedItWord(null); setSelectedCzWord(null);
+      playSound('match-correct');
+      if (newMatched.length === Math.min(words.length, 5)) {
+        setIsCorrect(true); setChecked(true); setMascotState('happy'); playSound('correct');
+      }
+    } else {
+      setSelectedItWord(null); setSelectedCzWord(null);
+      playSound('match-incorrect');
+    }
+  };
+
+  const handleContinue = () => {
+    if (!isCorrect && currentExercise.type !== 'flashcard') {
+      setExercises(prev => [...prev, currentExercise]);
+    }
+    setSelectedOption(null); setTypedAnswer(''); setSelectedPuzzleWords([]);
+    setSelectedItWord(null); setSelectedCzWord(null); setMatchedPairs([]);
+    setChecked(false); setIsCorrect(false); setMascotState('idle');
+
+    if (currentIdx + 1 < exercises.length) {
+      setCurrentIdx(currentIdx + 1);
+      const next = exercises[currentIdx + 1];
+      if (next?.type === 'flashcard') setTimeout(() => speakItalian(next.word.italian), 300);
+    } else {
+      submitLessonResults();
+    }
+  };
+
+  const submitLessonResults = async () => {
+    setSaving(true);
+    try {
+      const answers = words.map(w => ({ wordId: w.id, isCorrect: !failedWordIds.has(w.id) }));
+      const res = await fetch('/api/lesson/complete', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ category, answers }),
+      });
+      if (!res.ok) throw new Error('Nepodařilo se uložit pokrok.');
+      const data = await res.json();
+      setResultsData(data); setCompleted(true); setMascotState('excited');
+      playSound('complete'); triggerConfetti();
+    } catch (err) {
+      console.error(err);
+      alert('Chyba při ukládání výsledků.');
+      onClose();
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  const triggerConfetti = () => {
+    const colors = ['#22c55e', '#6366f1', '#f97316', '#ef4444', '#eab308', '#0ea5e9'];
+    setConfetti(Array.from({ length: 70 }).map((_, i) => ({
+      id: i,
+      color: colors[i % colors.length],
+      style: {
+        left: `${Math.random() * 100}%`,
+        animationDelay: `${Math.random() * 2.5}s`,
+        width: `${Math.random() * 8 + 5}px`,
+        height: `${Math.random() * 8 + 5}px`,
+        backgroundColor: colors[Math.floor(Math.random() * colors.length)],
+      },
+    })));
+  };
+
+  const progressPercent = exercises.length > 0 ? Math.round((currentIdx / exercises.length) * 100) : 0;
+
+  const isAnswerEntered = () => {
+    if (currentExercise.type === 'flashcard') return true;
+    if (currentExercise.type === 'multiple-choice-it-to-cz' || currentExercise.type === 'multiple-choice-cz-to-it') return selectedOption !== null;
+    if (currentExercise.type === 'typing') return typedAnswer.trim() !== '';
+    if (currentExercise.type === 'scrambled-sentence') return selectedPuzzleWords.length > 0;
+    if (currentExercise.type === 'matching') return matchedPairs.length === Math.min(words.length, 5);
+    return false;
+  };
+
+  // ─── Exercise renderers ───────────────────────────────────────────────────
+
+  const renderExerciseContent = () => {
+    if (!currentExercise) return null;
+
+    switch (currentExercise.type) {
+
+      case 'flashcard':
+        return (
+          <div className="animate-pop" style={{
+            display: 'flex', flexDirection: 'column', alignItems: 'center',
+            justifyContent: 'space-between', flex: 1, paddingTop: 8, paddingBottom: 8,
+            minHeight: '56vh', textAlign: 'center',
+          }}>
+            {/* Top: word card */}
+            <div style={{ width: '100%' }}>
+              <p className="section-label" style={{ marginBottom: 14, color: 'var(--green-500)' }}>
+                Nové slovíčko!
+              </p>
+              <div style={{
+                backgroundColor: 'var(--surface-2)', borderRadius: 20,
+                padding: '28px 20px', display: 'flex', flexDirection: 'column', alignItems: 'center',
+                border: '1px solid var(--border)',
+              }}>
+                <button
+                  onClick={handleSpeak}
+                  style={{
+                    width: 52, height: 52, borderRadius: '50%',
+                    backgroundColor: 'var(--sky-50)', border: 'none', cursor: 'pointer',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    color: 'var(--sky)', marginBottom: 16, transition: 'transform 0.15s',
+                  }}
+                  onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.08)')}
+                  onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
+                >
+                  <Volume2 size={24} />
+                </button>
+                <h2 style={{ fontSize: 34, fontWeight: 800, color: 'var(--text)', letterSpacing: '-0.5px', marginBottom: 6 }}>
+                  {currentExercise.word.italian}
+                </h2>
+                <p style={{ fontSize: 13, color: 'var(--text-3)', marginBottom: 16 }}>
+                  [{currentExercise.word.pronunciation}]
+                </p>
+                <div style={{ width: 40, height: 2, backgroundColor: 'var(--border)', borderRadius: 99, marginBottom: 16 }} />
+                <h3 style={{ fontSize: 26, fontWeight: 700, color: 'var(--green-500)' }}>
+                  {currentExercise.word.czech}
+                </h3>
+              </div>
+            </div>
+
+            {/* Middle: mascot */}
+            <div style={{ marginTop: 12, marginBottom: 12 }}>
+              <Mascot state="happy" size={110} />
+            </div>
+
+            {/* Bottom: example */}
+            <div style={{
+              width: '100%', backgroundColor: 'var(--sky-50)',
+              border: '1px solid rgba(14,165,233,0.15)',
+              borderRadius: 16, padding: '14px 16px',
+              display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 12,
+            }}>
+              <div style={{ flex: 1 }}>
+                <p className="section-label" style={{ color: 'var(--sky)', marginBottom: 6 }}>Příklad</p>
+                <p style={{ fontSize: 15, fontWeight: 600, color: 'var(--text)', marginBottom: 4 }}>
+                  {currentExercise.word.example_it}
+                </p>
+                <p style={{ fontSize: 13, color: 'var(--text-2)', fontStyle: 'italic' }}>
+                  {currentExercise.word.example_cz}
+                </p>
+              </div>
+              <button
+                onClick={() => speakItalian(currentExercise.word.example_it)}
+                style={{
+                  width: 34, height: 34, borderRadius: 10, flexShrink: 0,
+                  backgroundColor: 'rgba(14,165,233,0.12)', border: 'none', cursor: 'pointer',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--sky)',
+                }}
+              >
+                <Volume2 size={15} />
+              </button>
+            </div>
+          </div>
+        );
+
+      case 'multiple-choice-it-to-cz':
+        return (
+          <div className="animate-pop" style={{ display: 'flex', flexDirection: 'column', flex: 1, paddingTop: 8 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 24 }}>
+              <button
+                onClick={handleSpeak}
+                style={{
+                  width: 46, height: 46, borderRadius: 12, flexShrink: 0,
+                  backgroundColor: 'var(--sky-50)', border: 'none', cursor: 'pointer',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--sky)',
+                }}
+              >
+                <Volume2 size={22} />
+              </button>
+              <h3 style={{ fontSize: 20, fontWeight: 700, color: 'var(--text)', lineHeight: 1.3 }}>
+                Co znamená{' '}
+                <span style={{ color: 'var(--sky)', fontWeight: 800 }}>
+                  {currentExercise.word.italian}
+                </span>?
+              </h3>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+              {currentExercise.options?.map(option => {
+                const sel = selectedOption === option;
+                let cls = 'card-option';
+                if (checked) {
+                  if (option === currentExercise.word.czech) cls += ' correct';
+                  else if (sel) cls += ' incorrect';
+                } else if (sel) cls += ' selected';
+                return (
+                  <button key={option} disabled={checked} onClick={() => setSelectedOption(option)} className={cls}>
+                    <span style={{ flex: 1 }}>{option}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        );
+
+      case 'multiple-choice-cz-to-it':
+        return (
+          <div className="animate-pop" style={{ display: 'flex', flexDirection: 'column', flex: 1, paddingTop: 8 }}>
+            <p className="section-label" style={{ marginBottom: 8 }}>Přelož do italštiny</p>
+            <h3 style={{ fontSize: 22, fontWeight: 800, color: 'var(--text)', marginBottom: 24, letterSpacing: '-0.3px' }}>
+              „{currentExercise.word.czech}"
+            </h3>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+              {currentExercise.options?.map(option => {
+                const sel = selectedOption === option;
+                let cls = 'card-option';
+                if (checked) {
+                  if (option === currentExercise.word.italian) cls += ' correct';
+                  else if (sel) cls += ' incorrect';
+                } else if (sel) cls += ' selected';
+                return (
+                  <button key={option} disabled={checked} onClick={() => setSelectedOption(option)} className={cls}>
+                    <span style={{ flex: 1 }}>{option}</span>
+                    <span style={{ fontSize: 11, color: 'var(--text-3)', marginLeft: 8 }}>
+                      [{currentExercise.word.category}]
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        );
+
+      case 'typing':
+        return (
+          <div className="animate-pop" style={{ display: 'flex', flexDirection: 'column', flex: 1, paddingTop: 8 }}>
+            <p className="section-label" style={{ marginBottom: 8 }}>Napiš italsky</p>
+            <div style={{
+              backgroundColor: 'var(--green-50)', border: '1px solid var(--green-100)',
+              borderRadius: 14, padding: '16px 18px', marginBottom: 20,
+            }}>
+              <p className="section-label" style={{ color: 'var(--green-600)', marginBottom: 4 }}>Česky</p>
+              <p style={{ fontSize: 24, fontWeight: 700, color: 'var(--text)' }}>
+                {currentExercise.word.czech}
+              </p>
+            </div>
+            <div style={{ position: 'relative' }}>
+              <textarea
+                rows={2}
+                disabled={checked}
+                value={typedAnswer}
+                onChange={e => setTypedAnswer(e.target.value)}
+                placeholder="Napiš překlad sem…"
+                className="input"
+                style={{ fontSize: 22, fontWeight: 700, padding: '16px 48px 16px 16px', resize: 'none', lineHeight: 1.4 }}
+              />
+              <Keyboard style={{ position: 'absolute', right: 14, top: 16, color: 'var(--text-3)' }} size={20} />
+            </div>
+            {!checked && (
+              <div style={{ display: 'flex', gap: 8, justifyContent: 'center', marginTop: 14, flexWrap: 'wrap' }}>
+                {['à', 'è', 'é', 'ì', 'ò', 'ù'].map(char => (
+                  <button
+                    key={char}
+                    onClick={() => handleInsertChar(char)}
+                    style={{
+                      width: 42, height: 42, borderRadius: 10,
+                      backgroundColor: 'var(--surface-2)', border: '1px solid var(--border)',
+                      fontSize: 16, fontWeight: 700, color: 'var(--text)',
+                      cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      fontFamily: 'var(--font)',
+                    }}
+                  >
+                    {char}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+        );
+
+      case 'scrambled-sentence':
+        return (
+          <div className="animate-pop" style={{ display: 'flex', flexDirection: 'column', flex: 1, paddingTop: 8 }}>
+            <p className="section-label" style={{ marginBottom: 6 }}>Sestav italskou větu</p>
+            <p style={{ fontSize: 15, color: 'var(--text-2)', fontStyle: 'italic', marginBottom: 18 }}>
+              „{currentExercise.targetSentenceTranslation}"
+            </p>
+
+            {/* Drop area */}
+            <div style={{
+              minHeight: 72, padding: '12px 14px',
+              backgroundColor: 'var(--surface-2)',
+              border: `2px dashed ${checked ? 'transparent' : 'var(--border-2)'}`,
+              borderRadius: 14,
+              display: 'flex', flexWrap: 'wrap', gap: 8, alignItems: 'center',
+              marginBottom: 20,
+            }}>
+              {selectedPuzzleWords.length === 0 && !checked && (
+                <span style={{ fontSize: 14, color: 'var(--text-3)' }}>Klikni na slova níže…</span>
+              )}
+              {selectedPuzzleWords.map((word, idx) => (
+                <button
+                  key={`sel-${word}-${idx}`}
+                  disabled={checked}
+                  onClick={() => setSelectedPuzzleWords(prev => prev.filter((_, i) => i !== idx))}
+                  style={{
+                    padding: '8px 14px', borderRadius: 10,
+                    backgroundColor: 'var(--surface)', border: '1.5px solid var(--border)',
+                    fontSize: 15, fontWeight: 700, color: 'var(--text)',
+                    cursor: 'pointer', fontFamily: 'var(--font)',
+                  }}
+                >
+                  {word}
+                </button>
+              ))}
+            </div>
+
+            {/* Word tiles */}
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, justifyContent: 'center' }}>
+              {currentExercise.scrambledWords?.map((word, idx) => {
+                const usedCount = selectedPuzzleWords.filter(w => w === word).length;
+                const totalCount = currentExercise.scrambledWords?.filter(w => w === word).length || 0;
+                const isUsed = usedCount >= totalCount;
+                return (
+                  <button
+                    key={`tile-${word}-${idx}`}
+                    disabled={checked || isUsed}
+                    onClick={() => setSelectedPuzzleWords(prev => [...prev, word])}
+                    style={{
+                      padding: '9px 16px', borderRadius: 10,
+                      backgroundColor: isUsed ? 'var(--surface-2)' : 'var(--surface)',
+                      border: `1.5px solid ${isUsed ? 'var(--border)' : 'var(--border-2)'}`,
+                      fontSize: 15, fontWeight: 700,
+                      color: isUsed ? 'var(--text-3)' : 'var(--text)',
+                      cursor: isUsed ? 'default' : 'pointer',
+                      transition: 'all 0.1s', fontFamily: 'var(--font)',
+                      opacity: isUsed ? 0.45 : 1,
+                    }}
+                  >
+                    {word}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        );
+
+      case 'matching': {
+        const limit = Math.min(words.length, 5);
+        const matchingWords = words.slice(0, limit);
+        const itWords = [...matchingWords].map(w => w.italian).sort();
+        const czWords = [...matchingWords].map(w => w.czech).sort();
+
+        return (
+          <div className="animate-pop" style={{ display: 'flex', flexDirection: 'column', flex: 1, paddingTop: 8 }}>
+            <p className="section-label" style={{ marginBottom: 6 }}>Přiřaď dvojice</p>
+            <p style={{ fontSize: 14, color: 'var(--text-2)', marginBottom: 20 }}>
+              Spáruj italská slova s jejich překlady
+            </p>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
+              {/* Italian column */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                {itWords.map(word => {
+                  const matched = matchedPairs.includes(word);
+                  const selected = selectedItWord === word;
+                  return (
+                    <button
+                      key={`it-${word}`}
+                      disabled={checked || matched}
+                      onClick={() => handleMatchingClick(word, 'it')}
+                      className={`card-option${matched ? ' correct' : selected ? ' selected' : ''}`}
+                      style={{
+                        fontSize: 13, padding: '12px 12px',
+                        opacity: matched ? 0.45 : 1,
+                        cursor: matched ? 'default' : 'pointer',
+                      }}
+                    >
+                      <span>{word}</span>
+                    </button>
+                  );
+                })}
+              </div>
+              {/* Czech column */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                {czWords.map(word => {
+                  const mw = matchingWords.find(w => w.czech === word);
+                  const matched = mw ? matchedPairs.includes(mw.italian) : false;
+                  const selected = selectedCzWord === word;
+                  return (
+                    <button
+                      key={`cz-${word}`}
+                      disabled={checked || matched}
+                      onClick={() => handleMatchingClick(word, 'cz')}
+                      className={`card-option${matched ? ' correct' : selected ? ' selected' : ''}`}
+                      style={{
+                        fontSize: 13, padding: '12px 12px',
+                        opacity: matched ? 0.45 : 1,
+                        cursor: matched ? 'default' : 'pointer',
+                      }}
+                    >
+                      <span>{word}</span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        );
+      }
+
+      default:
+        return null;
+    }
+  };
+
+  // ─── Completion screen ────────────────────────────────────────────────────
+
+  if (completed && resultsData) {
+    return (
+      <div style={{
+        display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between',
+        height: '100dvh', padding: '24px 24px 40px', textAlign: 'center',
+        backgroundColor: 'var(--bg)', position: 'relative', overflow: 'hidden',
+      }}>
+        {/* Confetti */}
+        <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', overflow: 'hidden', zIndex: 10 }}>
+          {confetti.map(c => <div key={c.id} className="confetti" style={c.style} />)}
+        </div>
+
+        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', zIndex: 20, maxWidth: 360, width: '100%' }}>
+          <Mascot state="excited" size={160} />
+
+          <h2 style={{ fontSize: 30, fontWeight: 800, color: 'var(--text)', marginTop: 24, marginBottom: 8, letterSpacing: '-0.5px' }}>
+            Skvělá práce!
+          </h2>
+          <p style={{ fontSize: 15, color: 'var(--text-2)', marginBottom: 32 }}>
+            Dokončil jsi {category ? `lekci „${category}"` : 'Bleskový kvíz'}.
+          </p>
+
+          {/* XP + Streak */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, width: '100%', marginBottom: 16 }}>
+            <div style={{
+              backgroundColor: 'var(--surface)', border: '1px solid var(--border)',
+              borderRadius: 18, padding: '18px 12px',
+              display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6,
+              boxShadow: 'var(--shadow-sm)',
+            }}>
+              <div style={{ width: 40, height: 40, borderRadius: 12, backgroundColor: 'var(--sky-50)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <Zap size={22} style={{ color: 'var(--sky)', fill: 'var(--sky)' }} />
+              </div>
+              <span style={{ fontSize: 11, fontWeight: 600, color: 'var(--text-3)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Získáno</span>
+              <span style={{ fontSize: 24, fontWeight: 800, color: 'var(--text)' }}>+{resultsData.xpEarned} XP</span>
+            </div>
+            <div style={{
+              backgroundColor: 'var(--surface)', border: '1px solid var(--border)',
+              borderRadius: 18, padding: '18px 12px',
+              display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6,
+              boxShadow: 'var(--shadow-sm)',
+            }}>
+              <div style={{ width: 40, height: 40, borderRadius: 12, backgroundColor: 'var(--orange-50)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <Flame size={22} style={{ color: 'var(--orange)', fill: 'var(--orange)' }} className="animate-bounce" />
+              </div>
+              <span style={{ fontSize: 11, fontWeight: 600, color: 'var(--text-3)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Série</span>
+              <span style={{ fontSize: 24, fontWeight: 800, color: 'var(--text)' }}>{resultsData.newStreak} dní</span>
+            </div>
+          </div>
+
+          {resultsData.leveledUp && (
+            <div style={{
+              width: '100%', padding: '14px 16px',
+              backgroundColor: 'var(--yellow-50)', border: '1px solid rgba(234,179,8,0.25)',
+              borderRadius: 14, display: 'flex', alignItems: 'center', gap: 12, textAlign: 'left',
+            }}>
+              <Trophy size={30} style={{ color: 'var(--yellow)', fill: 'var(--yellow)', flexShrink: 0 }} />
+              <div>
+                <h4 style={{ fontSize: 15, fontWeight: 700, color: 'var(--text)' }}>Nový level! 🎉</h4>
+                <p style={{ fontSize: 13, color: 'var(--text-2)' }}>Nyní jsi na úrovni {resultsData.newLevel}.</p>
+              </div>
+            </div>
+          )}
+        </div>
+
+        <button className="btn btn-primary" style={{ width: '100%', maxWidth: 360, fontSize: 16, zIndex: 20 }} onClick={onClose}>
+          Hotovo
+        </button>
+      </div>
+    );
+  }
+
+  // ─── Loading ──────────────────────────────────────────────────────────────
+
+  if (exercises.length === 0) {
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', flex: 1, minHeight: '100dvh' }}>
+        <Mascot state="idle" size={110} />
+        <p style={{ marginTop: 16, fontSize: 15, fontWeight: 600, color: 'var(--text-3)' }}>
+          Sestavuji lekci…
+        </p>
+      </div>
+    );
+  }
+
+  // ─── Main lesson UI ───────────────────────────────────────────────────────
+
+  const footerBg = checked
+    ? isCorrect ? 'var(--correct-bg)' : 'var(--wrong-bg)'
+    : 'var(--surface)';
+  const footerBorder = checked
+    ? isCorrect ? 'var(--correct-border)' : 'var(--wrong-border)'
+    : 'var(--border)';
+
+  return (
+    <div style={{
+      display: 'flex', flexDirection: 'column', height: '100dvh',
+      backgroundColor: 'var(--surface)', overflow: 'hidden',
+    }}>
+
+      {/* Header */}
+      <header style={{
+        display: 'flex', alignItems: 'center', gap: 14,
+        padding: '14px 20px',
+        borderBottom: '1px solid var(--border)',
+        backgroundColor: 'var(--surface)',
+        flexShrink: 0,
+      }}>
+        <button
+          onClick={() => {
+            if (confirm('Opravdu chcete odejít? Ztratíte pokrok v této lekci.')) onClose();
+          }}
+          style={{
+            width: 36, height: 36, borderRadius: 10, border: 'none',
+            backgroundColor: 'var(--surface-2)', cursor: 'pointer',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            color: 'var(--text-2)', flexShrink: 0, transition: 'background 0.1s',
+          }}
+        >
+          <X size={18} />
+        </button>
+        <div className="progress-bar-container" style={{ flex: 1 }}>
+          <div className="progress-bar-fill" style={{ width: `${progressPercent}%` }} />
+        </div>
+        <span style={{ fontSize: 12, fontWeight: 700, color: 'var(--text-3)', flexShrink: 0 }}>
+          {currentIdx + 1}/{exercises.length}
+        </span>
+      </header>
+
+      {/* Main content */}
+      <main style={{ flex: 1, overflowY: 'auto', padding: '20px 20px 8px', display: 'flex', flexDirection: 'column' }}>
+
+        {/* Mascot hint bubble (non-flashcard, non-matching) */}
+        {currentExercise.type !== 'matching' && currentExercise.type !== 'flashcard' && (
+          <div style={{
+            display: 'flex', alignItems: 'center', gap: 12,
+            backgroundColor: 'var(--surface-2)', borderRadius: 16,
+            padding: '12px 14px', marginBottom: 20, border: '1px solid var(--border)',
+          }}>
+            <Mascot state={mascotState} size={56} className="flex-shrink-0" />
+            <div style={{
+              flex: 1, backgroundColor: 'var(--surface)', borderRadius: 12,
+              padding: '10px 14px', border: '1px solid var(--border)',
+              fontSize: 14, fontWeight: 600, color: 'var(--text-2)',
+              position: 'relative',
+            }}>
+              {/* Bubble arrow */}
+              <div style={{
+                position: 'absolute', left: -6, top: 14,
+                width: 10, height: 10,
+                backgroundColor: 'var(--surface)',
+                border: '1px solid var(--border)',
+                borderRight: 'none', borderTop: 'none',
+                transform: 'rotate(45deg)',
+              }} />
+              {currentExercise.type === 'typing' && 'Přelož toto slovenské slovo do italštiny.'}
+              {currentExercise.type === 'multiple-choice-it-to-cz' && 'Vyber správný český překlad.'}
+              {currentExercise.type === 'multiple-choice-cz-to-it' && 'Vyber správný italský překlad.'}
+              {currentExercise.type === 'scrambled-sentence' && 'Poskládej slova do správného pořadí.'}
+            </div>
+          </div>
+        )}
+
+        {renderExerciseContent()}
+      </main>
+
+      {/* Footer feedback + action button */}
+      <footer style={{
+        padding: '16px 20px 28px',
+        borderTop: `1px solid ${footerBorder}`,
+        backgroundColor: footerBg,
+        transition: 'background-color 0.2s, border-color 0.2s',
+        flexShrink: 0,
+      }}>
+        <div style={{ maxWidth: 480, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 12 }}>
+
+          {/* Feedback message */}
+          {checked && (
+            <div className="animate-pop" style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
+              {isCorrect ? (
+                <>
+                  <CheckCircle2 size={24} style={{ color: 'var(--correct-fg)', fill: 'var(--correct-fg)', flexShrink: 0, marginTop: 1 }} />
+                  <div>
+                    <p style={{ fontSize: 15, fontWeight: 700, color: 'var(--correct-fg)' }}>
+                      {currentExercise.type === 'flashcard' ? 'Nové slovíčko!' : 'Správně!'}
+                    </p>
+                    {currentExercise.type === 'flashcard' && (
+                      <p style={{ fontSize: 12, color: 'var(--correct-fg)', opacity: 0.8, marginTop: 2 }}>
+                        Slovo bylo přidáno do Leitnerova seznamu.
+                      </p>
+                    )}
+                  </div>
+                </>
+              ) : (
+                <>
+                  <AlertCircle size={24} style={{ color: 'var(--wrong-fg)', fill: 'var(--wrong-fg)', flexShrink: 0, marginTop: 1 }} />
+                  <div>
+                    <p style={{ fontSize: 15, fontWeight: 700, color: 'var(--wrong-fg)' }}>
+                      Správná odpověď:
+                    </p>
+                    <p style={{ fontSize: 15, fontWeight: 800, color: 'var(--wrong-fg)', textDecoration: 'underline', marginTop: 2 }}>
+                      {currentExercise.type === 'multiple-choice-it-to-cz'
+                        ? currentExercise.word.czech
+                        : currentExercise.type === 'scrambled-sentence'
+                          ? currentExercise.targetSentence
+                          : currentExercise.word.italian}
+                    </p>
+                  </div>
+                </>
+              )}
+            </div>
+          )}
+
+          {/* Action button */}
+          <button
+            disabled={!isAnswerEntered() || saving}
+            onClick={checked ? handleContinue : handleCheck}
+            className={`btn btn-${checked && !isCorrect ? 'orange' : 'primary'}`}
+            style={{ fontSize: 15 }}
+          >
+            {saving ? 'Ukládám…' : checked ? 'Pokračovat' : 'Zkontrolovat'}
+          </button>
+        </div>
+      </footer>
+    </div>
+  );
+};
