@@ -56,6 +56,13 @@ export async function initDatabase() {
     );
   `);
 
+  // Výkonnostní indexy
+  await db.exec(`
+    CREATE INDEX IF NOT EXISTS idx_words_category ON words(category);
+    CREATE INDEX IF NOT EXISTS idx_progress_review ON user_progress(next_review);
+    CREATE INDEX IF NOT EXISTS idx_progress_box ON user_progress(box);
+  `);
+
   // Seeding slovíček (pokud přibudou nová, INSERT OR IGNORE je přidá)
   console.log('Seeding/Updating database with vocabulary...');
   const allWords = getExpandedVocabulary();
@@ -254,31 +261,33 @@ export async function getWordsForLesson(category, limit = 10) {
   // 3. Doplnění ze špatně zvládnutých slov (box 1-2)
   if (lessonWords.length < limit) {
     const needed = limit - lessonWords.length;
-    const idList = seenIds.size > 0 ? [...seenIds].join(',') : '-1';
+    const excludeIds = seenIds.size > 0 ? [...seenIds] : [-1];
+    const placeholders = excludeIds.map(() => '?').join(',');
     const weakWords = await db.all(`
       SELECT w.*, up.box, up.attempts, up.correct_count, 0 as is_review
       FROM words w
       JOIN user_progress up ON w.id = up.word_id
-      WHERE w.category = ? AND up.box <= 2 AND w.id NOT IN (${idList})
+      WHERE w.category = ? AND up.box <= 2 AND w.id NOT IN (${placeholders})
       ORDER BY RANDOM()
       LIMIT ?
-    `, category, needed);
+    `, category, ...excludeIds, needed);
     weakWords.forEach(w => { if (!seenIds.has(w.id)) { seenIds.add(w.id); lessonWords.push(w); } });
   }
 
   // 4. Fallback: cokoliv z kategorie co jsme ještě neměli
   if (lessonWords.length < limit) {
     const needed = limit - lessonWords.length;
-    const idList = seenIds.size > 0 ? [...seenIds].join(',') : '-1';
+    const excludeIds = seenIds.size > 0 ? [...seenIds] : [-1];
+    const placeholders = excludeIds.map(() => '?').join(',');
     const fallbackWords = await db.all(`
       SELECT w.*, COALESCE(up.box, 0) as box, COALESCE(up.attempts, 0) as attempts,
              COALESCE(up.correct_count, 0) as correct_count, 0 as is_review
       FROM words w
       LEFT JOIN user_progress up ON w.id = up.word_id
-      WHERE w.category = ? AND w.id NOT IN (${idList})
+      WHERE w.category = ? AND w.id NOT IN (${placeholders})
       ORDER BY RANDOM()
       LIMIT ?
-    `, category, needed);
+    `, category, ...excludeIds, needed);
     fallbackWords.forEach(w => { if (!seenIds.has(w.id)) { seenIds.add(w.id); lessonWords.push(w); } });
   }
 
@@ -304,32 +313,34 @@ export async function getQuickReviewWords(limit = 10) {
 
   // 2. Slova s pokusy (box 1-2, slabá)
   if (lessonWords.length < limit) {
-    const idList = seenIds.size > 0 ? [...seenIds].join(',') : '-1';
     const needed = limit - lessonWords.length;
+    const excludeIds2 = seenIds.size > 0 ? [...seenIds] : [-1];
+    const ph2 = excludeIds2.map(() => '?').join(',');
     const weakWords = await db.all(`
       SELECT w.*, up.box, up.attempts, up.correct_count, 0 as is_review
       FROM words w
       JOIN user_progress up ON w.id = up.word_id
-      WHERE up.box <= 2 AND w.id NOT IN (${idList})
+      WHERE up.box <= 2 AND w.id NOT IN (${ph2})
       ORDER BY RANDOM()
       LIMIT ?
-    `, needed);
+    `, ...excludeIds2, needed);
     weakWords.forEach(w => { if (!seenIds.has(w.id)) { seenIds.add(w.id); lessonWords.push(w); } });
   }
 
   // 3. Fallback: náhodná slova z celé databáze
   if (lessonWords.length < limit) {
-    const idList = seenIds.size > 0 ? [...seenIds].join(',') : '-1';
     const needed = limit - lessonWords.length;
+    const excludeIds3 = seenIds.size > 0 ? [...seenIds] : [-1];
+    const ph3 = excludeIds3.map(() => '?').join(',');
     const randomWords = await db.all(`
       SELECT w.*, COALESCE(up.box, 0) as box, COALESCE(up.attempts, 0) as attempts,
              COALESCE(up.correct_count, 0) as correct_count, 0 as is_review
       FROM words w
       LEFT JOIN user_progress up ON w.id = up.word_id
-      WHERE w.id NOT IN (${idList})
+      WHERE w.id NOT IN (${ph3})
       ORDER BY RANDOM()
       LIMIT ?
-    `, needed);
+    `, ...excludeIds3, needed);
     randomWords.forEach(w => { if (!seenIds.has(w.id)) { seenIds.add(w.id); lessonWords.push(w); } });
   }
 
@@ -431,10 +442,12 @@ export async function updateStreak() {
     // První aktivita vůbec
     newStreak = 1;
   } else {
-    const today = new Date(todayStr);
-    const lastActive = new Date(lastActiveStr);
-    const diffTime = Math.abs(today - lastActive);
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    // Používáme čistě datumové srovnání (ne čas) aby DST nezpůsobila chybu
+    const [ty, tm, td] = todayStr.split('-').map(Number);
+    const [ly, lm, ld] = lastActiveStr.split('-').map(Number);
+    const todayUTC = Date.UTC(ty, tm - 1, td);
+    const lastUTC = Date.UTC(ly, lm - 1, ld);
+    const diffDays = Math.round((todayUTC - lastUTC) / 86400000);
     
     if (diffDays === 1) {
       // Aktivita včera -> prodloužení streaku

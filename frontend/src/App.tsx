@@ -16,6 +16,7 @@ const NAV_ITEMS = [
 export default function App() {
   const [activeScreen, setActiveScreen] = useState<ScreenState>('dashboard');
   const [lessonCategory, setLessonCategory] = useState<string | null>(null);
+  const [lessonSize, setLessonSize] = useState<number>(10);
   const [refreshKey, setRefreshKey] = useState(0);
 
   const handleCloseLesson = () => {
@@ -24,8 +25,9 @@ export default function App() {
     setRefreshKey(prev => prev + 1);
   };
 
-  const handleStartLesson = (category: string) => {
+  const handleStartLesson = (category: string, size = 10) => {
     setLessonCategory(category);
+    setLessonSize(size);
     setActiveScreen('lesson');
   };
 
@@ -43,7 +45,7 @@ export default function App() {
       case 'stats':
         return <Stats />;
       case 'lesson':
-        return <Lesson category={lessonCategory} onClose={handleCloseLesson} />;
+        return <Lesson category={lessonCategory} lessonSize={lessonSize} onClose={handleCloseLesson} />;
       default:
         return <Dashboard onStartLesson={handleStartLesson} onStartQuickReview={handleStartQuickReview} />;
     }

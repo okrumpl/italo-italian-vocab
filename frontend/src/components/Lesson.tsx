@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { X, Volume2, CheckCircle2, AlertCircle, Keyboard, Zap, Flame, Trophy } from 'lucide-react';
+import { X, Volume2, CheckCircle2, AlertCircle, Keyboard, Zap, Flame, Trophy, RotateCcw } from 'lucide-react';
 import { Mascot, MascotState } from './Mascot';
 import { playSound, speakItalian, shuffle } from '../utils/audio';
 
@@ -20,6 +20,7 @@ interface Word {
 
 interface LessonProps {
   category: string | null;
+  lessonSize?: number;
   onClose: () => void;
 }
 
@@ -34,7 +35,16 @@ interface Exercise {
   targetSentenceTranslation?: string;
 }
 
-export const Lesson: React.FC<LessonProps> = ({ category, onClose }) => {
+interface ResultsData {
+  xpEarned: number;
+  leveledUp: boolean;
+  newLevel: number;
+  newStreak: number;
+  newStats: Record<string, number>;
+  results: Array<{ wordId: number; newBox: number }>;
+}
+
+export const Lesson: React.FC<LessonProps> = ({ category, lessonSize = 10, onClose }) => {
   const [words, setWords] = useState<Word[]>([]);
   const [exercises, setExercises] = useState<Exercise[]>([]);
   const [currentIdx, setCurrentIdx] = useState(0);
@@ -52,17 +62,21 @@ export const Lesson: React.FC<LessonProps> = ({ category, onClose }) => {
   const [mascotState, setMascotState] = useState<MascotState>('idle');
 
   const [failedWordIds, setFailedWordIds] = useState<Set<number>>(new Set());
+  const [scoreCorrect, setScoreCorrect] = useState(0);
+  const [scoreWrong, setScoreWrong] = useState(0);
+  const [wrongWords, setWrongWords] = useState<Word[]>([]);
+  const [fetchError, setFetchError] = useState<string | null>(null);
 
   const [completed, setCompleted] = useState(false);
-  const [resultsData, setResultsData] = useState<any>(null);
+  const [resultsData, setResultsData] = useState<ResultsData | null>(null);
   const [saving, setSaving] = useState(false);
-  const [confetti, setConfetti] = useState<{ id: number; color: string; style: any }[]>([]);
+  const [confetti, setConfetti] = useState<{ id: number; color: string; style: React.CSSProperties }[]>([]);
 
   useEffect(() => {
     const fetchWords = async () => {
       try {
         const url = category
-          ? `/api/lesson/${encodeURIComponent(category)}`
+          ? `/api/lesson/${encodeURIComponent(category)}?size=${lessonSize}`
           : '/api/lesson-quick';
         const res = await fetch(url);
         if (!res.ok) throw new Error('Nepodařilo se stáhnout slova lekce.');
@@ -71,8 +85,7 @@ export const Lesson: React.FC<LessonProps> = ({ category, onClose }) => {
         generateExercises(data);
       } catch (error) {
         console.error(error);
-        alert('Chyba při načítání lekce.');
-        onClose();
+        setFetchError('Nepodařilo se načíst lekci. Zkontroluj připojení.');
       }
     };
     if ('speechSynthesis' in window) window.speechSynthesis.getVoices();
@@ -85,41 +98,50 @@ export const Lesson: React.FC<LessonProps> = ({ category, onClose }) => {
     const allCzWords = loadedWords.map(w => w.czech);
 
     loadedWords.forEach(word => {
-      if (word.attempts === 0 && !category) {
-        // skip flashcard in quick review
-      } else if (word.attempts === 0) {
+      // Flashcard jen pro nová slova v kategoriálních lekcích
+      if (word.attempts === 0 && category) {
         generated.push({ word, type: 'flashcard' });
       }
 
       const rand = Math.random();
+      const hasExample = word.example_it && word.example_it.trim().length > 3;
+
       if (rand < 0.3) {
         generated.push({ word, type: 'multiple-choice-it-to-cz', options: getRandomOptions(word.czech, allCzWords) });
       } else if (rand < 0.6) {
         generated.push({ word, type: 'multiple-choice-cz-to-it', options: getRandomOptions(word.italian, allItWords) });
-      } else if (rand < 0.85) {
+      } else if (rand < 0.85 || !hasExample) {
+        // Typing je fallback i když nemá example_it
         generated.push({ word, type: 'typing' });
       } else {
+        // Scrambled jen pokud má validní příkladovou větu
         const sentence = word.example_it;
-        const wordsInSentence = sentence.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?]/g, '').split(' ');
-        const scrambled = [...wordsInSentence];
-        const distractorPool = loadedWords
-          .filter(w => w.id !== word.id)
-          .flatMap(w => w.italian.split(' '))
-          .filter(w => !wordsInSentence.includes(w));
-        const pickedDistractors = shuffle([...new Set(distractorPool)]).slice(0, 2);
-        scrambled.push(...pickedDistractors);
-        generated.push({
-          word, type: 'scrambled-sentence',
-          scrambledWords: shuffle(scrambled),
-          targetSentence: sentence,
-          targetSentenceTranslation: word.example_cz,
-        });
+        const wordsInSentence = sentence.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?]/g, '').split(' ').filter(Boolean);
+        if (wordsInSentence.length < 2) {
+          generated.push({ word, type: 'typing' });
+        } else {
+          const scrambled = [...wordsInSentence];
+          const distractorPool = loadedWords
+            .filter(w => w.id !== word.id)
+            .flatMap(w => w.italian.split(' '))
+            .filter(w => !wordsInSentence.includes(w));
+          const pickedDistractors = shuffle([...new Set(distractorPool)]).slice(0, 2);
+          scrambled.push(...pickedDistractors);
+          generated.push({
+            word, type: 'scrambled-sentence',
+            scrambledWords: shuffle(scrambled),
+            targetSentence: sentence,
+            targetSentenceTranslation: word.example_cz,
+          });
+        }
       }
     });
 
-    if (loadedWords.length >= 5) {
+    // Matching cvičení — náhodných 5 slov, ne první abecedně
+    if (loadedWords.length >= 4) {
       const mid = Math.floor(generated.length / 2);
-      generated.splice(mid, 0, { word: loadedWords[0], type: 'matching' });
+      const matchingWord = shuffle(loadedWords)[0];
+      generated.splice(mid, 0, { word: matchingWord, type: 'matching' });
     }
 
     setExercises(generated);
@@ -165,10 +187,23 @@ export const Lesson: React.FC<LessonProps> = ({ category, onClose }) => {
 
     setIsCorrect(correct);
     setChecked(true);
-    if (correct) { setMascotState('happy'); playSound('correct'); }
-    else {
-      setMascotState('sad'); playSound('incorrect');
+    if (correct) {
+      setMascotState('happy');
+      playSound('correct');
+      if (currentExercise.type !== 'flashcard') setScoreCorrect(p => p + 1);
+      // Haptic feedback — krátká vibrace
+      if ('vibrate' in navigator) navigator.vibrate(40);
+    } else {
+      setMascotState('sad');
+      playSound('incorrect');
+      setScoreWrong(p => p + 1);
       setFailedWordIds(prev => { const n = new Set(prev); n.add(currentExercise.word.id); return n; });
+      setWrongWords(prev => {
+        if (prev.find(w => w.id === currentExercise.word.id)) return prev;
+        return [...prev, currentExercise.word];
+      });
+      // Haptic feedback — dvojitá vibrace pro chybu
+      if ('vibrate' in navigator) navigator.vibrate([50, 30, 50]);
     }
     if (currentExercise.type !== 'flashcard' && currentExercise.type !== 'matching') handleSpeak();
   };
@@ -533,7 +568,8 @@ export const Lesson: React.FC<LessonProps> = ({ category, onClose }) => {
 
       case 'matching': {
         const limit = Math.min(words.length, 5);
-        const matchingWords = words.slice(0, limit);
+        // Náhodný výběr slov, ne první abecedně
+        const matchingWords = shuffle([...words]).slice(0, limit);
         const itWords = [...matchingWords].map(w => w.italian).sort();
         const czWords = [...matchingWords].map(w => w.czech).sort();
 
@@ -602,78 +638,136 @@ export const Lesson: React.FC<LessonProps> = ({ category, onClose }) => {
   // ─── Completion screen ────────────────────────────────────────────────────
 
   if (completed && resultsData) {
+    const accuracy = scoreCorrect + scoreWrong > 0
+      ? Math.round((scoreCorrect / (scoreCorrect + scoreWrong)) * 100)
+      : 100;
+
     return (
       <div style={{
-        display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between',
-        height: '100dvh', padding: '24px 24px 40px', textAlign: 'center',
-        backgroundColor: 'var(--bg)', position: 'relative', overflow: 'hidden',
+        display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start',
+        height: '100dvh', backgroundColor: 'var(--bg)', position: 'relative', overflow: 'hidden',
       }}>
         {/* Confetti */}
         <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', overflow: 'hidden', zIndex: 10 }}>
           {confetti.map(c => <div key={c.id} className="confetti" style={c.style} />)}
         </div>
 
-        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', zIndex: 20, maxWidth: 360, width: '100%' }}>
-          <Mascot state="excited" size={160} />
+        {/* Scrollable content */}
+        <div style={{ flex: 1, overflowY: 'auto', width: '100%', padding: '24px 24px 8px', display: 'flex', flexDirection: 'column', alignItems: 'center', zIndex: 20 }}>
+          <Mascot state="excited" size={130} />
 
-          <h2 style={{ fontSize: 30, fontWeight: 800, color: 'var(--text)', marginTop: 24, marginBottom: 8, letterSpacing: '-0.5px' }}>
-            Skvělá práce!
+          <h2 style={{ fontSize: 28, fontWeight: 800, color: 'var(--text)', marginTop: 16, marginBottom: 6, letterSpacing: '-0.5px', textAlign: 'center' }}>
+            {accuracy >= 80 ? 'Skvělá práce! 🎉' : accuracy >= 50 ? 'Dobrá práce!' : 'Pokračuj dál!'}
           </h2>
-          <p style={{ fontSize: 15, color: 'var(--text-2)', marginBottom: 32 }}>
-            Dokončil jsi {category ? `lekci „${category}"` : 'Bleskový kvíz'}.
+          <p style={{ fontSize: 14, color: 'var(--text-2)', marginBottom: 20, textAlign: 'center' }}>
+            {category ? `Lekce „${category}"` : 'Bleskový kvíz'} dokončena.
           </p>
 
-          {/* XP + Streak */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, width: '100%', marginBottom: 16 }}>
-            <div style={{
-              backgroundColor: 'var(--surface)', border: '1px solid var(--border)',
-              borderRadius: 18, padding: '18px 12px',
-              display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6,
-              boxShadow: 'var(--shadow-sm)',
-            }}>
-              <div style={{ width: 40, height: 40, borderRadius: 12, backgroundColor: 'var(--sky-50)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <Zap size={22} style={{ color: 'var(--sky)', fill: 'var(--sky)' }} />
-              </div>
-              <span style={{ fontSize: 11, fontWeight: 600, color: 'var(--text-3)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Získáno</span>
-              <span style={{ fontSize: 24, fontWeight: 800, color: 'var(--text)' }}>+{resultsData.xpEarned} XP</span>
+          {/* Score + XP + Streak */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 10, width: '100%', maxWidth: 360, marginBottom: 14 }}>
+            <div style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 16, padding: '14px 8px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4 }}>
+              <span style={{ fontSize: 20 }}>🎯</span>
+              <span style={{ fontSize: 11, fontWeight: 600, color: 'var(--text-3)', textTransform: 'uppercase', letterSpacing: '0.4px' }}>Přesnost</span>
+              <span style={{ fontSize: 20, fontWeight: 800, color: accuracy >= 70 ? 'var(--green-500)' : 'var(--orange)' }}>{accuracy}%</span>
             </div>
-            <div style={{
-              backgroundColor: 'var(--surface)', border: '1px solid var(--border)',
-              borderRadius: 18, padding: '18px 12px',
-              display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6,
-              boxShadow: 'var(--shadow-sm)',
-            }}>
-              <div style={{ width: 40, height: 40, borderRadius: 12, backgroundColor: 'var(--orange-50)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <Flame size={22} style={{ color: 'var(--orange)', fill: 'var(--orange)' }} className="animate-bounce" />
+            <div style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 16, padding: '14px 8px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4 }}>
+              <div style={{ width: 32, height: 32, borderRadius: 10, backgroundColor: 'var(--sky-50)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <Zap size={18} style={{ color: 'var(--sky)', fill: 'var(--sky)' }} />
               </div>
-              <span style={{ fontSize: 11, fontWeight: 600, color: 'var(--text-3)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Série</span>
-              <span style={{ fontSize: 24, fontWeight: 800, color: 'var(--text)' }}>{resultsData.newStreak} dní</span>
+              <span style={{ fontSize: 11, fontWeight: 600, color: 'var(--text-3)', textTransform: 'uppercase', letterSpacing: '0.4px' }}>XP</span>
+              <span style={{ fontSize: 20, fontWeight: 800, color: 'var(--text)' }}>+{resultsData.xpEarned}</span>
+            </div>
+            <div style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 16, padding: '14px 8px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4 }}>
+              <div style={{ width: 32, height: 32, borderRadius: 10, backgroundColor: 'var(--orange-50)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <Flame size={18} style={{ color: 'var(--orange)', fill: 'var(--orange)' }} />
+              </div>
+              <span style={{ fontSize: 11, fontWeight: 600, color: 'var(--text-3)', textTransform: 'uppercase', letterSpacing: '0.4px' }}>Série</span>
+              <span style={{ fontSize: 20, fontWeight: 800, color: 'var(--text)' }}>{resultsData.newStreak}d</span>
             </div>
           </div>
 
           {resultsData.leveledUp && (
-            <div style={{
-              width: '100%', padding: '14px 16px',
-              backgroundColor: 'var(--yellow-50)', border: '1px solid rgba(234,179,8,0.25)',
-              borderRadius: 14, display: 'flex', alignItems: 'center', gap: 12, textAlign: 'left',
-            }}>
-              <Trophy size={30} style={{ color: 'var(--yellow)', fill: 'var(--yellow)', flexShrink: 0 }} />
+            <div style={{ width: '100%', maxWidth: 360, padding: '12px 16px', backgroundColor: 'var(--yellow-50)', border: '1px solid rgba(234,179,8,0.25)', borderRadius: 14, display: 'flex', alignItems: 'center', gap: 12, textAlign: 'left', marginBottom: 14 }}>
+              <Trophy size={26} style={{ color: 'var(--yellow)', fill: 'var(--yellow)', flexShrink: 0 }} />
               <div>
-                <h4 style={{ fontSize: 15, fontWeight: 700, color: 'var(--text)' }}>Nový level! 🎉</h4>
-                <p style={{ fontSize: 13, color: 'var(--text-2)' }}>Nyní jsi na úrovni {resultsData.newLevel}.</p>
+                <h4 style={{ fontSize: 14, fontWeight: 700, color: 'var(--text)' }}>Nový level {resultsData.newLevel}! 🎉</h4>
+                <p style={{ fontSize: 12, color: 'var(--text-2)' }}>Gratulujeme k postupu!</p>
+              </div>
+            </div>
+          )}
+
+          {/* Přehled špatných slov */}
+          {wrongWords.length > 0 && (
+            <div style={{ width: '100%', maxWidth: 360, marginBottom: 14 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 8 }}>
+                <AlertCircle size={15} style={{ color: 'var(--orange)', flexShrink: 0 }} />
+                <span style={{ fontSize: 12, fontWeight: 700, color: 'var(--text-2)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                  Chybná slova ({wrongWords.length})
+                </span>
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+                {wrongWords.map(w => (
+                  <div key={w.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 14px', backgroundColor: 'var(--wrong-bg)', borderRadius: 10, border: '1px solid var(--wrong-border)' }}>
+                    <div>
+                      <p style={{ fontSize: 14, fontWeight: 700, color: 'var(--text)' }}>{w.italian}</p>
+                      <p style={{ fontSize: 12, color: 'var(--text-3)' }}>{w.czech}</p>
+                    </div>
+                    <span style={{ fontSize: 11, color: 'var(--wrong-fg)', fontWeight: 700 }}>❌</span>
+                  </div>
+                ))}
               </div>
             </div>
           )}
         </div>
 
-        <button className="btn btn-primary" style={{ width: '100%', maxWidth: 360, fontSize: 16, zIndex: 20 }} onClick={onClose}>
-          Hotovo
-        </button>
+        {/* Akční tlačítka */}
+        <div style={{ width: '100%', padding: '12px 24px 36px', display: 'flex', flexDirection: 'column', gap: 10, zIndex: 20, backgroundColor: 'var(--surface)', borderTop: '1px solid var(--border)' }}>
+          {wrongWords.length > 0 && (
+            <button
+              className="btn btn-orange"
+              style={{ fontSize: 14 }}
+              onClick={() => {
+                // Spustit mini lekci jen s chybovými slovy
+                setWrongWords([]);
+                setFailedWordIds(new Set());
+                setScoreCorrect(0);
+                setScoreWrong(0);
+                setCompleted(false);
+                setResultsData(null);
+                setCurrentIdx(0);
+                setChecked(false);
+                setIsCorrect(false);
+                setMascotState('idle');
+                // Generujeme nová cvičení jen z chybných slov
+                const errWords = words.filter(w => failedWordIds.has(w.id));
+                if (errWords.length > 0) generateExercises(errWords);
+              }}
+            >
+              <RotateCcw size={16} /> Opakovat chyby ({wrongWords.length})
+            </button>
+          )}
+          <button className="btn btn-primary" style={{ fontSize: 15, zIndex: 20 }} onClick={onClose}>
+            Hotovo
+          </button>
+        </div>
       </div>
     );
   }
 
   // ─── Loading ──────────────────────────────────────────────────────────────
+
+  if (fetchError) {
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', flex: 1, minHeight: '100dvh', padding: 24, textAlign: 'center' }}>
+        <Mascot state="sad" size={110} />
+        <h3 style={{ marginTop: 16, fontSize: 18, fontWeight: 700, color: 'var(--wrong-fg)' }}>Chyba načítání</h3>
+        <p style={{ marginTop: 8, fontSize: 14, color: 'var(--text-2)', marginBottom: 24 }}>{fetchError}</p>
+        <button onClick={onClose} className="btn btn-primary" style={{ maxWidth: 260 }}>
+          Zpět na hlavní stránku
+        </button>
+      </div>
+    );
+  }
 
   if (exercises.length === 0) {
     return (
@@ -725,9 +819,18 @@ export const Lesson: React.FC<LessonProps> = ({ category, onClose }) => {
         <div className="progress-bar-container" style={{ flex: 1 }}>
           <div className="progress-bar-fill" style={{ width: `${progressPercent}%` }} />
         </div>
-        <span style={{ fontSize: 12, fontWeight: 700, color: 'var(--text-3)', flexShrink: 0 }}>
-          {currentIdx + 1}/{exercises.length}
-        </span>
+        {/* Score counter ✓/✗ */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexShrink: 0 }}>
+          {scoreCorrect > 0 && (
+            <span style={{ fontSize: 12, fontWeight: 700, color: 'var(--correct-fg)' }}>✓{scoreCorrect}</span>
+          )}
+          {scoreWrong > 0 && (
+            <span style={{ fontSize: 12, fontWeight: 700, color: 'var(--wrong-fg)' }}>✗{scoreWrong}</span>
+          )}
+          <span style={{ fontSize: 12, fontWeight: 600, color: 'var(--text-3)' }}>
+            {currentIdx + 1}/{exercises.length}
+          </span>
+        </div>
       </header>
 
       {/* Main content */}
@@ -756,7 +859,7 @@ export const Lesson: React.FC<LessonProps> = ({ category, onClose }) => {
                 borderRight: 'none', borderTop: 'none',
                 transform: 'rotate(45deg)',
               }} />
-              {currentExercise.type === 'typing' && 'Přelož toto slovenské slovo do italštiny.'}
+              {currentExercise.type === 'typing' && 'Přelož toto české slovo do italštiny.'}
               {currentExercise.type === 'multiple-choice-it-to-cz' && 'Vyber správný český překlad.'}
               {currentExercise.type === 'multiple-choice-cz-to-it' && 'Vyber správný italský překlad.'}
               {currentExercise.type === 'scrambled-sentence' && 'Poskládej slova do správného pořadí.'}

@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import {
   Flame, Zap, Trophy, BookOpen, Coffee, Users, Plane, Palette,
   Heart, Home, Briefcase, Activity, MessageSquare, Shirt, Music,
   HelpCircle, Play, RotateCcw, Smile, CloudSun, Hash, Calendar,
-  Building2, GraduationCap, BookA, Tag, ChevronRight, X
+  Building2, GraduationCap, BookA, Tag, ChevronRight, X, SlidersHorizontal
 } from 'lucide-react';
 import { Mascot } from './Mascot';
 
@@ -25,9 +25,22 @@ interface UserStats {
 }
 
 interface DashboardProps {
-  onStartLesson: (category: string) => void;
+  onStartLesson: (category: string, size: number) => void;
   onStartQuickReview: () => void;
   refreshKey?: number;
+}
+
+type SortMode = 'progress' | 'alpha';
+
+// ── Dynamický pozdrav dle denní doby + série ─────────────────────────────────
+function getGreeting(streak: number): { title: string; sub: string } {
+  const h = new Date().getHours();
+  if (streak >= 7) return { title: `🔥 ${streak} dní v řadě!`, sub: 'Jsi nezastavitelný. Pokračuj dnes.' };
+  if (streak >= 3) return { title: `Skvělá série — ${streak} dní!`, sub: 'Udržuj tempo, italština tě odmění.' };
+  if (h < 11)      return { title: 'Buongiorno! 🌅', sub: 'Skvělý ranní čas na italštinu.' };
+  if (h < 14)      return { title: 'Ciao! Připraven?', sub: 'Procvičuj Leitnerovým systémem.' };
+  if (h < 18)      return { title: 'Buon pomeriggio!', sub: 'Odpolední trénink = silná paměť.' };
+  return { title: 'Buonasera! 🌙', sub: 'Večerní opakování je nejefektivnější.' };
 }
 
 export const Dashboard: React.FC<DashboardProps> = ({ onStartLesson, onStartQuickReview, refreshKey }) => {
@@ -36,6 +49,8 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLesson, onStartQuic
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<CategoryData | null>(null);
+  const [sortMode, setSortMode] = useState<SortMode>('progress');
+  const [lessonSize, setLessonSize] = useState<5 | 10 | 20>(10);
 
   const fetchData = async () => {
     try {
@@ -57,6 +72,18 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLesson, onStartQuic
   };
 
   useEffect(() => { fetchData(); }, [refreshKey]);
+
+  // ── Třídění kategorií ─────────────────────────────────────────────────────
+  const sortedCategories = useMemo(() => {
+    if (sortMode === 'alpha') return [...categories].sort((a, b) => a.category.localeCompare(b.category, 'cs'));
+    // 'progress': rozkoukané nahoře, pak nové, pak hotové dole
+    return [...categories].sort((a, b) => {
+      const scoreA = a.masteredWords === a.totalWords && a.totalWords > 0 ? -1 : a.startedWords > 0 ? 1 : 0;
+      const scoreB = b.masteredWords === b.totalWords && b.totalWords > 0 ? -1 : b.startedWords > 0 ? 1 : 0;
+      if (scoreB !== scoreA) return scoreB - scoreA;
+      return a.category.localeCompare(b.category, 'cs');
+    });
+  }, [categories, sortMode]);
 
   const getCategoryIcon = (category: string) => {
     const s = 20;
@@ -109,6 +136,8 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLesson, onStartQuic
       </div>
     );
   }
+
+  const greeting = getGreeting(stats?.streak ?? 0);
 
   return (
     <div className="screen-container">
@@ -163,7 +192,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLesson, onStartQuic
       {/* ── Obsah ── */}
       <div style={{ flex: 1, padding: '20px 20px 24px', overflowY: 'auto' }}>
 
-        {/* Welcome card */}
+        {/* Welcome card — dynamický pozdrav */}
         <div style={{
           background: 'linear-gradient(135deg, var(--green-50) 0%, var(--indigo-50) 100%)',
           border: '1px solid var(--green-100)',
@@ -171,13 +200,13 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLesson, onStartQuic
           display: 'flex', alignItems: 'center', gap: 16,
           marginBottom: 16,
         }}>
-          <Mascot state="idle" size={72} className="flex-shrink-0" />
+          <Mascot state={stats?.streak && stats.streak >= 3 ? 'excited' : 'idle'} size={72} />
           <div style={{ flex: 1 }}>
             <h2 style={{ fontSize: 17, fontWeight: 800, color: 'var(--text)', marginBottom: 4, letterSpacing: '-0.2px' }}>
-              Ciao! Připraven na lekci?
+              {greeting.title}
             </h2>
             <p style={{ fontSize: 13, color: 'var(--text-2)', lineHeight: 1.5 }}>
-              Procvičuj denně a posouvej svůj pokrok v Leitnerově systému.
+              {greeting.sub}
             </p>
           </div>
         </div>
@@ -186,20 +215,36 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLesson, onStartQuic
         <button
           onClick={onStartQuickReview}
           className="btn btn-orange"
-          style={{ marginBottom: 28, fontSize: 15 }}
+          style={{ marginBottom: 24, fontSize: 15 }}
         >
           <Zap size={18} style={{ fill: 'currentColor' }} />
           Bleskový kvíz
         </button>
 
-        {/* Section title */}
-        <p className="section-label" style={{ marginBottom: 14, paddingLeft: 2 }}>
-          Témata &amp; kategorie
-        </p>
+        {/* Section title + sort toggle */}
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 }}>
+          <p className="section-label" style={{ paddingLeft: 2 }}>
+            Témata &amp; kategorie
+          </p>
+          <button
+            onClick={() => setSortMode(m => m === 'progress' ? 'alpha' : 'progress')}
+            style={{
+              display: 'flex', alignItems: 'center', gap: 5,
+              padding: '5px 10px', borderRadius: 8,
+              border: '1px solid var(--border)',
+              backgroundColor: 'var(--surface)',
+              fontSize: 11, fontWeight: 600, color: 'var(--text-2)',
+              cursor: 'pointer',
+            }}
+          >
+            <SlidersHorizontal size={12} />
+            {sortMode === 'progress' ? 'Pokrok' : 'A–Z'}
+          </button>
+        </div>
 
-        {/* ── Category card grid — 2 columns, no snake line ── */}
+        {/* ── Category card grid ── */}
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
-          {categories.map((cat, idx) => {
+          {sortedCategories.map((cat, idx) => {
             const mastered = cat.masteredWords === cat.totalWords && cat.totalWords > 0;
             const started = cat.startedWords > 0;
             const r = 18;
@@ -221,7 +266,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLesson, onStartQuic
                 className="animate-slide"
                 onClick={() => setSelectedCategory(cat)}
                 style={{
-                  animationDelay: `${idx * 25}ms`,
+                  animationDelay: `${idx * 20}ms`,
                   background: 'var(--surface)',
                   border: `1.5px solid ${borderColor}`,
                   borderRadius: 16,
@@ -272,9 +317,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLesson, onStartQuic
                     )}
                   </svg>
                   <div style={{
-                    position: 'absolute',
-                    inset: 5,
-                    borderRadius: '50%',
+                    position: 'absolute', inset: 5, borderRadius: '50%',
                     background: iconBg,
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     color: iconColor,
@@ -361,12 +404,12 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLesson, onStartQuic
             <h3 style={{ fontSize: 20, fontWeight: 800, color: 'var(--text)', marginBottom: 4, letterSpacing: '-0.3px' }}>
               {selectedCategory.category}
             </h3>
-            <p style={{ fontSize: 13, color: 'var(--text-2)', marginBottom: 20 }}>
+            <p style={{ fontSize: 13, color: 'var(--text-2)', marginBottom: 16 }}>
               Obtížnost A1–A2 · Spaced repetition
             </p>
 
             {/* Stats row */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 10, marginBottom: 20 }}>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 10, marginBottom: 16 }}>
               {[
                 { label: 'Celkem', value: selectedCategory.totalWords, color: 'var(--text)' },
                 { label: 'Učím se', value: selectedCategory.startedWords, color: 'var(--sky)' },
@@ -382,7 +425,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLesson, onStartQuic
             </div>
 
             {/* Progress bar */}
-            <div style={{ marginBottom: 20 }}>
+            <div style={{ marginBottom: 16 }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 6 }}>
                 <span style={{ fontSize: 12, fontWeight: 600, color: 'var(--text-2)' }}>Pokrok</span>
                 <span style={{ fontSize: 12, fontWeight: 700, color: 'var(--green-500)' }}>{selectedCategory.progressPercent}%</span>
@@ -392,16 +435,45 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLesson, onStartQuic
               </div>
             </div>
 
+            {/* Výběr délky lekce */}
+            <div style={{ marginBottom: 16 }}>
+              <p style={{ fontSize: 11, fontWeight: 700, color: 'var(--text-3)', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: 8 }}>
+                Délka lekce
+              </p>
+              <div style={{ display: 'flex', gap: 8 }}>
+                {([5, 10, 20] as const).map(n => (
+                  <button
+                    key={n}
+                    onClick={() => setLessonSize(n)}
+                    style={{
+                      flex: 1, padding: '10px 4px',
+                      borderRadius: 10,
+                      border: `1.5px solid ${lessonSize === n ? 'var(--green-500)' : 'var(--border)'}`,
+                      backgroundColor: lessonSize === n ? 'var(--green-50)' : 'var(--surface)',
+                      color: lessonSize === n ? 'var(--green-600)' : 'var(--text-2)',
+                      fontSize: 13, fontWeight: 700, cursor: 'pointer',
+                      transition: 'all 0.12s',
+                    }}
+                  >
+                    {n} slov
+                    <div style={{ fontSize: 9, fontWeight: 500, opacity: 0.7, marginTop: 2 }}>
+                      {n === 5 ? '~3 min' : n === 10 ? '~5 min' : '~10 min'}
+                    </div>
+                  </button>
+                ))}
+              </div>
+            </div>
+
             <button
               className="btn btn-primary"
               style={{ fontSize: 16 }}
               onClick={() => {
-                onStartLesson(selectedCategory.category);
+                onStartLesson(selectedCategory.category, lessonSize);
                 setSelectedCategory(null);
               }}
             >
               <Play size={18} style={{ fill: 'currentColor' }} />
-              Spustit lekci
+              Spustit lekci · {lessonSize} slov
               <ChevronRight size={18} style={{ marginLeft: 'auto' }} />
             </button>
           </div>
