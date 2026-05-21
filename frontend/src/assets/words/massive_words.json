@@ -1,0 +1,3908 @@
+[
+  {
+    "italian": "uno",
+    "czech": "1",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "uno",
+    "example_it": "Il numero è uno.",
+    "example_cz": "Číslo je 1."
+  },
+  {
+    "italian": "due",
+    "czech": "2",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "due",
+    "example_it": "Il numero è due.",
+    "example_cz": "Číslo je 2."
+  },
+  {
+    "italian": "tre",
+    "czech": "3",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "tre",
+    "example_it": "Il numero è tre.",
+    "example_cz": "Číslo je 3."
+  },
+  {
+    "italian": "quattro",
+    "czech": "4",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "quattro",
+    "example_it": "Il numero è quattro.",
+    "example_cz": "Číslo je 4."
+  },
+  {
+    "italian": "cinque",
+    "czech": "5",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "cinque",
+    "example_it": "Il numero è cinque.",
+    "example_cz": "Číslo je 5."
+  },
+  {
+    "italian": "sei",
+    "czech": "6",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "sei",
+    "example_it": "Il numero è sei.",
+    "example_cz": "Číslo je 6."
+  },
+  {
+    "italian": "sette",
+    "czech": "7",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "sette",
+    "example_it": "Il numero è sette.",
+    "example_cz": "Číslo je 7."
+  },
+  {
+    "italian": "otto",
+    "czech": "8",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "otto",
+    "example_it": "Il numero è otto.",
+    "example_cz": "Číslo je 8."
+  },
+  {
+    "italian": "nove",
+    "czech": "9",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "nove",
+    "example_it": "Il numero è nove.",
+    "example_cz": "Číslo je 9."
+  },
+  {
+    "italian": "dieci",
+    "czech": "10",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "dieci",
+    "example_it": "Il numero è dieci.",
+    "example_cz": "Číslo je 10."
+  },
+  {
+    "italian": "undici",
+    "czech": "11",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "undici",
+    "example_it": "Il numero è undici.",
+    "example_cz": "Číslo je 11."
+  },
+  {
+    "italian": "dodici",
+    "czech": "12",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "dodici",
+    "example_it": "Il numero è dodici.",
+    "example_cz": "Číslo je 12."
+  },
+  {
+    "italian": "tredici",
+    "czech": "13",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "tredici",
+    "example_it": "Il numero è tredici.",
+    "example_cz": "Číslo je 13."
+  },
+  {
+    "italian": "quattordici",
+    "czech": "14",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "quattordici",
+    "example_it": "Il numero è quattordici.",
+    "example_cz": "Číslo je 14."
+  },
+  {
+    "italian": "quindici",
+    "czech": "15",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "quindici",
+    "example_it": "Il numero è quindici.",
+    "example_cz": "Číslo je 15."
+  },
+  {
+    "italian": "sedici",
+    "czech": "16",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "sedici",
+    "example_it": "Il numero è sedici.",
+    "example_cz": "Číslo je 16."
+  },
+  {
+    "italian": "diciassette",
+    "czech": "17",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "diciassette",
+    "example_it": "Il numero è diciassette.",
+    "example_cz": "Číslo je 17."
+  },
+  {
+    "italian": "diciotto",
+    "czech": "18",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "diciotto",
+    "example_it": "Il numero è diciotto.",
+    "example_cz": "Číslo je 18."
+  },
+  {
+    "italian": "diciannove",
+    "czech": "19",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "diciannove",
+    "example_it": "Il numero è diciannove.",
+    "example_cz": "Číslo je 19."
+  },
+  {
+    "italian": "venti",
+    "czech": "20",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "venti",
+    "example_it": "Il numero è venti.",
+    "example_cz": "Číslo je 20."
+  },
+  {
+    "italian": "ventuno",
+    "czech": "21",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "ventuno",
+    "example_it": "Il numero è ventuno.",
+    "example_cz": "Číslo je 21."
+  },
+  {
+    "italian": "ventidue",
+    "czech": "22",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "ventidue",
+    "example_it": "Il numero è ventidue.",
+    "example_cz": "Číslo je 22."
+  },
+  {
+    "italian": "ventitré",
+    "czech": "23",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "ventitré",
+    "example_it": "Il numero è ventitré.",
+    "example_cz": "Číslo je 23."
+  },
+  {
+    "italian": "ventiquattro",
+    "czech": "24",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "ventiquattro",
+    "example_it": "Il numero è ventiquattro.",
+    "example_cz": "Číslo je 24."
+  },
+  {
+    "italian": "venticinque",
+    "czech": "25",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "venticinque",
+    "example_it": "Il numero è venticinque.",
+    "example_cz": "Číslo je 25."
+  },
+  {
+    "italian": "ventisei",
+    "czech": "26",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "ventisei",
+    "example_it": "Il numero è ventisei.",
+    "example_cz": "Číslo je 26."
+  },
+  {
+    "italian": "ventisette",
+    "czech": "27",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "ventisette",
+    "example_it": "Il numero è ventisette.",
+    "example_cz": "Číslo je 27."
+  },
+  {
+    "italian": "ventotto",
+    "czech": "28",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "ventotto",
+    "example_it": "Il numero è ventotto.",
+    "example_cz": "Číslo je 28."
+  },
+  {
+    "italian": "ventinove",
+    "czech": "29",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "ventinove",
+    "example_it": "Il numero è ventinove.",
+    "example_cz": "Číslo je 29."
+  },
+  {
+    "italian": "trenta",
+    "czech": "30",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "trenta",
+    "example_it": "Il numero è trenta.",
+    "example_cz": "Číslo je 30."
+  },
+  {
+    "italian": "trentuno",
+    "czech": "31",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "trentuno",
+    "example_it": "Il numero è trentuno.",
+    "example_cz": "Číslo je 31."
+  },
+  {
+    "italian": "trentadue",
+    "czech": "32",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "trentadue",
+    "example_it": "Il numero è trentadue.",
+    "example_cz": "Číslo je 32."
+  },
+  {
+    "italian": "trentatré",
+    "czech": "33",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "trentatré",
+    "example_it": "Il numero è trentatré.",
+    "example_cz": "Číslo je 33."
+  },
+  {
+    "italian": "trentaquattro",
+    "czech": "34",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "trentaquattro",
+    "example_it": "Il numero è trentaquattro.",
+    "example_cz": "Číslo je 34."
+  },
+  {
+    "italian": "trentacinque",
+    "czech": "35",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "trentacinque",
+    "example_it": "Il numero è trentacinque.",
+    "example_cz": "Číslo je 35."
+  },
+  {
+    "italian": "trentasei",
+    "czech": "36",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "trentasei",
+    "example_it": "Il numero è trentasei.",
+    "example_cz": "Číslo je 36."
+  },
+  {
+    "italian": "trentasette",
+    "czech": "37",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "trentasette",
+    "example_it": "Il numero è trentasette.",
+    "example_cz": "Číslo je 37."
+  },
+  {
+    "italian": "trentotto",
+    "czech": "38",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "trentotto",
+    "example_it": "Il numero è trentotto.",
+    "example_cz": "Číslo je 38."
+  },
+  {
+    "italian": "trentanove",
+    "czech": "39",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "trentanove",
+    "example_it": "Il numero è trentanove.",
+    "example_cz": "Číslo je 39."
+  },
+  {
+    "italian": "quaranta",
+    "czech": "40",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "quaranta",
+    "example_it": "Il numero è quaranta.",
+    "example_cz": "Číslo je 40."
+  },
+  {
+    "italian": "quarantuno",
+    "czech": "41",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "quarantuno",
+    "example_it": "Il numero è quarantuno.",
+    "example_cz": "Číslo je 41."
+  },
+  {
+    "italian": "quarantadue",
+    "czech": "42",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "quarantadue",
+    "example_it": "Il numero è quarantadue.",
+    "example_cz": "Číslo je 42."
+  },
+  {
+    "italian": "quarantatré",
+    "czech": "43",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "quarantatré",
+    "example_it": "Il numero è quarantatré.",
+    "example_cz": "Číslo je 43."
+  },
+  {
+    "italian": "quarantaquattro",
+    "czech": "44",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "quarantaquattro",
+    "example_it": "Il numero è quarantaquattro.",
+    "example_cz": "Číslo je 44."
+  },
+  {
+    "italian": "quarantacinque",
+    "czech": "45",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "quarantacinque",
+    "example_it": "Il numero è quarantacinque.",
+    "example_cz": "Číslo je 45."
+  },
+  {
+    "italian": "quarantasei",
+    "czech": "46",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "quarantasei",
+    "example_it": "Il numero è quarantasei.",
+    "example_cz": "Číslo je 46."
+  },
+  {
+    "italian": "quarantasette",
+    "czech": "47",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "quarantasette",
+    "example_it": "Il numero è quarantasette.",
+    "example_cz": "Číslo je 47."
+  },
+  {
+    "italian": "quarantotto",
+    "czech": "48",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "quarantotto",
+    "example_it": "Il numero è quarantotto.",
+    "example_cz": "Číslo je 48."
+  },
+  {
+    "italian": "quarantanove",
+    "czech": "49",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "quarantanove",
+    "example_it": "Il numero è quarantanove.",
+    "example_cz": "Číslo je 49."
+  },
+  {
+    "italian": "cinquanta",
+    "czech": "50",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "cinquanta",
+    "example_it": "Il numero è cinquanta.",
+    "example_cz": "Číslo je 50."
+  },
+  {
+    "italian": "cinquantuno",
+    "czech": "51",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "cinquantuno",
+    "example_it": "Il numero è cinquantuno.",
+    "example_cz": "Číslo je 51."
+  },
+  {
+    "italian": "cinquantadue",
+    "czech": "52",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "cinquantadue",
+    "example_it": "Il numero è cinquantadue.",
+    "example_cz": "Číslo je 52."
+  },
+  {
+    "italian": "cinquantatré",
+    "czech": "53",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "cinquantatré",
+    "example_it": "Il numero è cinquantatré.",
+    "example_cz": "Číslo je 53."
+  },
+  {
+    "italian": "cinquantaquattro",
+    "czech": "54",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "cinquantaquattro",
+    "example_it": "Il numero è cinquantaquattro.",
+    "example_cz": "Číslo je 54."
+  },
+  {
+    "italian": "cinquantacinque",
+    "czech": "55",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "cinquantacinque",
+    "example_it": "Il numero è cinquantacinque.",
+    "example_cz": "Číslo je 55."
+  },
+  {
+    "italian": "cinquantasei",
+    "czech": "56",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "cinquantasei",
+    "example_it": "Il numero è cinquantasei.",
+    "example_cz": "Číslo je 56."
+  },
+  {
+    "italian": "cinquantasette",
+    "czech": "57",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "cinquantasette",
+    "example_it": "Il numero è cinquantasette.",
+    "example_cz": "Číslo je 57."
+  },
+  {
+    "italian": "cinquantotto",
+    "czech": "58",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "cinquantotto",
+    "example_it": "Il numero è cinquantotto.",
+    "example_cz": "Číslo je 58."
+  },
+  {
+    "italian": "cinquantanove",
+    "czech": "59",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "cinquantanove",
+    "example_it": "Il numero è cinquantanove.",
+    "example_cz": "Číslo je 59."
+  },
+  {
+    "italian": "sessanta",
+    "czech": "60",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "sessanta",
+    "example_it": "Il numero è sessanta.",
+    "example_cz": "Číslo je 60."
+  },
+  {
+    "italian": "sessantuno",
+    "czech": "61",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "sessantuno",
+    "example_it": "Il numero è sessantuno.",
+    "example_cz": "Číslo je 61."
+  },
+  {
+    "italian": "sessantadue",
+    "czech": "62",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "sessantadue",
+    "example_it": "Il numero è sessantadue.",
+    "example_cz": "Číslo je 62."
+  },
+  {
+    "italian": "sessantatré",
+    "czech": "63",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "sessantatré",
+    "example_it": "Il numero è sessantatré.",
+    "example_cz": "Číslo je 63."
+  },
+  {
+    "italian": "sessantaquattro",
+    "czech": "64",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "sessantaquattro",
+    "example_it": "Il numero è sessantaquattro.",
+    "example_cz": "Číslo je 64."
+  },
+  {
+    "italian": "sessantacinque",
+    "czech": "65",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "sessantacinque",
+    "example_it": "Il numero è sessantacinque.",
+    "example_cz": "Číslo je 65."
+  },
+  {
+    "italian": "sessantasei",
+    "czech": "66",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "sessantasei",
+    "example_it": "Il numero è sessantasei.",
+    "example_cz": "Číslo je 66."
+  },
+  {
+    "italian": "sessantasette",
+    "czech": "67",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "sessantasette",
+    "example_it": "Il numero è sessantasette.",
+    "example_cz": "Číslo je 67."
+  },
+  {
+    "italian": "sessantotto",
+    "czech": "68",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "sessantotto",
+    "example_it": "Il numero è sessantotto.",
+    "example_cz": "Číslo je 68."
+  },
+  {
+    "italian": "sessantanove",
+    "czech": "69",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "sessantanove",
+    "example_it": "Il numero è sessantanove.",
+    "example_cz": "Číslo je 69."
+  },
+  {
+    "italian": "settanta",
+    "czech": "70",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "settanta",
+    "example_it": "Il numero è settanta.",
+    "example_cz": "Číslo je 70."
+  },
+  {
+    "italian": "settantuno",
+    "czech": "71",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "settantuno",
+    "example_it": "Il numero è settantuno.",
+    "example_cz": "Číslo je 71."
+  },
+  {
+    "italian": "settantadue",
+    "czech": "72",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "settantadue",
+    "example_it": "Il numero è settantadue.",
+    "example_cz": "Číslo je 72."
+  },
+  {
+    "italian": "settantatré",
+    "czech": "73",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "settantatré",
+    "example_it": "Il numero è settantatré.",
+    "example_cz": "Číslo je 73."
+  },
+  {
+    "italian": "settantaquattro",
+    "czech": "74",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "settantaquattro",
+    "example_it": "Il numero è settantaquattro.",
+    "example_cz": "Číslo je 74."
+  },
+  {
+    "italian": "settantacinque",
+    "czech": "75",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "settantacinque",
+    "example_it": "Il numero è settantacinque.",
+    "example_cz": "Číslo je 75."
+  },
+  {
+    "italian": "settantasei",
+    "czech": "76",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "settantasei",
+    "example_it": "Il numero è settantasei.",
+    "example_cz": "Číslo je 76."
+  },
+  {
+    "italian": "settantasette",
+    "czech": "77",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "settantasette",
+    "example_it": "Il numero è settantasette.",
+    "example_cz": "Číslo je 77."
+  },
+  {
+    "italian": "settantotto",
+    "czech": "78",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "settantotto",
+    "example_it": "Il numero è settantotto.",
+    "example_cz": "Číslo je 78."
+  },
+  {
+    "italian": "settantanove",
+    "czech": "79",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "settantanove",
+    "example_it": "Il numero è settantanove.",
+    "example_cz": "Číslo je 79."
+  },
+  {
+    "italian": "ottanta",
+    "czech": "80",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "ottanta",
+    "example_it": "Il numero è ottanta.",
+    "example_cz": "Číslo je 80."
+  },
+  {
+    "italian": "ottantuno",
+    "czech": "81",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "ottantuno",
+    "example_it": "Il numero è ottantuno.",
+    "example_cz": "Číslo je 81."
+  },
+  {
+    "italian": "ottantadue",
+    "czech": "82",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "ottantadue",
+    "example_it": "Il numero è ottantadue.",
+    "example_cz": "Číslo je 82."
+  },
+  {
+    "italian": "ottantatré",
+    "czech": "83",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "ottantatré",
+    "example_it": "Il numero è ottantatré.",
+    "example_cz": "Číslo je 83."
+  },
+  {
+    "italian": "ottantaquattro",
+    "czech": "84",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "ottantaquattro",
+    "example_it": "Il numero è ottantaquattro.",
+    "example_cz": "Číslo je 84."
+  },
+  {
+    "italian": "ottantacinque",
+    "czech": "85",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "ottantacinque",
+    "example_it": "Il numero è ottantacinque.",
+    "example_cz": "Číslo je 85."
+  },
+  {
+    "italian": "ottantasei",
+    "czech": "86",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "ottantasei",
+    "example_it": "Il numero è ottantasei.",
+    "example_cz": "Číslo je 86."
+  },
+  {
+    "italian": "ottantasette",
+    "czech": "87",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "ottantasette",
+    "example_it": "Il numero è ottantasette.",
+    "example_cz": "Číslo je 87."
+  },
+  {
+    "italian": "ottantotto",
+    "czech": "88",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "ottantotto",
+    "example_it": "Il numero è ottantotto.",
+    "example_cz": "Číslo je 88."
+  },
+  {
+    "italian": "ottantanove",
+    "czech": "89",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "ottantanove",
+    "example_it": "Il numero è ottantanove.",
+    "example_cz": "Číslo je 89."
+  },
+  {
+    "italian": "novanta",
+    "czech": "90",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "novanta",
+    "example_it": "Il numero è novanta.",
+    "example_cz": "Číslo je 90."
+  },
+  {
+    "italian": "novantuno",
+    "czech": "91",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "novantuno",
+    "example_it": "Il numero è novantuno.",
+    "example_cz": "Číslo je 91."
+  },
+  {
+    "italian": "novantadue",
+    "czech": "92",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "novantadue",
+    "example_it": "Il numero è novantadue.",
+    "example_cz": "Číslo je 92."
+  },
+  {
+    "italian": "novantatré",
+    "czech": "93",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "novantatré",
+    "example_it": "Il numero è novantatré.",
+    "example_cz": "Číslo je 93."
+  },
+  {
+    "italian": "novantaquattro",
+    "czech": "94",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "novantaquattro",
+    "example_it": "Il numero è novantaquattro.",
+    "example_cz": "Číslo je 94."
+  },
+  {
+    "italian": "novantacinque",
+    "czech": "95",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "novantacinque",
+    "example_it": "Il numero è novantacinque.",
+    "example_cz": "Číslo je 95."
+  },
+  {
+    "italian": "novantasei",
+    "czech": "96",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "novantasei",
+    "example_it": "Il numero è novantasei.",
+    "example_cz": "Číslo je 96."
+  },
+  {
+    "italian": "novantasette",
+    "czech": "97",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "novantasette",
+    "example_it": "Il numero è novantasette.",
+    "example_cz": "Číslo je 97."
+  },
+  {
+    "italian": "novantotto",
+    "czech": "98",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "novantotto",
+    "example_it": "Il numero è novantotto.",
+    "example_cz": "Číslo je 98."
+  },
+  {
+    "italian": "novantanove",
+    "czech": "99",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "novantanove",
+    "example_it": "Il numero è novantanove.",
+    "example_cz": "Číslo je 99."
+  },
+  {
+    "italian": "cento",
+    "czech": "100",
+    "category": "Čísla",
+    "difficulty": "A1",
+    "pronunciation": "cento",
+    "example_it": "Il numero è cento.",
+    "example_cz": "Číslo je 100."
+  },
+  {
+    "italian": "il cane",
+    "czech": "pes",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "il káne",
+    "example_it": "Il cane abbaia.",
+    "example_cz": "Pes štěká."
+  },
+  {
+    "italian": "il gatto",
+    "czech": "kočka",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "il gáto",
+    "example_it": "Il gatto dorme.",
+    "example_cz": "Kočka spí."
+  },
+  {
+    "italian": "il topo",
+    "czech": "myš",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "il tópo",
+    "example_it": "Il topo mangia il formaggio.",
+    "example_cz": "Myš jí sýr."
+  },
+  {
+    "italian": "l'uccello",
+    "czech": "pták",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "lučélo",
+    "example_it": "L'uccello vola.",
+    "example_cz": "Pták letí."
+  },
+  {
+    "italian": "il pesce",
+    "czech": "ryba",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "il péše",
+    "example_it": "Il pesce nuota.",
+    "example_cz": "Ryba plave."
+  },
+  {
+    "italian": "il cavallo",
+    "czech": "kůň",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "il kaválo",
+    "example_it": "Il cavallo corre.",
+    "example_cz": "Kůň běží."
+  },
+  {
+    "italian": "la mucca",
+    "czech": "kráva",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "la múka",
+    "example_it": "La mucca fa il latte.",
+    "example_cz": "Kráva dává mléko."
+  },
+  {
+    "italian": "il maiale",
+    "czech": "prase",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "il majále",
+    "example_it": "Il maiale è rosa.",
+    "example_cz": "Prase je růžové."
+  },
+  {
+    "italian": "la pecora",
+    "czech": "ovce",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "la pékora",
+    "example_it": "La pecora mangia l'erba.",
+    "example_cz": "Ovce žere trávu."
+  },
+  {
+    "italian": "la capra",
+    "czech": "koza",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "la kápra",
+    "example_it": "La capra è sulla montagna.",
+    "example_cz": "Koza je na hoře."
+  },
+  {
+    "italian": "l'orso",
+    "czech": "medvěd",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "lórso",
+    "example_it": "L'orso è grande.",
+    "example_cz": "Medvěd je velký."
+  },
+  {
+    "italian": "il lupo",
+    "czech": "vlk",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "il lúpo",
+    "example_it": "Il lupo ulula.",
+    "example_cz": "Vlk vyje."
+  },
+  {
+    "italian": "la volpe",
+    "czech": "liška",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "la vólpe",
+    "example_it": "La volpe è furba.",
+    "example_cz": "Liška je chytrá."
+  },
+  {
+    "italian": "il leone",
+    "czech": "lev",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "il leóne",
+    "example_it": "Il leone è il re.",
+    "example_cz": "Lev je král."
+  },
+  {
+    "italian": "la tigre",
+    "czech": "tygr",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "la tígre",
+    "example_it": "La tigre è veloce.",
+    "example_cz": "Tygr je rychlý."
+  },
+  {
+    "italian": "l'elefante",
+    "czech": "slon",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "lelefánte",
+    "example_it": "L'elefante ha una grande proboscide.",
+    "example_cz": "Slon má velký chobot."
+  },
+  {
+    "italian": "la giraffa",
+    "czech": "žirafa",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "la džiráfa",
+    "example_it": "La giraffa è molto alta.",
+    "example_cz": "Žirafa je velmi vysoká."
+  },
+  {
+    "italian": "la scimmia",
+    "czech": "opice",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "la šímja",
+    "example_it": "La scimmia mangia la banana.",
+    "example_cz": "Opice jí banán."
+  },
+  {
+    "italian": "il serpente",
+    "czech": "had",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "il serpénte",
+    "example_it": "Il serpente striscia.",
+    "example_cz": "Had se plazí."
+  },
+  {
+    "italian": "il coccodrillo",
+    "czech": "krokodýl",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "il kokodrílo",
+    "example_it": "Il coccodrillo è nel fiume.",
+    "example_cz": "Krokodýl je v řece."
+  },
+  {
+    "italian": "la tartaruga",
+    "czech": "želva",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "la tartarúga",
+    "example_it": "La tartaruga è lenta.",
+    "example_cz": "Želva je pomalá."
+  },
+  {
+    "italian": "la rana",
+    "czech": "žába",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "la rána",
+    "example_it": "La rana salta.",
+    "example_cz": "Žába skáče."
+  },
+  {
+    "italian": "l'anatra",
+    "czech": "kachna",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "lánatra",
+    "example_it": "L'anatra è nell'acqua.",
+    "example_cz": "Kachna je ve vodě."
+  },
+  {
+    "italian": "l'oca",
+    "czech": "husa",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "lóka",
+    "example_it": "L'oca è bianca.",
+    "example_cz": "Husa je bílá."
+  },
+  {
+    "italian": "il pinguino",
+    "czech": "tučňák",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "il pinguíno",
+    "example_it": "Il pinguino vive al freddo.",
+    "example_cz": "Tučňák žije v zimě."
+  },
+  {
+    "italian": "il delfino",
+    "czech": "delfín",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "il delfíno",
+    "example_it": "Il delfino salta.",
+    "example_cz": "Delfín skáče."
+  },
+  {
+    "italian": "lo squalo",
+    "czech": "žralok",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "lo skuálo",
+    "example_it": "Lo squalo ha denti aguzzi.",
+    "example_cz": "Žralok má ostré zuby."
+  },
+  {
+    "italian": "la balena",
+    "czech": "velryba",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "la baléna",
+    "example_it": "La balena è enorme.",
+    "example_cz": "Velryba je obrovská."
+  },
+  {
+    "italian": "il polpo",
+    "czech": "chobotnice",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "il pólpo",
+    "example_it": "Il polpo ha otto tentacoli.",
+    "example_cz": "Chobotnice má osm chapadel."
+  },
+  {
+    "italian": "il ragno",
+    "czech": "pavouk",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "il ráňo",
+    "example_it": "Il ragno fa la ragnatela.",
+    "example_cz": "Pavouk dělá pavučinu."
+  },
+  {
+    "italian": "la mosca",
+    "czech": "moucha",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "la móska",
+    "example_it": "La mosca vola in cucina.",
+    "example_cz": "Moucha létá v kuchyni."
+  },
+  {
+    "italian": "la zanzara",
+    "czech": "komár",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "la candzára",
+    "example_it": "La zanzara mi ha punto.",
+    "example_cz": "Komár mě štípl."
+  },
+  {
+    "italian": "l'ape",
+    "czech": "včela",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "lápe",
+    "example_it": "L'ape produce il miele.",
+    "example_cz": "Včela vyrábí med."
+  },
+  {
+    "italian": "la formica",
+    "czech": "mravenec",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "la formíka",
+    "example_it": "La formica è lavoratrice.",
+    "example_cz": "Mravenec je pracovitý."
+  },
+  {
+    "italian": "la farfalla",
+    "czech": "motýl",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "la farfála",
+    "example_it": "La farfalla ha colori bellissimi.",
+    "example_cz": "Motýl má krásné barvy."
+  },
+  {
+    "italian": "il cervo",
+    "czech": "jelen",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "il čérvo",
+    "example_it": "Il cervo vive nel bosco.",
+    "example_cz": "Jelen žije v lese."
+  },
+  {
+    "italian": "il coniglio",
+    "czech": "králík",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "il koníljo",
+    "example_it": "Il coniglio mangia la carota.",
+    "example_cz": "Králík jí mrkev."
+  },
+  {
+    "italian": "il riccio",
+    "czech": "ježek",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "il ríčo",
+    "example_it": "Il riccio ha gli aghi.",
+    "example_cz": "Ježek má bodliny."
+  },
+  {
+    "italian": "lo scoiattolo",
+    "czech": "veverka",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "lo skojátolo",
+    "example_it": "Lo scoiattolo mangia le noci.",
+    "example_cz": "Veverka jí ořechy."
+  },
+  {
+    "italian": "il pipistrello",
+    "czech": "netopýr",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "il pipistrélo",
+    "example_it": "Il pipistrello vola di notte.",
+    "example_cz": "Netopýr létá v noci."
+  },
+  {
+    "italian": "il gufo",
+    "czech": "sova",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "il gúfo",
+    "example_it": "Il gufo guarda nel buio.",
+    "example_cz": "Sova vidí ve tmě."
+  },
+  {
+    "italian": "il cinghiale",
+    "czech": "kanec",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "il čingjále",
+    "example_it": "Il cinghiale mangia le ghiande.",
+    "example_cz": "Kanec žije v lese."
+  },
+  {
+    "italian": "il pavone",
+    "czech": "páv",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "il pavóne",
+    "example_it": "Il pavone ha una bella coda.",
+    "example_cz": "Páv má krásný ocas."
+  },
+  {
+    "italian": "il piccione",
+    "czech": "holub",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "il pičóne",
+    "example_it": "Il piccione è in piazza.",
+    "example_cz": "Holub je na náměstí."
+  },
+  {
+    "italian": "il cigno",
+    "czech": "labuť",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "il číňo",
+    "example_it": "Il cigno nuota sul lago.",
+    "example_cz": "Labuť plave na jezeře."
+  },
+  {
+    "italian": "la lumaca",
+    "czech": "šnek",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "la lumáka",
+    "example_it": "La lumaca è lentissima.",
+    "example_cz": "Šnek je velmi pomalý."
+  },
+  {
+    "italian": "il bruco",
+    "czech": "housenka",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "il brúko",
+    "example_it": "Il bruco mangia la foglia.",
+    "example_cz": "Housenka jí list."
+  },
+  {
+    "italian": "il grillo",
+    "czech": "cvrček",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "il grílo",
+    "example_it": "Il grillo canta.",
+    "example_cz": "Cvrček zpívá."
+  },
+  {
+    "italian": "la cavalletta",
+    "czech": "kobylka",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "la kavaléta",
+    "example_it": "La cavalletta salta alto.",
+    "example_cz": "Kobylka skáče vysoko."
+  },
+  {
+    "italian": "lo scarafaggio",
+    "czech": "šváb",
+    "category": "Zvířata",
+    "difficulty": "A1",
+    "pronunciation": "lo skarafádžo",
+    "example_it": "C'è uno scarafaggio!",
+    "example_cz": "Je tu šváb!"
+  },
+  {
+    "italian": "essere",
+    "czech": "být",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "ésere",
+    "example_it": "Io sono italiano.",
+    "example_cz": "Já jsem Ital."
+  },
+  {
+    "italian": "avere",
+    "czech": "mít",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "avére",
+    "example_it": "Io ho un cane.",
+    "example_cz": "Já mám psa."
+  },
+  {
+    "italian": "fare",
+    "czech": "dělat",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "fáre",
+    "example_it": "Io faccio colazione.",
+    "example_cz": "Dělám snídani."
+  },
+  {
+    "italian": "dire",
+    "czech": "říct",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "díre",
+    "example_it": "Lui dice la verità.",
+    "example_cz": "On říká pravdu."
+  },
+  {
+    "italian": "potere",
+    "czech": "moci",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "potére",
+    "example_it": "Io posso aiutarti.",
+    "example_cz": "Můžu ti pomoci."
+  },
+  {
+    "italian": "volere",
+    "czech": "chtít",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "volére",
+    "example_it": "Io voglio un gelato.",
+    "example_cz": "Chci zmrzlinu."
+  },
+  {
+    "italian": "sapere",
+    "czech": "vědět",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "sapére",
+    "example_it": "Io non lo so.",
+    "example_cz": "Já to nevím."
+  },
+  {
+    "italian": "stare",
+    "czech": "zůstat, cítit se",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "stáre",
+    "example_it": "Come stai?",
+    "example_cz": "Jak se máš?"
+  },
+  {
+    "italian": "dovere",
+    "czech": "muset",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "dovére",
+    "example_it": "Io devo studiare.",
+    "example_cz": "Musím studovat."
+  },
+  {
+    "italian": "vedere",
+    "czech": "vidět",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "vedére",
+    "example_it": "Io vedo il mare.",
+    "example_cz": "Vidím moře."
+  },
+  {
+    "italian": "andare",
+    "czech": "jít, jet",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "andáre",
+    "example_it": "Io vado a scuola.",
+    "example_cz": "Jdu do školy."
+  },
+  {
+    "italian": "venire",
+    "czech": "přijít",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "veníre",
+    "example_it": "Tu vieni con me?",
+    "example_cz": "Jdeš se mnou?"
+  },
+  {
+    "italian": "dare",
+    "czech": "dát",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "dáre",
+    "example_it": "Ti do un libro.",
+    "example_cz": "Dám ti knihu."
+  },
+  {
+    "italian": "parlare",
+    "czech": "mluvit",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "parláre",
+    "example_it": "Io parlo italiano.",
+    "example_cz": "Mluvím italsky."
+  },
+  {
+    "italian": "trovare",
+    "czech": "najít",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "trováre",
+    "example_it": "Non trovo le chiavi.",
+    "example_cz": "Nemůžu najít klíče."
+  },
+  {
+    "italian": "sentire",
+    "czech": "slyšet, cítit",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "sentíre",
+    "example_it": "Sento un rumore.",
+    "example_cz": "Slyším hluk."
+  },
+  {
+    "italian": "lasciare",
+    "czech": "nechat",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "lašáre",
+    "example_it": "Lascia la porta aperta.",
+    "example_cz": "Nech dveře otevřené."
+  },
+  {
+    "italian": "prendere",
+    "czech": "vzít",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "préndere",
+    "example_it": "Prendo un caffè.",
+    "example_cz": "Dám si kávu."
+  },
+  {
+    "italian": "guardare",
+    "czech": "dívat se",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "guardáre",
+    "example_it": "Guardo la TV.",
+    "example_cz": "Dívám se na televizi."
+  },
+  {
+    "italian": "mettere",
+    "czech": "položit, dát",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "métere",
+    "example_it": "Metto il libro sul tavolo.",
+    "example_cz": "Dám knihu na stůl."
+  },
+  {
+    "italian": "pensare",
+    "czech": "myslet",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "pensáre",
+    "example_it": "Penso a te.",
+    "example_cz": "Myslím na tebe."
+  },
+  {
+    "italian": "passare",
+    "czech": "trávit (čas), projít",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "pasáre",
+    "example_it": "Passo le vacanze a Roma.",
+    "example_cz": "Trávím prázdniny v Římě."
+  },
+  {
+    "italian": "credere",
+    "czech": "věřit",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "kréndere",
+    "example_it": "Non credo ai fantasmi.",
+    "example_cz": "Nevěřím na duchy."
+  },
+  {
+    "italian": "portare",
+    "czech": "přinést",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "portáre",
+    "example_it": "Porto una torta.",
+    "example_cz": "Přinesu dort."
+  },
+  {
+    "italian": "parere",
+    "czech": "zdát se",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "parére",
+    "example_it": "Mi pare una buona idea.",
+    "example_cz": "Zdá se mi to jako dobrý nápad."
+  },
+  {
+    "italian": "tornare",
+    "czech": "vrátit se",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "tornáre",
+    "example_it": "Torno a casa.",
+    "example_cz": "Vracím se domů."
+  },
+  {
+    "italian": "sembrare",
+    "czech": "připadat, zdát se",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "sembráre",
+    "example_it": "Sembri stanco.",
+    "example_cz": "Zdáš se unavený."
+  },
+  {
+    "italian": "tenere",
+    "czech": "držet",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "tenére",
+    "example_it": "Tieni la borsa.",
+    "example_cz": "Drž tu tašku."
+  },
+  {
+    "italian": "capire",
+    "czech": "rozumět",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "kapíre",
+    "example_it": "Non capisco.",
+    "example_cz": "Nerozumím."
+  },
+  {
+    "italian": "morire",
+    "czech": "zemřít",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "moríre",
+    "example_it": "Il fiore muore senza acqua.",
+    "example_cz": "Květina umře bez vody."
+  },
+  {
+    "italian": "chiamare",
+    "czech": "volat, jmenovat se",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "kjamáre",
+    "example_it": "Mi chiamo Marco.",
+    "example_cz": "Jmenuji se Marco."
+  },
+  {
+    "italian": "conoscere",
+    "czech": "znát",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "konóšere",
+    "example_it": "Conosco questa città.",
+    "example_cz": "Znám tohle město."
+  },
+  {
+    "italian": "rimanere",
+    "czech": "zůstat",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "rimanére",
+    "example_it": "Rimango a casa stasera.",
+    "example_cz": "Zůstanu dnes doma."
+  },
+  {
+    "italian": "chiedere",
+    "czech": "ptát se, žádat",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "kjédere",
+    "example_it": "Chiedo un'informazione.",
+    "example_cz": "Prosím o informaci."
+  },
+  {
+    "italian": "cercare",
+    "czech": "hledat",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "čerkáre",
+    "example_it": "Cerco il mio telefono.",
+    "example_cz": "Hledám svůj telefon."
+  },
+  {
+    "italian": "entrare",
+    "czech": "vstoupit",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "entráre",
+    "example_it": "Entro in casa.",
+    "example_cz": "Vstupuji do domu."
+  },
+  {
+    "italian": "vivere",
+    "czech": "žít",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "vívere",
+    "example_it": "Vivo in Italia.",
+    "example_cz": "Žiju v Itálii."
+  },
+  {
+    "italian": "aprire",
+    "czech": "otevřít",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "apríre",
+    "example_it": "Apro la finestra.",
+    "example_cz": "Otevírám okno."
+  },
+  {
+    "italian": "uscire",
+    "czech": "jít ven",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "ušíre",
+    "example_it": "Esco con gli amici.",
+    "example_cz": "Jdu ven s přáteli."
+  },
+  {
+    "italian": "ricordare",
+    "czech": "pamatovat si",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "rikordáre",
+    "example_it": "Non ricordo il suo nome.",
+    "example_cz": "Nepamatuji si jeho jméno."
+  },
+  {
+    "italian": "mangiare",
+    "czech": "jíst",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "mandžáre",
+    "example_it": "Mangio una mela.",
+    "example_cz": "Jím jablko."
+  },
+  {
+    "italian": "bere",
+    "czech": "pít",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "bére",
+    "example_it": "Bevo acqua.",
+    "example_cz": "Piji vodu."
+  },
+  {
+    "italian": "dormire",
+    "czech": "spát",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "dormíre",
+    "example_it": "Dormo otto ore.",
+    "example_cz": "Spím osm hodin."
+  },
+  {
+    "italian": "lavorare",
+    "czech": "pracovat",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "lavoráre",
+    "example_it": "Lavoro in ufficio.",
+    "example_cz": "Pracuji v kanceláři."
+  },
+  {
+    "italian": "studiare",
+    "czech": "studovat",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "studjáre",
+    "example_it": "Studio italiano.",
+    "example_cz": "Studuji italštinu."
+  },
+  {
+    "italian": "scrivere",
+    "czech": "psát",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "skrívere",
+    "example_it": "Scrivo una lettera.",
+    "example_cz": "Píšu dopis."
+  },
+  {
+    "italian": "leggere",
+    "czech": "číst",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "lédžere",
+    "example_it": "Leggo un libro.",
+    "example_cz": "Čtu knihu."
+  },
+  {
+    "italian": "ascoltare",
+    "czech": "poslouchat",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "askoltáre",
+    "example_it": "Ascolto la musica.",
+    "example_cz": "Poslouchám hudbu."
+  },
+  {
+    "italian": "amare",
+    "czech": "milovat",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "amáre",
+    "example_it": "Amo la pizza.",
+    "example_cz": "Miluji pizzu."
+  },
+  {
+    "italian": "odiare",
+    "czech": "nenávidět",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "odjáre",
+    "example_it": "Odio il freddo.",
+    "example_cz": "Nenávidím zimu."
+  },
+  {
+    "italian": "camminare",
+    "czech": "kráčet",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "kamináre",
+    "example_it": "Cammino nel parco.",
+    "example_cz": "Kráčím v parku."
+  },
+  {
+    "italian": "correre",
+    "czech": "běžet",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "kórere",
+    "example_it": "Corro veloce.",
+    "example_cz": "Běžím rychle."
+  },
+  {
+    "italian": "saltare",
+    "czech": "skákat",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "saltáre",
+    "example_it": "Salto l'ostacolo.",
+    "example_cz": "Skáču přes překážku."
+  },
+  {
+    "italian": "nuotare",
+    "czech": "plavat",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "nuotáre",
+    "example_it": "Nuoto in piscina.",
+    "example_cz": "Plavu v bazénu."
+  },
+  {
+    "italian": "volare",
+    "czech": "letět",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "voláre",
+    "example_it": "Volo a Roma.",
+    "example_cz": "Letím do Říma."
+  },
+  {
+    "italian": "cantare",
+    "czech": "zpívat",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "kantáre",
+    "example_it": "Canto una canzone.",
+    "example_cz": "Zpívám píseň."
+  },
+  {
+    "italian": "ballare",
+    "czech": "tančit",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "baláre",
+    "example_it": "Ballo la salsa.",
+    "example_cz": "Tančím salsu."
+  },
+  {
+    "italian": "giocare",
+    "czech": "hrát si",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "džokáre",
+    "example_it": "Gioco a calcio.",
+    "example_cz": "Hraju fotbal."
+  },
+  {
+    "italian": "vincere",
+    "czech": "vyhrát",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "vínčere",
+    "example_it": "Voglio vincere.",
+    "example_cz": "Chci vyhrát."
+  },
+  {
+    "italian": "perdere",
+    "czech": "prohrát",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "pérdere",
+    "example_it": "Non voglio perdere.",
+    "example_cz": "Nechci prohrát."
+  },
+  {
+    "italian": "comprare",
+    "czech": "koupit",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "kompráre",
+    "example_it": "Compro il pane.",
+    "example_cz": "Kupuji chleba."
+  },
+  {
+    "italian": "vendere",
+    "czech": "prodat",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "véndere",
+    "example_it": "Vendo la mia auto.",
+    "example_cz": "Prodávám své auto."
+  },
+  {
+    "italian": "pagare",
+    "czech": "platit",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "pagáre",
+    "example_it": "Pago il conto.",
+    "example_cz": "Platím účet."
+  },
+  {
+    "italian": "costare",
+    "czech": "stát (cena)",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "kostáre",
+    "example_it": "Quanto costa?",
+    "example_cz": "Kolik to stojí?"
+  },
+  {
+    "italian": "aiutare",
+    "czech": "pomoci",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "ajutáre",
+    "example_it": "Ti posso aiutare?",
+    "example_cz": "Můžu ti pomoci?"
+  },
+  {
+    "italian": "imparare",
+    "czech": "učit se",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "imparáre",
+    "example_it": "Imparo l'italiano.",
+    "example_cz": "Učím se italsky."
+  },
+  {
+    "italian": "insegnare",
+    "czech": "vyučovat",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "inseňáre",
+    "example_it": "Insegno matematica.",
+    "example_cz": "Vyučuji matematiku."
+  },
+  {
+    "italian": "cucinare",
+    "czech": "vařit",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "kučináre",
+    "example_it": "Cucino la pasta.",
+    "example_cz": "Vařím těstoviny."
+  },
+  {
+    "italian": "pulire",
+    "czech": "čistit, uklízet",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "pulíre",
+    "example_it": "Pulisco la stanza.",
+    "example_cz": "Uklízím pokoj."
+  },
+  {
+    "italian": "lavare",
+    "czech": "mýt",
+    "category": "Slovesa",
+    "difficulty": "A1",
+    "pronunciation": "laváre",
+    "example_it": "Lavo i piatti.",
+    "example_cz": "Myju nádobí."
+  },
+  {
+    "italian": "la mela",
+    "czech": "jablko",
+    "category": "Jídlo a pití",
+    "difficulty": "A1",
+    "pronunciation": "la méla",
+    "example_it": "Mangio una mela.",
+    "example_cz": "Jím jablko."
+  },
+  {
+    "italian": "la banana",
+    "czech": "banán",
+    "category": "Jídlo a pití",
+    "difficulty": "A1",
+    "pronunciation": "la banána",
+    "example_it": "La banana è gialla.",
+    "example_cz": "Banán je žlutý."
+  },
+  {
+    "italian": "l'arancia",
+    "czech": "pomeranč",
+    "category": "Jídlo a pití",
+    "difficulty": "A1",
+    "pronunciation": "laránča",
+    "example_it": "Spremo un'arancia.",
+    "example_cz": "Vymačkám pomeranč."
+  },
+  {
+    "italian": "la pera",
+    "czech": "hruška",
+    "category": "Jídlo a pití",
+    "difficulty": "A1",
+    "pronunciation": "la péra",
+    "example_it": "La pera è dolce.",
+    "example_cz": "Hruška je sladká."
+  },
+  {
+    "italian": "l'uva",
+    "czech": "hrozny",
+    "category": "Jídlo a pití",
+    "difficulty": "A1",
+    "pronunciation": "lúva",
+    "example_it": "L'uva è matura.",
+    "example_cz": "Hrozny jsou zralé."
+  },
+  {
+    "italian": "la fragola",
+    "czech": "jahoda",
+    "category": "Jídlo a pití",
+    "difficulty": "A1",
+    "pronunciation": "la frágola",
+    "example_it": "La fragola è rossa.",
+    "example_cz": "Jahoda je červená."
+  },
+  {
+    "italian": "il limone",
+    "czech": "citron",
+    "category": "Jídlo a pití",
+    "difficulty": "A1",
+    "pronunciation": "il limóne",
+    "example_it": "Il limone è aspro.",
+    "example_cz": "Citron je kyselý."
+  },
+  {
+    "italian": "la pesca",
+    "czech": "broskev",
+    "category": "Jídlo a pití",
+    "difficulty": "A1",
+    "pronunciation": "la péska",
+    "example_it": "La pesca è succosa.",
+    "example_cz": "Broskev je šťavnatá."
+  },
+  {
+    "italian": "la ciliegia",
+    "czech": "třešeň",
+    "category": "Jídlo a pití",
+    "difficulty": "A1",
+    "pronunciation": "la čiljédža",
+    "example_it": "La ciliegia è buona.",
+    "example_cz": "Třešeň je dobrá."
+  },
+  {
+    "italian": "il pomodoro",
+    "czech": "rajče",
+    "category": "Jídlo a pití",
+    "difficulty": "A1",
+    "pronunciation": "il pomodóro",
+    "example_it": "Il pomodoro è rosso.",
+    "example_cz": "Rajče je červené."
+  },
+  {
+    "italian": "la patata",
+    "czech": "brambora",
+    "category": "Jídlo a pití",
+    "difficulty": "A1",
+    "pronunciation": "la patáta",
+    "example_it": "Mangio le patate.",
+    "example_cz": "Jím brambory."
+  },
+  {
+    "italian": "la cipolla",
+    "czech": "cibule",
+    "category": "Jídlo a pití",
+    "difficulty": "A1",
+    "pronunciation": "la čipóla",
+    "example_it": "Taglio la cipolla.",
+    "example_cz": "Krájím cibuli."
+  },
+  {
+    "italian": "l'aglio",
+    "czech": "česnek",
+    "category": "Jídlo a pití",
+    "difficulty": "A1",
+    "pronunciation": "láljo",
+    "example_it": "L'aglio profuma.",
+    "example_cz": "Česnek voní."
+  },
+  {
+    "italian": "la carota",
+    "czech": "mrkev",
+    "category": "Jídlo a pití",
+    "difficulty": "A1",
+    "pronunciation": "la karóta",
+    "example_it": "La carota è arancione.",
+    "example_cz": "Mrkev je oranžová."
+  },
+  {
+    "italian": "il pane",
+    "czech": "chleba",
+    "category": "Jídlo a pití",
+    "difficulty": "A1",
+    "pronunciation": "il páne",
+    "example_it": "Compro il pane.",
+    "example_cz": "Kupuji chleba."
+  },
+  {
+    "italian": "il formaggio",
+    "czech": "sýr",
+    "category": "Jídlo a pití",
+    "difficulty": "A1",
+    "pronunciation": "il formádžo",
+    "example_it": "Il formaggio è buono.",
+    "example_cz": "Sýr je dobrý."
+  },
+  {
+    "italian": "il burro",
+    "czech": "máslo",
+    "category": "Jídlo a pití",
+    "difficulty": "A1",
+    "pronunciation": "il búro",
+    "example_it": "Il burro è nel frigo.",
+    "example_cz": "Máslo je v lednici."
+  },
+  {
+    "italian": "il latte",
+    "czech": "mléko",
+    "category": "Jídlo a pití",
+    "difficulty": "A1",
+    "pronunciation": "il láte",
+    "example_it": "Bevo il latte.",
+    "example_cz": "Piji mléko."
+  },
+  {
+    "italian": "l'uovo",
+    "czech": "vejce",
+    "category": "Jídlo a pití",
+    "difficulty": "A1",
+    "pronunciation": "luóvo",
+    "example_it": "Mangio un uovo.",
+    "example_cz": "Jím vejce."
+  },
+  {
+    "italian": "la carne",
+    "czech": "maso",
+    "category": "Jídlo a pití",
+    "difficulty": "A1",
+    "pronunciation": "la kárne",
+    "example_it": "La carne è cotta.",
+    "example_cz": "Maso je uvařené."
+  },
+  {
+    "italian": "il pesce",
+    "czech": "ryba",
+    "category": "Jídlo a pití",
+    "difficulty": "A1",
+    "pronunciation": "il péše",
+    "example_it": "Mangio il pesce.",
+    "example_cz": "Jím rybu."
+  },
+  {
+    "italian": "il pollo",
+    "czech": "kuře",
+    "category": "Jídlo a pití",
+    "difficulty": "A1",
+    "pronunciation": "il pólo",
+    "example_it": "Il pollo è arrosto.",
+    "example_cz": "Kuře je pečené."
+  },
+  {
+    "italian": "la pasta",
+    "czech": "těstoviny",
+    "category": "Jídlo a pití",
+    "difficulty": "A1",
+    "pronunciation": "la pásta",
+    "example_it": "Cuocio la pasta.",
+    "example_cz": "Vařím těstoviny."
+  },
+  {
+    "italian": "il riso",
+    "czech": "rýže",
+    "category": "Jídlo a pití",
+    "difficulty": "A1",
+    "pronunciation": "il rízo",
+    "example_it": "Il riso è pronto.",
+    "example_cz": "Rýže je hotová."
+  },
+  {
+    "italian": "la pizza",
+    "czech": "pizza",
+    "category": "Jídlo a pití",
+    "difficulty": "A1",
+    "pronunciation": "la píca",
+    "example_it": "La pizza Margherita è la mia preferita.",
+    "example_cz": "Pizza Margherita je má nejoblíbenější."
+  },
+  {
+    "italian": "il sale",
+    "czech": "sůl",
+    "category": "Jídlo a pití",
+    "difficulty": "A1",
+    "pronunciation": "il sále",
+    "example_it": "Passami il sale.",
+    "example_cz": "Podej mi sůl."
+  },
+  {
+    "italian": "il pepe",
+    "czech": "pepř",
+    "category": "Jídlo a pití",
+    "difficulty": "A1",
+    "pronunciation": "il pépe",
+    "example_it": "Metto il pepe.",
+    "example_cz": "Dám pepř."
+  },
+  {
+    "italian": "lo zucchero",
+    "czech": "cukr",
+    "category": "Jídlo a pití",
+    "difficulty": "A1",
+    "pronunciation": "lo dzúkero",
+    "example_it": "Un caffè senza zucchero.",
+    "example_cz": "Káva bez cukru."
+  },
+  {
+    "italian": "il miele",
+    "czech": "med",
+    "category": "Jídlo a pití",
+    "difficulty": "A1",
+    "pronunciation": "il mjéle",
+    "example_it": "Il miele è dolce.",
+    "example_cz": "Med je sladký."
+  },
+  {
+    "italian": "l'acqua",
+    "czech": "voda",
+    "category": "Jídlo a pití",
+    "difficulty": "A1",
+    "pronunciation": "lákua",
+    "example_it": "Bevo l'acqua.",
+    "example_cz": "Piji vodu."
+  },
+  {
+    "italian": "il vino",
+    "czech": "víno",
+    "category": "Jídlo a pití",
+    "difficulty": "A1",
+    "pronunciation": "il víno",
+    "example_it": "Il vino rosso è buono.",
+    "example_cz": "Červené víno je dobré."
+  },
+  {
+    "italian": "la birra",
+    "czech": "pivo",
+    "category": "Jídlo a pití",
+    "difficulty": "A1",
+    "pronunciation": "la bíra",
+    "example_it": "Una birra fredda, per favore.",
+    "example_cz": "Jedno studené pivo, prosím."
+  },
+  {
+    "italian": "il tè",
+    "czech": "čaj",
+    "category": "Jídlo a pití",
+    "difficulty": "A1",
+    "pronunciation": "il te",
+    "example_it": "Bevo una tazza di tè.",
+    "example_cz": "Piji šálek čaje."
+  },
+  {
+    "italian": "il succo",
+    "czech": "džus",
+    "category": "Jídlo a pití",
+    "difficulty": "A1",
+    "pronunciation": "il súko",
+    "example_it": "Succo d'arancia.",
+    "example_cz": "Pomerančový džus."
+  },
+  {
+    "italian": "buono",
+    "czech": "dobrý",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "buóno",
+    "example_it": "Il cibo è buono.",
+    "example_cz": "Jídlo je dobré."
+  },
+  {
+    "italian": "cattivo",
+    "czech": "špatný",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "katívo",
+    "example_it": "Il tempo è cattivo.",
+    "example_cz": "Počasí je špatné."
+  },
+  {
+    "italian": "bello",
+    "czech": "hezký",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "bélo",
+    "example_it": "Il fiore è bello.",
+    "example_cz": "Květina je hezká."
+  },
+  {
+    "italian": "brutto",
+    "czech": "ošklivý",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "brúto",
+    "example_it": "Il film è brutto.",
+    "example_cz": "Ten film je ošklivý."
+  },
+  {
+    "italian": "grande",
+    "czech": "velký",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "gránde",
+    "example_it": "La casa è grande.",
+    "example_cz": "Dům je velký."
+  },
+  {
+    "italian": "piccolo",
+    "czech": "malý",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "píkolo",
+    "example_it": "Il cane è piccolo.",
+    "example_cz": "Pes je malý."
+  },
+  {
+    "italian": "nuovo",
+    "czech": "nový",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "nuóvo",
+    "example_it": "Ho una macchina nuova.",
+    "example_cz": "Mám nové auto."
+  },
+  {
+    "italian": "vecchio",
+    "czech": "starý",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "vékjo",
+    "example_it": "L'edificio è vecchio.",
+    "example_cz": "Budova je stará."
+  },
+  {
+    "italian": "giovane",
+    "czech": "mladý",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "džóvane",
+    "example_it": "Il ragazzo è giovane.",
+    "example_cz": "Kluk je mladý."
+  },
+  {
+    "italian": "alto",
+    "czech": "vysoký",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "álto",
+    "example_it": "L'albero è alto.",
+    "example_cz": "Strom je vysoký."
+  },
+  {
+    "italian": "basso",
+    "czech": "nízký",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "báso",
+    "example_it": "Il soffitto è basso.",
+    "example_cz": "Strop je nízký."
+  },
+  {
+    "italian": "lungo",
+    "czech": "dlouhý",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "lúngo",
+    "example_it": "Il viaggio è lungo.",
+    "example_cz": "Cesta je dlouhá."
+  },
+  {
+    "italian": "corto",
+    "czech": "krátký",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "kórto",
+    "example_it": "Il vestito è corto.",
+    "example_cz": "Šaty jsou krátké."
+  },
+  {
+    "italian": "veloce",
+    "czech": "rychlý",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "velóče",
+    "example_it": "Il treno è veloce.",
+    "example_cz": "Vlak je rychlý."
+  },
+  {
+    "italian": "lento",
+    "czech": "pomalý",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "lénto",
+    "example_it": "Il traffico è lento.",
+    "example_cz": "Provoz je pomalý."
+  },
+  {
+    "italian": "facile",
+    "czech": "snadný",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "fáčile",
+    "example_it": "Il test è facile.",
+    "example_cz": "Test je snadný."
+  },
+  {
+    "italian": "difficile",
+    "czech": "těžký, obtížný",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "difíčile",
+    "example_it": "La domanda è difficile.",
+    "example_cz": "Otázka je těžká."
+  },
+  {
+    "italian": "pesante",
+    "czech": "těžký (váha)",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "pezánte",
+    "example_it": "La borsa è pesante.",
+    "example_cz": "Taška je těžká."
+  },
+  {
+    "italian": "leggero",
+    "czech": "lehký",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "ledžéro",
+    "example_it": "Il pacco è leggero.",
+    "example_cz": "Balíček je lehký."
+  },
+  {
+    "italian": "pieno",
+    "czech": "plný",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "pjéno",
+    "example_it": "Il bicchiere è pieno.",
+    "example_cz": "Sklenice je plná."
+  },
+  {
+    "italian": "vuoto",
+    "czech": "prázdný",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "vuóto",
+    "example_it": "La stanza è vuota.",
+    "example_cz": "Místnost je prázdná."
+  },
+  {
+    "italian": "caldo",
+    "czech": "horký, teplý",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "káldo",
+    "example_it": "Oggi fa caldo.",
+    "example_cz": "Dnes je horko."
+  },
+  {
+    "italian": "freddo",
+    "czech": "studený",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "frédo",
+    "example_it": "Il vento è freddo.",
+    "example_cz": "Vítr je studený."
+  },
+  {
+    "italian": "felice",
+    "czech": "šťastný",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "felíče",
+    "example_it": "Sono felice di vederti.",
+    "example_cz": "Jsem šťastný, že tě vidím."
+  },
+  {
+    "italian": "triste",
+    "czech": "smutný",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "tríste",
+    "example_it": "Perché sei triste?",
+    "example_cz": "Proč jsi smutný?"
+  },
+  {
+    "italian": "ricco",
+    "czech": "bohatý",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "ríko",
+    "example_it": "Lui è molto ricco.",
+    "example_cz": "On je velmi bohatý."
+  },
+  {
+    "italian": "povero",
+    "czech": "chudý",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "póvero",
+    "example_it": "È una persona povera.",
+    "example_cz": "Je to chudý člověk."
+  },
+  {
+    "italian": "caro",
+    "czech": "drahý",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "káro",
+    "example_it": "Questo orologio è caro.",
+    "example_cz": "Tyto hodinky jsou drahé."
+  },
+  {
+    "italian": "economico",
+    "czech": "levný",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "ekonómiko",
+    "example_it": "Il biglietto è economico.",
+    "example_cz": "Lístek je levný."
+  },
+  {
+    "italian": "pulito",
+    "czech": "čistý",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "pulíto",
+    "example_it": "Il piatto è pulito.",
+    "example_cz": "Talíř je čistý."
+  },
+  {
+    "italian": "sporco",
+    "czech": "špinavý",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "spórko",
+    "example_it": "Il pavimento è sporco.",
+    "example_cz": "Podlaha je špinavá."
+  },
+  {
+    "italian": "forte",
+    "czech": "silný",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "fórte",
+    "example_it": "Il vento è forte.",
+    "example_cz": "Vítr je silný."
+  },
+  {
+    "italian": "debole",
+    "czech": "slabý",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "débole",
+    "example_it": "Mi sento debole.",
+    "example_cz": "Cítím se slabý."
+  },
+  {
+    "italian": "aperto",
+    "czech": "otevřený",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "apérto",
+    "example_it": "Il negozio è aperto.",
+    "example_cz": "Obchod je otevřený."
+  },
+  {
+    "italian": "chiuso",
+    "czech": "zavřený",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "kjúzo",
+    "example_it": "La porta è chiusa.",
+    "example_cz": "Dveře jsou zavřené."
+  },
+  {
+    "italian": "vicino",
+    "czech": "blízký",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "vičíno",
+    "example_it": "La scuola è vicina.",
+    "example_cz": "Škola je blízko."
+  },
+  {
+    "italian": "lontano",
+    "czech": "vzdálený, daleký",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "lontáno",
+    "example_it": "Il mare è lontano.",
+    "example_cz": "Moře je daleko."
+  },
+  {
+    "italian": "sicuro",
+    "czech": "bezpečný, jistý",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "sikúro",
+    "example_it": "Il posto è sicuro.",
+    "example_cz": "To místo je bezpečné."
+  },
+  {
+    "italian": "pericoloso",
+    "czech": "nebezpečný",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "perikolózo",
+    "example_it": "Il cane è pericoloso.",
+    "example_cz": "Ten pes je nebezpečný."
+  },
+  {
+    "italian": "divertente",
+    "czech": "zábavný",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "diverténte",
+    "example_it": "Il gioco è divertente.",
+    "example_cz": "Ta hra je zábavná."
+  },
+  {
+    "italian": "noioso",
+    "czech": "nudný",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "nojózo",
+    "example_it": "Questo libro è noioso.",
+    "example_cz": "Tato kniha je nudná."
+  },
+  {
+    "italian": "intelligente",
+    "czech": "chytrý",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "intelidžénte",
+    "example_it": "Lei è intelligente.",
+    "example_cz": "Ona je chytrá."
+  },
+  {
+    "italian": "stupido",
+    "czech": "hloupý",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "stúpido",
+    "example_it": "Non fare lo stupido.",
+    "example_cz": "Nedělej ze sebe hlupáka."
+  },
+  {
+    "italian": "simpatico",
+    "czech": "sympatický",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "simpátiko",
+    "example_it": "Il tuo amico è simpatico.",
+    "example_cz": "Tvůj přítel je sympatický."
+  },
+  {
+    "italian": "antipatico",
+    "czech": "nesympatický",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "antipátiko",
+    "example_it": "Quel ragazzo è antipatico.",
+    "example_cz": "Ten kluk je nesympatický."
+  },
+  {
+    "italian": "dolce",
+    "czech": "sladký",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "dólče",
+    "example_it": "La torta è dolce.",
+    "example_cz": "Dort je sladký."
+  },
+  {
+    "italian": "salato",
+    "czech": "slaný",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "saláto",
+    "example_it": "Il mare è salato.",
+    "example_cz": "Moře je slané."
+  },
+  {
+    "italian": "aspro",
+    "czech": "kyselý",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "áspro",
+    "example_it": "Il limone è aspro.",
+    "example_cz": "Citron je kyselý."
+  },
+  {
+    "italian": "amaro",
+    "czech": "hořký",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "amáro",
+    "example_it": "Il caffè senza zucchero è amaro.",
+    "example_cz": "Káva bez cukru je hořká."
+  },
+  {
+    "italian": "fresco",
+    "czech": "čerstvý",
+    "category": "Přídavná jména",
+    "difficulty": "A1",
+    "pronunciation": "frésko",
+    "example_it": "Il pane è fresco.",
+    "example_cz": "Chleba je čerstvý."
+  },
+  {
+    "italian": "la città",
+    "czech": "město",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "la čitá",
+    "example_it": "La città è grande.",
+    "example_cz": "Město je velké."
+  },
+  {
+    "italian": "il villaggio",
+    "czech": "vesnice",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "il viládžo",
+    "example_it": "Il villaggio è tranquillo.",
+    "example_cz": "Vesnice je klidná."
+  },
+  {
+    "italian": "la strada",
+    "czech": "ulice",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "la stráda",
+    "example_it": "La strada è lunga.",
+    "example_cz": "Ulice je dlouhá."
+  },
+  {
+    "italian": "la piazza",
+    "czech": "náměstí",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "la pjáca",
+    "example_it": "Ci incontriamo in piazza.",
+    "example_cz": "Potkáme se na náměstí."
+  },
+  {
+    "italian": "il ponte",
+    "czech": "most",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "il pónte",
+    "example_it": "Il ponte è sul fiume.",
+    "example_cz": "Most je přes řeku."
+  },
+  {
+    "italian": "il semaforo",
+    "czech": "semafor",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "il semáforo",
+    "example_it": "Il semaforo è rosso.",
+    "example_cz": "Semafor je červený."
+  },
+  {
+    "italian": "il marciapiede",
+    "czech": "chodník",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "il marčapjéde",
+    "example_it": "Cammina sul marciapiede.",
+    "example_cz": "Jdi po chodníku."
+  },
+  {
+    "italian": "l'edificio",
+    "czech": "budova",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "ledifíčo",
+    "example_it": "L'edificio è alto.",
+    "example_cz": "Budova je vysoká."
+  },
+  {
+    "italian": "la casa",
+    "czech": "dům",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "la káza",
+    "example_it": "La casa è bella.",
+    "example_cz": "Dům je hezký."
+  },
+  {
+    "italian": "l'ospedale",
+    "czech": "nemocnice",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "lospedále",
+    "example_it": "L'ospedale è vicino.",
+    "example_cz": "Nemocnice je blízko."
+  },
+  {
+    "italian": "la farmacia",
+    "czech": "lékárna",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "la farmačía",
+    "example_it": "Compro le medicine in farmacia.",
+    "example_cz": "Kupuji léky v lékárně."
+  },
+  {
+    "italian": "la scuola",
+    "czech": "škola",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "la skuóla",
+    "example_it": "I bambini vanno a scuola.",
+    "example_cz": "Děti chodí do školy."
+  },
+  {
+    "italian": "l'università",
+    "czech": "univerzita",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "luniversitá",
+    "example_it": "Studio all'università.",
+    "example_cz": "Studuji na univerzitě."
+  },
+  {
+    "italian": "il ristorante",
+    "czech": "restaurace",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "il ristoránte",
+    "example_it": "Mangiamo al ristorante.",
+    "example_cz": "Jíme v restauraci."
+  },
+  {
+    "italian": "il bar",
+    "czech": "kavárna, bar",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "il bar",
+    "example_it": "Prendiamo un caffè al bar.",
+    "example_cz": "Dáme si kávu v kavárně."
+  },
+  {
+    "italian": "il supermercato",
+    "czech": "supermarket",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "il supermerkáto",
+    "example_it": "Faccio la spesa al supermercato.",
+    "example_cz": "Nakupuji v supermarketu."
+  },
+  {
+    "italian": "il negozio",
+    "czech": "obchod",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "il negócjo",
+    "example_it": "Il negozio è aperto.",
+    "example_cz": "Obchod je otevřený."
+  },
+  {
+    "italian": "il mercato",
+    "czech": "trh",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "il merkáto",
+    "example_it": "Compro verdura al mercato.",
+    "example_cz": "Kupuji zeleninu na trhu."
+  },
+  {
+    "italian": "la banca",
+    "czech": "banka",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "la bánka",
+    "example_it": "Vado in banca.",
+    "example_cz": "Jdu do banky."
+  },
+  {
+    "italian": "la posta",
+    "czech": "pošta",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "la pósta",
+    "example_it": "Devo andare alla posta.",
+    "example_cz": "Musím jít na poštu."
+  },
+  {
+    "italian": "la stazione",
+    "czech": "nádraží",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "la stacióne",
+    "example_it": "Il treno parte dalla stazione.",
+    "example_cz": "Vlak odjíždí z nádraží."
+  },
+  {
+    "italian": "l'aeroporto",
+    "czech": "letiště",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "laeropórto",
+    "example_it": "L'aereo atterra all'aeroporto.",
+    "example_cz": "Letadlo přistává na letišti."
+  },
+  {
+    "italian": "il porto",
+    "czech": "přístav",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "il pórto",
+    "example_it": "La nave è nel porto.",
+    "example_cz": "Loď je v přístavu."
+  },
+  {
+    "italian": "la fermata",
+    "czech": "zastávka",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "la fermáta",
+    "example_it": "La fermata dell'autobus è qui.",
+    "example_cz": "Zastávka autobusu je tady."
+  },
+  {
+    "italian": "l'automobile",
+    "czech": "automobil",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "lautomóbile",
+    "example_it": "L'automobile è veloce.",
+    "example_cz": "Automobil je rychlý."
+  },
+  {
+    "italian": "l'autobus",
+    "czech": "autobus",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "lautobus",
+    "example_it": "Prendo l'autobus.",
+    "example_cz": "Jedu autobusem."
+  },
+  {
+    "italian": "il treno",
+    "czech": "vlak",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "il tréno",
+    "example_it": "Il treno è in ritardo.",
+    "example_cz": "Vlak má zpoždění."
+  },
+  {
+    "italian": "l'aereo",
+    "czech": "letadlo",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "laéreo",
+    "example_it": "L'aereo vola in alto.",
+    "example_cz": "Letadlo letí vysoko."
+  },
+  {
+    "italian": "la bicicletta",
+    "czech": "kolo",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "la bičikléta",
+    "example_it": "Vado in bicicletta.",
+    "example_cz": "Jedu na kole."
+  },
+  {
+    "italian": "la metropolitana",
+    "czech": "metro",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "la metropolitána",
+    "example_it": "Prendo la metropolitana per andare al lavoro.",
+    "example_cz": "Jedu metrem do práce."
+  },
+  {
+    "italian": "il tram",
+    "czech": "tramvaj",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "il tram",
+    "example_it": "Il tram arriva ora.",
+    "example_cz": "Tramvaj právě přijíždí."
+  },
+  {
+    "italian": "la barca",
+    "czech": "člun",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "la bárka",
+    "example_it": "La barca è sul mare.",
+    "example_cz": "Člun je na moři."
+  },
+  {
+    "italian": "la nave",
+    "czech": "loď",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "la náve",
+    "example_it": "La nave è grande.",
+    "example_cz": "Loď je velká."
+  },
+  {
+    "italian": "il taxi",
+    "czech": "taxi",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "il taxi",
+    "example_it": "Chiamo un taxi.",
+    "example_cz": "Volám si taxi."
+  },
+  {
+    "italian": "la madre",
+    "czech": "matka",
+    "category": "Rodina a vztahy",
+    "difficulty": "A1",
+    "pronunciation": "la mádre",
+    "example_it": "La madre cucina.",
+    "example_cz": "Matka vaří."
+  },
+  {
+    "italian": "il padre",
+    "czech": "otec",
+    "category": "Rodina a vztahy",
+    "difficulty": "A1",
+    "pronunciation": "il pádre",
+    "example_it": "Il padre lavora.",
+    "example_cz": "Otec pracuje."
+  },
+  {
+    "italian": "il figlio",
+    "czech": "syn",
+    "category": "Rodina a vztahy",
+    "difficulty": "A1",
+    "pronunciation": "il fíljo",
+    "example_it": "Il figlio gioca.",
+    "example_cz": "Syn si hraje."
+  },
+  {
+    "italian": "la figlia",
+    "czech": "dcera",
+    "category": "Rodina a vztahy",
+    "difficulty": "A1",
+    "pronunciation": "la fílja",
+    "example_it": "La figlia legge.",
+    "example_cz": "Dcera čte."
+  },
+  {
+    "italian": "il fratello",
+    "czech": "bratr",
+    "category": "Rodina a vztahy",
+    "difficulty": "A1",
+    "pronunciation": "il fratélo",
+    "example_it": "Il fratello corre.",
+    "example_cz": "Bratr běží."
+  },
+  {
+    "italian": "la sorella",
+    "czech": "sestra",
+    "category": "Rodina a vztahy",
+    "difficulty": "A1",
+    "pronunciation": "la soréla",
+    "example_it": "La sorella canta.",
+    "example_cz": "Sestra zpívá."
+  },
+  {
+    "italian": "il nonno",
+    "czech": "dědeček",
+    "category": "Rodina a vztahy",
+    "difficulty": "A1",
+    "pronunciation": "il nóno",
+    "example_it": "Il nonno dorme.",
+    "example_cz": "Dědeček spí."
+  },
+  {
+    "italian": "la nonna",
+    "czech": "babička",
+    "category": "Rodina a vztahy",
+    "difficulty": "A1",
+    "pronunciation": "la nóna",
+    "example_it": "La nonna guarda la TV.",
+    "example_cz": "Babička se dívá na televizi."
+  },
+  {
+    "italian": "il nipote",
+    "czech": "vnuk / synovec",
+    "category": "Rodina a vztahy",
+    "difficulty": "A1",
+    "pronunciation": "il nipóte",
+    "example_it": "Il nipote studia.",
+    "example_cz": "Vnuk studuje."
+  },
+  {
+    "italian": "la nipote",
+    "czech": "vnučka / neteř",
+    "category": "Rodina a vztahy",
+    "difficulty": "A1",
+    "pronunciation": "la nipóte",
+    "example_it": "La nipote disegna.",
+    "example_cz": "Vnučka kreslí."
+  },
+  {
+    "italian": "lo zio",
+    "czech": "strýc",
+    "category": "Rodina a vztahy",
+    "difficulty": "A1",
+    "pronunciation": "lo zío",
+    "example_it": "Lo zio guida.",
+    "example_cz": "Strýc řídí."
+  },
+  {
+    "italian": "la zia",
+    "czech": "teta",
+    "category": "Rodina a vztahy",
+    "difficulty": "A1",
+    "pronunciation": "la zía",
+    "example_it": "La zia sorride.",
+    "example_cz": "Teta se usmívá."
+  },
+  {
+    "italian": "il cugino",
+    "czech": "bratranec",
+    "category": "Rodina a vztahy",
+    "difficulty": "A1",
+    "pronunciation": "il kudžíno",
+    "example_it": "Il cugino mangia.",
+    "example_cz": "Bratranec jí."
+  },
+  {
+    "italian": "la cugina",
+    "czech": "sestřenice",
+    "category": "Rodina a vztahy",
+    "difficulty": "A1",
+    "pronunciation": "la kudžína",
+    "example_it": "La cugina beve.",
+    "example_cz": "Sestřenice pije."
+  },
+  {
+    "italian": "il marito",
+    "czech": "manžel",
+    "category": "Rodina a vztahy",
+    "difficulty": "A1",
+    "pronunciation": "il maríto",
+    "example_it": "Il marito è a casa.",
+    "example_cz": "Manžel je doma."
+  },
+  {
+    "italian": "la moglie",
+    "czech": "manželka",
+    "category": "Rodina a vztahy",
+    "difficulty": "A1",
+    "pronunciation": "la mólje",
+    "example_it": "La moglie esce.",
+    "example_cz": "Manželka jde ven."
+  },
+  {
+    "italian": "l'amico",
+    "czech": "kamarád",
+    "category": "Rodina a vztahy",
+    "difficulty": "A1",
+    "pronunciation": "lamíko",
+    "example_it": "L'amico aiuta.",
+    "example_cz": "Kamarád pomáhá."
+  },
+  {
+    "italian": "l'amica",
+    "czech": "kamarádka",
+    "category": "Rodina a vztahy",
+    "difficulty": "A1",
+    "pronunciation": "lamíka",
+    "example_it": "L'amica ascolta.",
+    "example_cz": "Kamarádka poslouchá."
+  },
+  {
+    "italian": "il fidanzato",
+    "czech": "snoubenec / přítel",
+    "category": "Rodina a vztahy",
+    "difficulty": "A1",
+    "pronunciation": "il fidancáto",
+    "example_it": "Il fidanzato arriva.",
+    "example_cz": "Přítel přijíždí."
+  },
+  {
+    "italian": "la fidanzata",
+    "czech": "snoubenka / přítelkyně",
+    "category": "Rodina a vztahy",
+    "difficulty": "A1",
+    "pronunciation": "la fidancáta",
+    "example_it": "La fidanzata aspetta.",
+    "example_cz": "Přítelkyně čeká."
+  },
+  {
+    "italian": "i genitori",
+    "czech": "rodiče",
+    "category": "Rodina a vztahy",
+    "difficulty": "A1",
+    "pronunciation": "i dženitóri",
+    "example_it": "I genitori sono felici.",
+    "example_cz": "Rodiče jsou šťastní."
+  },
+  {
+    "italian": "i parenti",
+    "czech": "příbuzní",
+    "category": "Rodina a vztahy",
+    "difficulty": "A1",
+    "pronunciation": "i parénti",
+    "example_it": "I parenti festeggiano.",
+    "example_cz": "Příbuzní slaví."
+  },
+  {
+    "italian": "il matrimonio",
+    "czech": "svatba, manželství",
+    "category": "Rodina a vztahy",
+    "difficulty": "A1",
+    "pronunciation": "il matrimónjo",
+    "example_it": "Il matrimonio è domani.",
+    "example_cz": "Svatba je zítra."
+  },
+  {
+    "italian": "la famiglia",
+    "czech": "rodina",
+    "category": "Rodina a vztahy",
+    "difficulty": "A1",
+    "pronunciation": "la famílja",
+    "example_it": "La famiglia è unita.",
+    "example_cz": "Rodina je jednotná."
+  },
+  {
+    "italian": "il sole",
+    "czech": "slunce",
+    "category": "Počasí",
+    "difficulty": "A1",
+    "pronunciation": "il sóle",
+    "example_it": "Il sole splende.",
+    "example_cz": "Slunce svítí."
+  },
+  {
+    "italian": "la pioggia",
+    "czech": "déšť",
+    "category": "Počasí",
+    "difficulty": "A1",
+    "pronunciation": "la pjóža",
+    "example_it": "La pioggia cade.",
+    "example_cz": "Padá déšť."
+  },
+  {
+    "italian": "il vento",
+    "czech": "vítr",
+    "category": "Počasí",
+    "difficulty": "A1",
+    "pronunciation": "il vénto",
+    "example_it": "Il vento soffia forte.",
+    "example_cz": "Vítr fouká silně."
+  },
+  {
+    "italian": "la neve",
+    "czech": "sníh",
+    "category": "Počasí",
+    "difficulty": "A1",
+    "pronunciation": "la néve",
+    "example_it": "La neve è bianca.",
+    "example_cz": "Sníh je bílý."
+  },
+  {
+    "italian": "la nuvola",
+    "czech": "mrak",
+    "category": "Počasí",
+    "difficulty": "A1",
+    "pronunciation": "la núvola",
+    "example_it": "La nuvola nasconde il sole.",
+    "example_cz": "Mrak skrývá slunce."
+  },
+  {
+    "italian": "il temporale",
+    "czech": "bouřka",
+    "category": "Počasí",
+    "difficulty": "A1",
+    "pronunciation": "il temporále",
+    "example_it": "C'è un temporale in arrivo.",
+    "example_cz": "Blíží se bouřka."
+  },
+  {
+    "italian": "il fulmine",
+    "czech": "blesk",
+    "category": "Počasí",
+    "difficulty": "A1",
+    "pronunciation": "il fúlmine",
+    "example_it": "Ho visto un fulmine.",
+    "example_cz": "Viděl jsem blesk."
+  },
+  {
+    "italian": "il tuono",
+    "czech": "hrom",
+    "category": "Počasí",
+    "difficulty": "A1",
+    "pronunciation": "il tuóno",
+    "example_it": "Ho sentito un tuono.",
+    "example_cz": "Slyšel jsem hrom."
+  },
+  {
+    "italian": "la nebbia",
+    "czech": "mlha",
+    "category": "Počasí",
+    "difficulty": "A1",
+    "pronunciation": "la nébja",
+    "example_it": "C'è molta nebbia.",
+    "example_cz": "Je velká mlha."
+  },
+  {
+    "italian": "il ghiaccio",
+    "czech": "led",
+    "category": "Počasí",
+    "difficulty": "A1",
+    "pronunciation": "il gjáčo",
+    "example_it": "La strada è piena di ghiaccio.",
+    "example_cz": "Silnice je plná ledu."
+  },
+  {
+    "italian": "la grandine",
+    "czech": "kroupy",
+    "category": "Počasí",
+    "difficulty": "A1",
+    "pronunciation": "la grándine",
+    "example_it": "Cade la grandine.",
+    "example_cz": "Padají kroupy."
+  },
+  {
+    "italian": "l'arcobaleno",
+    "czech": "duha",
+    "category": "Počasí",
+    "difficulty": "A1",
+    "pronunciation": "larkobaléno",
+    "example_it": "Guarda l'arcobaleno!",
+    "example_cz": "Podívej se na duhu!"
+  },
+  {
+    "italian": "il caldo",
+    "czech": "teplo",
+    "category": "Počasí",
+    "difficulty": "A1",
+    "pronunciation": "il káldo",
+    "example_it": "Oggi fa molto caldo.",
+    "example_cz": "Dnes je velmi teplo."
+  },
+  {
+    "italian": "il freddo",
+    "czech": "zima",
+    "category": "Počasí",
+    "difficulty": "A1",
+    "pronunciation": "il frédo",
+    "example_it": "Ho molto freddo.",
+    "example_cz": "Je mi velká zima."
+  },
+  {
+    "italian": "l'umidità",
+    "czech": "vlhkost",
+    "category": "Počasí",
+    "difficulty": "A1",
+    "pronunciation": "lumiditá",
+    "example_it": "C'è molta umidità nell'aria.",
+    "example_cz": "Ve vzduchu je velká vlhkost."
+  },
+  {
+    "italian": "il clima",
+    "czech": "podnebí",
+    "category": "Počasí",
+    "difficulty": "A1",
+    "pronunciation": "il klíma",
+    "example_it": "Il clima è mite.",
+    "example_cz": "Podnebí je mírné."
+  },
+  {
+    "italian": "la temperatura",
+    "czech": "teplota",
+    "category": "Počasí",
+    "difficulty": "A1",
+    "pronunciation": "la temperatúra",
+    "example_it": "La temperatura è alta.",
+    "example_cz": "Teplota je vysoká."
+  },
+  {
+    "italian": "sereno",
+    "czech": "jasno",
+    "category": "Počasí",
+    "difficulty": "A1",
+    "pronunciation": "seréno",
+    "example_it": "Il cielo è sereno.",
+    "example_cz": "Nebe je jasné."
+  },
+  {
+    "italian": "nuvoloso",
+    "czech": "zamračeno",
+    "category": "Počasí",
+    "difficulty": "A1",
+    "pronunciation": "nuvolózo",
+    "example_it": "Oggi è nuvoloso.",
+    "example_cz": "Dnes je zamračeno."
+  },
+  {
+    "italian": "rosso",
+    "czech": "červený",
+    "category": "Barvy",
+    "difficulty": "A1",
+    "pronunciation": "róso",
+    "example_it": "Il pomodoro è rosso.",
+    "example_cz": "Rajče je červené."
+  },
+  {
+    "italian": "blu",
+    "czech": "modrý",
+    "category": "Barvy",
+    "difficulty": "A1",
+    "pronunciation": "blu",
+    "example_it": "Il cielo è blu.",
+    "example_cz": "Nebe je modré."
+  },
+  {
+    "italian": "giallo",
+    "czech": "žlutý",
+    "category": "Barvy",
+    "difficulty": "A1",
+    "pronunciation": "džálo",
+    "example_it": "Il sole è giallo.",
+    "example_cz": "Slunce je žluté."
+  },
+  {
+    "italian": "verde",
+    "czech": "zelený",
+    "category": "Barvy",
+    "difficulty": "A1",
+    "pronunciation": "vérde",
+    "example_it": "L'erba è verde.",
+    "example_cz": "Tráva je zelená."
+  },
+  {
+    "italian": "nero",
+    "czech": "černý",
+    "category": "Barvy",
+    "difficulty": "A1",
+    "pronunciation": "néro",
+    "example_it": "Il gatto è nero.",
+    "example_cz": "Kočka je černá."
+  },
+  {
+    "italian": "bianco",
+    "czech": "bílý",
+    "category": "Barvy",
+    "difficulty": "A1",
+    "pronunciation": "bjánko",
+    "example_it": "La neve è bianca.",
+    "example_cz": "Sníh je bílý."
+  },
+  {
+    "italian": "grigio",
+    "czech": "šedý",
+    "category": "Barvy",
+    "difficulty": "A1",
+    "pronunciation": "grídžo",
+    "example_it": "Il topo è grigio.",
+    "example_cz": "Myš je šedá."
+  },
+  {
+    "italian": "marrone",
+    "czech": "hnědý",
+    "category": "Barvy",
+    "difficulty": "A1",
+    "pronunciation": "maróne",
+    "example_it": "Il tronco è marrone.",
+    "example_cz": "Kmen je hnědý."
+  },
+  {
+    "italian": "arancione",
+    "czech": "oranžový",
+    "category": "Barvy",
+    "difficulty": "A1",
+    "pronunciation": "arančóne",
+    "example_it": "L'arancia è arancione.",
+    "example_cz": "Pomeranč je oranžový."
+  },
+  {
+    "italian": "viola",
+    "czech": "fialový",
+    "category": "Barvy",
+    "difficulty": "A1",
+    "pronunciation": "vióla",
+    "example_it": "Il fiore è viola.",
+    "example_cz": "Květina je fialová."
+  },
+  {
+    "italian": "rosa",
+    "czech": "růžový",
+    "category": "Barvy",
+    "difficulty": "A1",
+    "pronunciation": "róza",
+    "example_it": "Il maiale è rosa.",
+    "example_cz": "Prase je růžové."
+  },
+  {
+    "italian": "azzurro",
+    "czech": "světle modrý",
+    "category": "Barvy",
+    "difficulty": "A1",
+    "pronunciation": "adzúro",
+    "example_it": "L'acqua è azzurra.",
+    "example_cz": "Voda je světle modrá."
+  },
+  {
+    "italian": "celeste",
+    "czech": "nebesky modrý",
+    "category": "Barvy",
+    "difficulty": "A1",
+    "pronunciation": "čeléste",
+    "example_it": "Il vestito è celeste.",
+    "example_cz": "Šaty jsou nebesky modré."
+  },
+  {
+    "italian": "oro",
+    "czech": "zlatý",
+    "category": "Barvy",
+    "difficulty": "A1",
+    "pronunciation": "óro",
+    "example_it": "L'anello è d'oro.",
+    "example_cz": "Prsten je zlatý."
+  },
+  {
+    "italian": "argento",
+    "czech": "stříbrný",
+    "category": "Barvy",
+    "difficulty": "A1",
+    "pronunciation": "ardžénto",
+    "example_it": "La moneta è d'argento.",
+    "example_cz": "Mince je stříbrná."
+  },
+  {
+    "italian": "chiaro",
+    "czech": "světlý",
+    "category": "Barvy",
+    "difficulty": "A1",
+    "pronunciation": "kjáro",
+    "example_it": "È un verde chiaro.",
+    "example_cz": "Je to světle zelená."
+  },
+  {
+    "italian": "scuro",
+    "czech": "tmavý",
+    "category": "Barvy",
+    "difficulty": "A1",
+    "pronunciation": "skúro",
+    "example_it": "È un blu scuro.",
+    "example_cz": "Je to tmavě modrá."
+  },
+  {
+    "italian": "lunedì",
+    "czech": "pondělí",
+    "category": "Čas a dny",
+    "difficulty": "A1",
+    "pronunciation": "lunedí",
+    "example_it": "Oggi è lunedì.",
+    "example_cz": "Dnes je pondělí."
+  },
+  {
+    "italian": "martedì",
+    "czech": "úterý",
+    "category": "Čas a dny",
+    "difficulty": "A1",
+    "pronunciation": "martedí",
+    "example_it": "Domani è martedì.",
+    "example_cz": "Zítra je úterý."
+  },
+  {
+    "italian": "mercoledì",
+    "czech": "středa",
+    "category": "Čas a dny",
+    "difficulty": "A1",
+    "pronunciation": "merkoledí",
+    "example_it": "Mercoledì vado al cinema.",
+    "example_cz": "Ve středu jdu do kina."
+  },
+  {
+    "italian": "giovedì",
+    "czech": "čtvrtek",
+    "category": "Čas a dny",
+    "difficulty": "A1",
+    "pronunciation": "džovedí",
+    "example_it": "Giovedì lavoro.",
+    "example_cz": "Ve čtvrtek pracuji."
+  },
+  {
+    "italian": "venerdì",
+    "czech": "pátek",
+    "category": "Čas a dny",
+    "difficulty": "A1",
+    "pronunciation": "venerdí",
+    "example_it": "Venerdì inizia il weekend.",
+    "example_cz": "V pátek začíná víkend."
+  },
+  {
+    "italian": "sabato",
+    "czech": "sobota",
+    "category": "Čas a dny",
+    "difficulty": "A1",
+    "pronunciation": "sábato",
+    "example_it": "Sabato riposo.",
+    "example_cz": "V sobotu odpočívám."
+  },
+  {
+    "italian": "domenica",
+    "czech": "neděle",
+    "category": "Čas a dny",
+    "difficulty": "A1",
+    "pronunciation": "doménika",
+    "example_it": "Domenica vado in chiesa.",
+    "example_cz": "V neděli jdu do kostela."
+  },
+  {
+    "italian": "gennaio",
+    "czech": "leden",
+    "category": "Čas a dny",
+    "difficulty": "A1",
+    "pronunciation": "dženájo",
+    "example_it": "Gennaio è freddo.",
+    "example_cz": "Leden je studený."
+  },
+  {
+    "italian": "febbraio",
+    "czech": "únor",
+    "category": "Čas a dny",
+    "difficulty": "A1",
+    "pronunciation": "febrájo",
+    "example_it": "Febbraio è corto.",
+    "example_cz": "Únor je krátký."
+  },
+  {
+    "italian": "marzo",
+    "czech": "březen",
+    "category": "Čas a dny",
+    "difficulty": "A1",
+    "pronunciation": "márco",
+    "example_it": "Marzo è pazzo.",
+    "example_cz": "Březen je bláznivý."
+  },
+  {
+    "italian": "aprile",
+    "czech": "duben",
+    "category": "Čas a dny",
+    "difficulty": "A1",
+    "pronunciation": "apríle",
+    "example_it": "Aprile dolce dormire.",
+    "example_cz": "V dubnu se sladce spí."
+  },
+  {
+    "italian": "maggio",
+    "czech": "květen",
+    "category": "Čas a dny",
+    "difficulty": "A1",
+    "pronunciation": "mádžo",
+    "example_it": "Maggio è bello.",
+    "example_cz": "Květen je krásný."
+  },
+  {
+    "italian": "giugno",
+    "czech": "červen",
+    "category": "Čas a dny",
+    "difficulty": "A1",
+    "pronunciation": "džúňo",
+    "example_it": "A giugno finisce la scuola.",
+    "example_cz": "V červnu končí škola."
+  },
+  {
+    "italian": "luglio",
+    "czech": "červenec",
+    "category": "Čas a dny",
+    "difficulty": "A1",
+    "pronunciation": "lúljo",
+    "example_it": "A luglio fa caldo.",
+    "example_cz": "V červenci je horko."
+  },
+  {
+    "italian": "agosto",
+    "czech": "srpen",
+    "category": "Čas a dny",
+    "difficulty": "A1",
+    "pronunciation": "agósto",
+    "example_it": "Vado in vacanza ad agosto.",
+    "example_cz": "Jedu na dovolenou v srpnu."
+  },
+  {
+    "italian": "settembre",
+    "czech": "září",
+    "category": "Čas a dny",
+    "difficulty": "A1",
+    "pronunciation": "setémbre",
+    "example_it": "A settembre ricomincia la scuola.",
+    "example_cz": "V září začíná znovu škola."
+  },
+  {
+    "italian": "ottobre",
+    "czech": "říjen",
+    "category": "Čas a dny",
+    "difficulty": "A1",
+    "pronunciation": "otóbre",
+    "example_it": "Le foglie cadono a ottobre.",
+    "example_cz": "Listí padá v říjnu."
+  },
+  {
+    "italian": "novembre",
+    "czech": "listopad",
+    "category": "Čas a dny",
+    "difficulty": "A1",
+    "pronunciation": "novémbre",
+    "example_it": "Novembre è piovoso.",
+    "example_cz": "Listopad je deštivý."
+  },
+  {
+    "italian": "dicembre",
+    "czech": "prosinec",
+    "category": "Čas a dny",
+    "difficulty": "A1",
+    "pronunciation": "dičémbre",
+    "example_it": "A dicembre c'è Natale.",
+    "example_cz": "V prosinci jsou Vánoce."
+  },
+  {
+    "italian": "oggi",
+    "czech": "dnes",
+    "category": "Čas a dny",
+    "difficulty": "A1",
+    "pronunciation": "ódži",
+    "example_it": "Oggi piove.",
+    "example_cz": "Dnes prší."
+  },
+  {
+    "italian": "domani",
+    "czech": "zítra",
+    "category": "Čas a dny",
+    "difficulty": "A1",
+    "pronunciation": "dománi",
+    "example_it": "Domani vado a Roma.",
+    "example_cz": "Zítra jedu do Říma."
+  },
+  {
+    "italian": "ieri",
+    "czech": "včera",
+    "category": "Čas a dny",
+    "difficulty": "A1",
+    "pronunciation": "jéri",
+    "example_it": "Ieri sono andato al cinema.",
+    "example_cz": "Včera jsem šel do kina."
+  },
+  {
+    "italian": "la mattina",
+    "czech": "ráno",
+    "category": "Čas a dny",
+    "difficulty": "A1",
+    "pronunciation": "la matína",
+    "example_it": "Mi alzo presto la mattina.",
+    "example_cz": "Vstávám brzy ráno."
+  },
+  {
+    "italian": "il pomeriggio",
+    "czech": "odpoledne",
+    "category": "Čas a dny",
+    "difficulty": "A1",
+    "pronunciation": "il pomerídžo",
+    "example_it": "Lavoro nel pomeriggio.",
+    "example_cz": "Pracuji odpoledne."
+  },
+  {
+    "italian": "la sera",
+    "czech": "večer",
+    "category": "Čas a dny",
+    "difficulty": "A1",
+    "pronunciation": "la séra",
+    "example_it": "La sera guardo la TV.",
+    "example_cz": "Večer se dívám na TV."
+  },
+  {
+    "italian": "la notte",
+    "czech": "noc",
+    "category": "Čas a dny",
+    "difficulty": "A1",
+    "pronunciation": "la nóte",
+    "example_it": "La notte dormo.",
+    "example_cz": "V noci spím."
+  },
+  {
+    "italian": "l'ora",
+    "czech": "hodina",
+    "category": "Čas a dny",
+    "difficulty": "A1",
+    "pronunciation": "lóra",
+    "example_it": "Che ora è?",
+    "example_cz": "Kolik je hodin?"
+  },
+  {
+    "italian": "il minuto",
+    "czech": "minuta",
+    "category": "Čas a dny",
+    "difficulty": "A1",
+    "pronunciation": "il minúto",
+    "example_it": "Aspetta un minuto.",
+    "example_cz": "Počkej minutu."
+  },
+  {
+    "italian": "il secondo",
+    "czech": "sekunda",
+    "category": "Čas a dny",
+    "difficulty": "A1",
+    "pronunciation": "il sekóndo",
+    "example_it": "Un secondo, per favore.",
+    "example_cz": "Sekundu, prosím."
+  },
+  {
+    "italian": "la settimana",
+    "czech": "týden",
+    "category": "Čas a dny",
+    "difficulty": "A1",
+    "pronunciation": "la setimána",
+    "example_it": "Una settimana ha sette giorni.",
+    "example_cz": "Týden má sedm dní."
+  },
+  {
+    "italian": "il mese",
+    "czech": "měsíc",
+    "category": "Čas a dny",
+    "difficulty": "A1",
+    "pronunciation": "il méze",
+    "example_it": "Il prossimo mese.",
+    "example_cz": "Příští měsíc."
+  },
+  {
+    "italian": "l'anno",
+    "czech": "rok",
+    "category": "Čas a dny",
+    "difficulty": "A1",
+    "pronunciation": "láno",
+    "example_it": "Buon anno!",
+    "example_cz": "Šťastný nový rok!"
+  },
+  {
+    "italian": "la primavera",
+    "czech": "jaro",
+    "category": "Čas a dny",
+    "difficulty": "A1",
+    "pronunciation": "la primavéra",
+    "example_it": "In primavera sbocciano i fiori.",
+    "example_cz": "Na jaře kvetou květiny."
+  },
+  {
+    "italian": "l'estate",
+    "czech": "léto",
+    "category": "Čas a dny",
+    "difficulty": "A1",
+    "pronunciation": "lestáte",
+    "example_it": "In estate fa caldo.",
+    "example_cz": "V létě je horko."
+  },
+  {
+    "italian": "l'autunno",
+    "czech": "podzim",
+    "category": "Čas a dny",
+    "difficulty": "A1",
+    "pronunciation": "lautúno",
+    "example_it": "In autunno cadono le foglie.",
+    "example_cz": "Na podzim padá listí."
+  },
+  {
+    "italian": "l'inverno",
+    "czech": "zima (období)",
+    "category": "Čas a dny",
+    "difficulty": "A1",
+    "pronunciation": "linvérno",
+    "example_it": "In inverno fa freddo.",
+    "example_cz": "V zimě je zima."
+  }
+]

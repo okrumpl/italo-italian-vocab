@@ -1,0 +1,1469 @@
+[
+  {
+    "italian": "la pioggerella",
+    "czech": "mrholení",
+    "category": "Počasí",
+    "difficulty": "A1",
+    "pronunciation": "la pjodžeréla",
+    "example_it": "C'è una pioggerella leggera.",
+    "example_cz": "Je lehké mrholení."
+  },
+  {
+    "italian": "la brina",
+    "czech": "jinovatka",
+    "category": "Počasí",
+    "difficulty": "A1",
+    "pronunciation": "la brína",
+    "example_it": "La brina copre i campi.",
+    "example_cz": "Jinovatka pokrývá pole."
+  },
+  {
+    "italian": "la tempesta",
+    "czech": "bouře",
+    "category": "Počasí",
+    "difficulty": "A1",
+    "pronunciation": "la tempésta",
+    "example_it": "La tempesta è forte.",
+    "example_cz": "Bouře je silná."
+  },
+  {
+    "italian": "il tornado",
+    "czech": "tornádo",
+    "category": "Počasí",
+    "difficulty": "A1",
+    "pronunciation": "il tornádo",
+    "example_it": "Il tornado distrugge tutto.",
+    "example_cz": "Tornádo ničí všechno."
+  },
+  {
+    "italian": "la siccità",
+    "czech": "sucho",
+    "category": "Počasí",
+    "difficulty": "A1",
+    "pronunciation": "la sičitá",
+    "example_it": "La siccità dura da mesi.",
+    "example_cz": "Sucho trvá měsíce."
+  },
+  {
+    "italian": "l'alluvione",
+    "czech": "povodeň",
+    "category": "Počasí",
+    "difficulty": "A1",
+    "pronunciation": "laluvjóne",
+    "example_it": "L'alluvione ha danneggiato la città.",
+    "example_cz": "Povodeň poškodila město."
+  },
+  {
+    "italian": "la brezza",
+    "czech": "vánek",
+    "category": "Počasí",
+    "difficulty": "A1",
+    "pronunciation": "la bréca",
+    "example_it": "Una brezza fresca soffia.",
+    "example_cz": "Fouká svěží vánek."
+  },
+  {
+    "italian": "la rugiada",
+    "czech": "rosa (kapky)",
+    "category": "Počasí",
+    "difficulty": "A1",
+    "pronunciation": "la rudžáda",
+    "example_it": "La rugiada brilla sull'erba.",
+    "example_cz": "Rosa se třpytí na trávě."
+  },
+  {
+    "italian": "il ciclone",
+    "czech": "cyklón",
+    "category": "Počasí",
+    "difficulty": "A1",
+    "pronunciation": "il čiklóne",
+    "example_it": "Il ciclone si avvicina.",
+    "example_cz": "Cyklón se blíží."
+  },
+  {
+    "italian": "piovere",
+    "czech": "pršet",
+    "category": "Počasí",
+    "difficulty": "A1",
+    "pronunciation": "pjóvere",
+    "example_it": "Domani pioverà.",
+    "example_cz": "Zítra bude pršet."
+  },
+  {
+    "italian": "nevicare",
+    "czech": "sněžit",
+    "category": "Počasí",
+    "difficulty": "A1",
+    "pronunciation": "nevikáre",
+    "example_it": "Ha iniziato a nevicare.",
+    "example_cz": "Začalo sněžit."
+  },
+  {
+    "italian": "gelare",
+    "czech": "mrznout",
+    "category": "Počasí",
+    "difficulty": "A1",
+    "pronunciation": "dželáre",
+    "example_it": "Di notte gela.",
+    "example_cz": "V noci mrzne."
+  },
+  {
+    "italian": "soffiare",
+    "czech": "foukat",
+    "category": "Počasí",
+    "difficulty": "A1",
+    "pronunciation": "sofjáre",
+    "example_it": "Il vento soffia forte.",
+    "example_cz": "Vítr fouká silně."
+  },
+  {
+    "italian": "la previsione",
+    "czech": "předpověď",
+    "category": "Počasí",
+    "difficulty": "A1",
+    "pronunciation": "la previzjóne",
+    "example_it": "La previsione dice sole.",
+    "example_cz": "Předpověď říká slunečno."
+  },
+  {
+    "italian": "il termometro",
+    "czech": "teploměr",
+    "category": "Počasí",
+    "difficulty": "A1",
+    "pronunciation": "il termómetro",
+    "example_it": "Il termometro segna 30 gradi.",
+    "example_cz": "Teploměr ukazuje 30 stupňů."
+  },
+  {
+    "italian": "il grado",
+    "czech": "stupeň",
+    "category": "Počasí",
+    "difficulty": "A1",
+    "pronunciation": "il grádo",
+    "example_it": "Oggi ci sono 25 gradi.",
+    "example_cz": "Dnes je 25 stupňů."
+  },
+  {
+    "italian": "asciutto",
+    "czech": "suchý",
+    "category": "Počasí",
+    "difficulty": "A1",
+    "pronunciation": "ašúto",
+    "example_it": "Il tempo è asciutto.",
+    "example_cz": "Počasí je suché."
+  },
+  {
+    "italian": "umido",
+    "czech": "vlhký",
+    "category": "Počasí",
+    "difficulty": "A1",
+    "pronunciation": "úmido",
+    "example_it": "L'aria è molto umida.",
+    "example_cz": "Vzduch je velmi vlhký."
+  },
+  {
+    "italian": "piovoso",
+    "czech": "deštivý",
+    "category": "Počasí",
+    "difficulty": "A1",
+    "pronunciation": "pjovózo",
+    "example_it": "Una giornata piovosa.",
+    "example_cz": "Deštivý den."
+  },
+  {
+    "italian": "soleggiato",
+    "czech": "slunečný",
+    "category": "Počasí",
+    "difficulty": "A1",
+    "pronunciation": "soledžáto",
+    "example_it": "Un giorno soleggiato.",
+    "example_cz": "Slunečný den."
+  },
+  {
+    "italian": "ventoso",
+    "czech": "větrný",
+    "category": "Počasí",
+    "difficulty": "A1",
+    "pronunciation": "ventózo",
+    "example_it": "Una notte ventosa.",
+    "example_cz": "Větrná noc."
+  },
+  {
+    "italian": "la città",
+    "czech": "město",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "la čitá",
+    "example_it": "La città è grande.",
+    "example_cz": "Město je velké."
+  },
+  {
+    "italian": "il paese",
+    "czech": "vesnice / země",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "il paéze",
+    "example_it": "Il paese è piccolo.",
+    "example_cz": "Vesnice je malá."
+  },
+  {
+    "italian": "la piazza",
+    "czech": "náměstí",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "la pjáca",
+    "example_it": "La piazza è bella.",
+    "example_cz": "Náměstí je hezké."
+  },
+  {
+    "italian": "la via",
+    "czech": "ulice",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "la vía",
+    "example_it": "La via è stretta.",
+    "example_cz": "Ulice je úzká."
+  },
+  {
+    "italian": "il marciapiede",
+    "czech": "chodník",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "il marčapjéde",
+    "example_it": "Cammino sul marciapiede.",
+    "example_cz": "Jdu po chodníku."
+  },
+  {
+    "italian": "l'incrocio",
+    "czech": "křižovatka",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "linkróčo",
+    "example_it": "Gira a destra all'incrocio.",
+    "example_cz": "Zahni vpravo na křižovatce."
+  },
+  {
+    "italian": "il semaforo",
+    "czech": "semafor",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "il semáforo",
+    "example_it": "Il semaforo è rosso.",
+    "example_cz": "Semafor je červený."
+  },
+  {
+    "italian": "la fermata",
+    "czech": "zastávka",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "la fermáta",
+    "example_it": "La fermata dell'autobus.",
+    "example_cz": "Zastávka autobusu."
+  },
+  {
+    "italian": "il ponte",
+    "czech": "most",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "il pónte",
+    "example_it": "Il ponte è antico.",
+    "example_cz": "Most je starý."
+  },
+  {
+    "italian": "il palazzo",
+    "czech": "palác / budova",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "il paláco",
+    "example_it": "Il palazzo è enorme.",
+    "example_cz": "Budova je obrovská."
+  },
+  {
+    "italian": "il municipio",
+    "czech": "radnice",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "il muničípio",
+    "example_it": "Il municipio è in centro.",
+    "example_cz": "Radnice je v centru."
+  },
+  {
+    "italian": "la chiesa",
+    "czech": "kostel",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "la kjéza",
+    "example_it": "La chiesa è del XV secolo.",
+    "example_cz": "Kostel je z 15. století."
+  },
+  {
+    "italian": "la fontana",
+    "czech": "fontána",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "la fontána",
+    "example_it": "La fontana è bellissima.",
+    "example_cz": "Fontána je nádherná."
+  },
+  {
+    "italian": "il supermercato",
+    "czech": "supermarket",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "il supermerkáto",
+    "example_it": "Vado al supermercato.",
+    "example_cz": "Jdu do supermarketu."
+  },
+  {
+    "italian": "la farmacia",
+    "czech": "lékárna",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "la farmačía",
+    "example_it": "La farmacia è aperta.",
+    "example_cz": "Lékárna je otevřená."
+  },
+  {
+    "italian": "la banca",
+    "czech": "banka",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "la bánka",
+    "example_it": "Devo andare in banca.",
+    "example_cz": "Musím jít do banky."
+  },
+  {
+    "italian": "l'ospedale",
+    "czech": "nemocnice",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "lospedále",
+    "example_it": "L'ospedale è vicino.",
+    "example_cz": "Nemocnice je blízko."
+  },
+  {
+    "italian": "la scuola",
+    "czech": "škola",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "la skuóla",
+    "example_it": "La scuola inizia a settembre.",
+    "example_cz": "Škola začíná v září."
+  },
+  {
+    "italian": "la biblioteca",
+    "czech": "knihovna",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "la bibliotéka",
+    "example_it": "Studio in biblioteca.",
+    "example_cz": "Studuji v knihovně."
+  },
+  {
+    "italian": "il ristorante",
+    "czech": "restaurace",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "il ristoránte",
+    "example_it": "Il ristorante è buono.",
+    "example_cz": "Restaurace je dobrá."
+  },
+  {
+    "italian": "il bar",
+    "czech": "bar / kavárna",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "il bar",
+    "example_it": "Prendiamo un caffè al bar.",
+    "example_cz": "Dáme si kávu v baru."
+  },
+  {
+    "italian": "la posta",
+    "czech": "pošta",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "la pósta",
+    "example_it": "Vado alla posta.",
+    "example_cz": "Jdu na poštu."
+  },
+  {
+    "italian": "il taxi",
+    "czech": "taxík",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "il táksi",
+    "example_it": "Chiamo un taxi.",
+    "example_cz": "Volám taxík."
+  },
+  {
+    "italian": "la metropolitana",
+    "czech": "metro",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "la metropolitána",
+    "example_it": "Prendo la metropolitana.",
+    "example_cz": "Jedu metrem."
+  },
+  {
+    "italian": "il tram",
+    "czech": "tramvaj",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "il tram",
+    "example_it": "Il tram è in ritardo.",
+    "example_cz": "Tramvaj má zpoždění."
+  },
+  {
+    "italian": "la bicicletta",
+    "czech": "kolo",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "la bičikléta",
+    "example_it": "Vado in bicicletta al lavoro.",
+    "example_cz": "Jezdím na kole do práce."
+  },
+  {
+    "italian": "il motorino",
+    "czech": "skútr",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "il motoríno",
+    "example_it": "Ho un motorino nuovo.",
+    "example_cz": "Mám nový skútr."
+  },
+  {
+    "italian": "il pedone",
+    "czech": "chodec",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "il pedóne",
+    "example_it": "Il pedone attraversa la strada.",
+    "example_cz": "Chodec přechází silnici."
+  },
+  {
+    "italian": "il traffico",
+    "czech": "provoz / doprava",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "il tráfiko",
+    "example_it": "Il traffico è intenso.",
+    "example_cz": "Provoz je hustý."
+  },
+  {
+    "italian": "il parcheggio",
+    "czech": "parkoviště",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "il parkédžo",
+    "example_it": "Cerco un parcheggio.",
+    "example_cz": "Hledám parkoviště."
+  },
+  {
+    "italian": "la patente",
+    "czech": "řidičský průkaz",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "la paténte",
+    "example_it": "Ho preso la patente.",
+    "example_cz": "Udělal jsem si řidičák."
+  },
+  {
+    "italian": "la multa",
+    "czech": "pokuta",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "la múlta",
+    "example_it": "Ho preso una multa.",
+    "example_cz": "Dostal jsem pokutu."
+  },
+  {
+    "italian": "la rotonda",
+    "czech": "kruhový objezd",
+    "category": "Město a doprava",
+    "difficulty": "A1",
+    "pronunciation": "la rotónda",
+    "example_it": "Vai dritto alla rotonda.",
+    "example_cz": "Jeď rovně na kruháči."
+  },
+  {
+    "italian": "felice",
+    "czech": "šťastný",
+    "category": "Emoce a vlastnosti",
+    "difficulty": "A1",
+    "pronunciation": "felíče",
+    "example_it": "Sono molto felice.",
+    "example_cz": "Jsem velmi šťastný."
+  },
+  {
+    "italian": "triste",
+    "czech": "smutný",
+    "category": "Emoce a vlastnosti",
+    "difficulty": "A1",
+    "pronunciation": "tríste",
+    "example_it": "Perché sei triste?",
+    "example_cz": "Proč jsi smutný?"
+  },
+  {
+    "italian": "arrabbiato",
+    "czech": "naštvaný",
+    "category": "Emoce a vlastnosti",
+    "difficulty": "A1",
+    "pronunciation": "arabjáto",
+    "example_it": "Sono arrabbiato.",
+    "example_cz": "Jsem naštvaný."
+  },
+  {
+    "italian": "sorpreso",
+    "czech": "překvapený",
+    "category": "Emoce a vlastnosti",
+    "difficulty": "A1",
+    "pronunciation": "sorprézo",
+    "example_it": "Sono sorpreso!",
+    "example_cz": "Jsem překvapený!"
+  },
+  {
+    "italian": "preoccupato",
+    "czech": "ustaraný",
+    "category": "Emoce a vlastnosti",
+    "difficulty": "A1",
+    "pronunciation": "preokupáto",
+    "example_it": "Sono preoccupato per te.",
+    "example_cz": "Mám o tebe starost."
+  },
+  {
+    "italian": "spaventato",
+    "czech": "vystrašený",
+    "category": "Emoce a vlastnosti",
+    "difficulty": "A1",
+    "pronunciation": "spaventáto",
+    "example_it": "Il bambino è spaventato.",
+    "example_cz": "Dítě je vystrašené."
+  },
+  {
+    "italian": "entusiasta",
+    "czech": "nadšený",
+    "category": "Emoce a vlastnosti",
+    "difficulty": "A1",
+    "pronunciation": "entuzjásta",
+    "example_it": "Sono entusiasta del viaggio.",
+    "example_cz": "Jsem nadšený z výletu."
+  },
+  {
+    "italian": "deluso",
+    "czech": "zklamaný",
+    "category": "Emoce a vlastnosti",
+    "difficulty": "A1",
+    "pronunciation": "delúzo",
+    "example_it": "Sono deluso dal risultato.",
+    "example_cz": "Jsem zklamaný z výsledku."
+  },
+  {
+    "italian": "geloso",
+    "czech": "žárlivý",
+    "category": "Emoce a vlastnosti",
+    "difficulty": "A1",
+    "pronunciation": "dželózo",
+    "example_it": "Non essere geloso.",
+    "example_cz": "Nebuď žárlivý."
+  },
+  {
+    "italian": "orgoglioso",
+    "czech": "hrdý / pyšný",
+    "category": "Emoce a vlastnosti",
+    "difficulty": "A1",
+    "pronunciation": "orgoljózo",
+    "example_it": "Sono orgoglioso di te.",
+    "example_cz": "Jsem na tebe hrdý."
+  },
+  {
+    "italian": "annoiato",
+    "czech": "znuděný",
+    "category": "Emoce a vlastnosti",
+    "difficulty": "A1",
+    "pronunciation": "anojáto",
+    "example_it": "Mi sento annoiato.",
+    "example_cz": "Cítím se znuděný."
+  },
+  {
+    "italian": "emozionato",
+    "czech": "vzrušený / dojatý",
+    "category": "Emoce a vlastnosti",
+    "difficulty": "A1",
+    "pronunciation": "emocjonáto",
+    "example_it": "Sono emozionato.",
+    "example_cz": "Jsem dojatý."
+  },
+  {
+    "italian": "confuso",
+    "czech": "zmatený",
+    "category": "Emoce a vlastnosti",
+    "difficulty": "A1",
+    "pronunciation": "konfúzo",
+    "example_it": "Sono confuso.",
+    "example_cz": "Jsem zmatený."
+  },
+  {
+    "italian": "nervoso",
+    "czech": "nervózní",
+    "category": "Emoce a vlastnosti",
+    "difficulty": "A1",
+    "pronunciation": "nervózo",
+    "example_it": "Non essere nervoso.",
+    "example_cz": "Nebuď nervózní."
+  },
+  {
+    "italian": "calmo",
+    "czech": "klidný",
+    "category": "Emoce a vlastnosti",
+    "difficulty": "A1",
+    "pronunciation": "kálmo",
+    "example_it": "Stai calmo.",
+    "example_cz": "Buď klidný."
+  },
+  {
+    "italian": "coraggioso",
+    "czech": "odvážný",
+    "category": "Emoce a vlastnosti",
+    "difficulty": "A1",
+    "pronunciation": "koradžózo",
+    "example_it": "Sei molto coraggioso.",
+    "example_cz": "Jsi velmi odvážný."
+  },
+  {
+    "italian": "timido",
+    "czech": "stydlivý",
+    "category": "Emoce a vlastnosti",
+    "difficulty": "A1",
+    "pronunciation": "tímido",
+    "example_it": "È un ragazzo timido.",
+    "example_cz": "Je to stydlivý kluk."
+  },
+  {
+    "italian": "gentile",
+    "czech": "laskavý",
+    "category": "Emoce a vlastnosti",
+    "difficulty": "A1",
+    "pronunciation": "džentíle",
+    "example_it": "Lei è molto gentile.",
+    "example_cz": "Ona je velmi laskavá."
+  },
+  {
+    "italian": "generoso",
+    "czech": "štědrý",
+    "category": "Emoce a vlastnosti",
+    "difficulty": "A1",
+    "pronunciation": "dženerózo",
+    "example_it": "Un uomo generoso.",
+    "example_cz": "Štědrý muž."
+  },
+  {
+    "italian": "pigro",
+    "czech": "líný",
+    "category": "Emoce a vlastnosti",
+    "difficulty": "A1",
+    "pronunciation": "pígro",
+    "example_it": "Il gatto è pigro.",
+    "example_cz": "Kočka je líná."
+  },
+  {
+    "italian": "furbo",
+    "czech": "mazaný / chytrý",
+    "category": "Emoce a vlastnosti",
+    "difficulty": "A1",
+    "pronunciation": "fúrbo",
+    "example_it": "È un tipo furbo.",
+    "example_cz": "Je to mazaný typ."
+  },
+  {
+    "italian": "testardo",
+    "czech": "tvrdohlavý",
+    "category": "Emoce a vlastnosti",
+    "difficulty": "A1",
+    "pronunciation": "testárdo",
+    "example_it": "È molto testardo.",
+    "example_cz": "Je velmi tvrdohlavý."
+  },
+  {
+    "italian": "simpatico",
+    "czech": "sympatický",
+    "category": "Emoce a vlastnosti",
+    "difficulty": "A1",
+    "pronunciation": "simpátiko",
+    "example_it": "È una persona simpatica.",
+    "example_cz": "Je to sympatický člověk."
+  },
+  {
+    "italian": "antipatico",
+    "czech": "nesympatický",
+    "category": "Emoce a vlastnosti",
+    "difficulty": "A1",
+    "pronunciation": "antipátiko",
+    "example_it": "Non è antipatico, solo timido.",
+    "example_cz": "Není nesympatický, jen stydlivý."
+  },
+  {
+    "italian": "sincero",
+    "czech": "upřímný",
+    "category": "Emoce a vlastnosti",
+    "difficulty": "A1",
+    "pronunciation": "sinčéro",
+    "example_it": "Sii sincero con me.",
+    "example_cz": "Buď ke mně upřímný."
+  },
+  {
+    "italian": "onesto",
+    "czech": "poctivý",
+    "category": "Emoce a vlastnosti",
+    "difficulty": "A1",
+    "pronunciation": "onésto",
+    "example_it": "È un uomo onesto.",
+    "example_cz": "Je to poctivý muž."
+  },
+  {
+    "italian": "paziente",
+    "czech": "trpělivý",
+    "category": "Emoce a vlastnosti",
+    "difficulty": "A1",
+    "pronunciation": "pacjénte",
+    "example_it": "Devi essere paziente.",
+    "example_cz": "Musíš být trpělivý."
+  },
+  {
+    "italian": "impaziente",
+    "czech": "netrpělivý",
+    "category": "Emoce a vlastnosti",
+    "difficulty": "A1",
+    "pronunciation": "impacjénte",
+    "example_it": "Sono impaziente di vederti.",
+    "example_cz": "Netrpělivě se těším, až tě uvidím."
+  },
+  {
+    "italian": "curioso",
+    "czech": "zvědavý",
+    "category": "Emoce a vlastnosti",
+    "difficulty": "A1",
+    "pronunciation": "kurjózo",
+    "example_it": "I bambini sono curiosi.",
+    "example_cz": "Děti jsou zvědavé."
+  },
+  {
+    "italian": "divertente",
+    "czech": "zábavný",
+    "category": "Emoce a vlastnosti",
+    "difficulty": "A1",
+    "pronunciation": "diverténte",
+    "example_it": "Il film è divertente.",
+    "example_cz": "Film je zábavný."
+  },
+  {
+    "italian": "turchese",
+    "czech": "tyrkysový",
+    "category": "Barvy",
+    "difficulty": "A1",
+    "pronunciation": "turkéze",
+    "example_it": "Il mare è turchese.",
+    "example_cz": "Moře je tyrkysové."
+  },
+  {
+    "italian": "lilla",
+    "czech": "lila",
+    "category": "Barvy",
+    "difficulty": "A1",
+    "pronunciation": "líla",
+    "example_it": "Un vestito lilla.",
+    "example_cz": "Šaty lila barvy."
+  },
+  {
+    "italian": "beige",
+    "czech": "béžový",
+    "category": "Barvy",
+    "difficulty": "A1",
+    "pronunciation": "béž",
+    "example_it": "I pantaloni beige.",
+    "example_cz": "Béžové kalhoty."
+  },
+  {
+    "italian": "bordeaux",
+    "czech": "bordó",
+    "category": "Barvy",
+    "difficulty": "A1",
+    "pronunciation": "bordó",
+    "example_it": "Una cravatta bordeaux.",
+    "example_cz": "Bordó kravata."
+  },
+  {
+    "italian": "crema",
+    "czech": "krémový",
+    "category": "Barvy",
+    "difficulty": "A1",
+    "pronunciation": "kréma",
+    "example_it": "Il colore crema.",
+    "example_cz": "Krémová barva."
+  },
+  {
+    "italian": "indaco",
+    "czech": "indigový",
+    "category": "Barvy",
+    "difficulty": "A1",
+    "pronunciation": "índako",
+    "example_it": "Il cielo indaco.",
+    "example_cz": "Indigová obloha."
+  },
+  {
+    "italian": "corallo",
+    "czech": "korálový",
+    "category": "Barvy",
+    "difficulty": "A1",
+    "pronunciation": "korálo",
+    "example_it": "Un rossetto corallo.",
+    "example_cz": "Korálová rtěnka."
+  },
+  {
+    "italian": "color salmone",
+    "czech": "lososový",
+    "category": "Barvy",
+    "difficulty": "A1",
+    "pronunciation": "kolór salmóne",
+    "example_it": "La maglietta color salmone.",
+    "example_cz": "Tričko lososové barvy."
+  },
+  {
+    "italian": "brillante",
+    "czech": "zářivý",
+    "category": "Barvy",
+    "difficulty": "A1",
+    "pronunciation": "briljánte",
+    "example_it": "Un rosso brillante.",
+    "example_cz": "Zářivě červená."
+  },
+  {
+    "italian": "opaco",
+    "czech": "matný",
+    "category": "Barvy",
+    "difficulty": "A1",
+    "pronunciation": "opáko",
+    "example_it": "Una vernice opaca.",
+    "example_cz": "Matný lak."
+  },
+  {
+    "italian": "colorato",
+    "czech": "barevný",
+    "category": "Barvy",
+    "difficulty": "A1",
+    "pronunciation": "koloráto",
+    "example_it": "Un mondo colorato.",
+    "example_cz": "Barevný svět."
+  },
+  {
+    "italian": "trasparente",
+    "czech": "průhledný",
+    "category": "Barvy",
+    "difficulty": "A1",
+    "pronunciation": "trasparénte",
+    "example_it": "L'acqua è trasparente.",
+    "example_cz": "Voda je průhledná."
+  },
+  {
+    "italian": "dipingere",
+    "czech": "malovat",
+    "category": "Barvy",
+    "difficulty": "A1",
+    "pronunciation": "dipíndžere",
+    "example_it": "Mi piace dipingere.",
+    "example_cz": "Rád maluji."
+  },
+  {
+    "italian": "il colore",
+    "czech": "barva",
+    "category": "Barvy",
+    "difficulty": "A1",
+    "pronunciation": "il kolóre",
+    "example_it": "Qual è il tuo colore preferito?",
+    "example_cz": "Jaká je tvá oblíbená barva?"
+  },
+  {
+    "italian": "il bisnonno",
+    "czech": "pradědeček",
+    "category": "Rodina a vztahy",
+    "difficulty": "A1",
+    "pronunciation": "il biznóno",
+    "example_it": "Il bisnonno ha 95 anni.",
+    "example_cz": "Pradědeček má 95 let."
+  },
+  {
+    "italian": "la bisnonna",
+    "czech": "prababička",
+    "category": "Rodina a vztahy",
+    "difficulty": "A1",
+    "pronunciation": "la biznóna",
+    "example_it": "La bisnonna racconta storie.",
+    "example_cz": "Prababička vypráví příběhy."
+  },
+  {
+    "italian": "il suocero",
+    "czech": "tchán",
+    "category": "Rodina a vztahy",
+    "difficulty": "A1",
+    "pronunciation": "il suóčero",
+    "example_it": "Il suocero è simpatico.",
+    "example_cz": "Tchán je sympatický."
+  },
+  {
+    "italian": "la suocera",
+    "czech": "tchyně",
+    "category": "Rodina a vztahy",
+    "difficulty": "A1",
+    "pronunciation": "la suóčera",
+    "example_it": "La suocera cucina bene.",
+    "example_cz": "Tchyně dobře vaří."
+  },
+  {
+    "italian": "il genero",
+    "czech": "zeť",
+    "category": "Rodina a vztahy",
+    "difficulty": "A1",
+    "pronunciation": "il džénero",
+    "example_it": "Il genero lavora in banca.",
+    "example_cz": "Zeť pracuje v bance."
+  },
+  {
+    "italian": "la nuora",
+    "czech": "snacha",
+    "category": "Rodina a vztahy",
+    "difficulty": "A1",
+    "pronunciation": "la nuóra",
+    "example_it": "La nuora è gentile.",
+    "example_cz": "Snacha je milá."
+  },
+  {
+    "italian": "il cognato",
+    "czech": "švagr",
+    "category": "Rodina a vztahy",
+    "difficulty": "A1",
+    "pronunciation": "il koňáto",
+    "example_it": "Il cognato viene a cena.",
+    "example_cz": "Švagr přijde na večeři."
+  },
+  {
+    "italian": "la cognata",
+    "czech": "švagrová",
+    "category": "Rodina a vztahy",
+    "difficulty": "A1",
+    "pronunciation": "la koňáta",
+    "example_it": "La cognata vive a Milano.",
+    "example_cz": "Švagrová žije v Miláně."
+  },
+  {
+    "italian": "il patrigno",
+    "czech": "nevlastní otec",
+    "category": "Rodina a vztahy",
+    "difficulty": "A1",
+    "pronunciation": "il patríňo",
+    "example_it": "Il patrigno è buono.",
+    "example_cz": "Nevlastní otec je hodný."
+  },
+  {
+    "italian": "la matrigna",
+    "czech": "nevlastní matka",
+    "category": "Rodina a vztahy",
+    "difficulty": "A1",
+    "pronunciation": "la matríňa",
+    "example_it": "La matrigna lo ama.",
+    "example_cz": "Nevlastní matka ho miluje."
+  },
+  {
+    "italian": "il gemello",
+    "czech": "dvojče",
+    "category": "Rodina a vztahy",
+    "difficulty": "A1",
+    "pronunciation": "il džemélo",
+    "example_it": "Sono gemelli identici.",
+    "example_cz": "Jsou jednovaječná dvojčata."
+  },
+  {
+    "italian": "l'amicizia",
+    "czech": "přátelství",
+    "category": "Rodina a vztahy",
+    "difficulty": "A1",
+    "pronunciation": "lamičícja",
+    "example_it": "L'amicizia è importante.",
+    "example_cz": "Přátelství je důležité."
+  },
+  {
+    "italian": "il fidanzato",
+    "czech": "snoubenec / přítel",
+    "category": "Rodina a vztahy",
+    "difficulty": "A1",
+    "pronunciation": "il fidancáto",
+    "example_it": "Il fidanzato le ha proposto.",
+    "example_cz": "Snoubenec jí požádal o ruku."
+  },
+  {
+    "italian": "la fidanzata",
+    "czech": "snoubenka / přítelkyně",
+    "category": "Rodina a vztahy",
+    "difficulty": "A1",
+    "pronunciation": "la fidancáta",
+    "example_it": "La fidanzata è bella.",
+    "example_cz": "Snoubenka je krásná."
+  },
+  {
+    "italian": "il matrimonio",
+    "czech": "svatba",
+    "category": "Rodina a vztahy",
+    "difficulty": "A1",
+    "pronunciation": "il matrimónjo",
+    "example_it": "Il matrimonio è domani.",
+    "example_cz": "Svatba je zítra."
+  },
+  {
+    "italian": "il divorzio",
+    "czech": "rozvod",
+    "category": "Rodina a vztahy",
+    "difficulty": "A1",
+    "pronunciation": "il divórcjo",
+    "example_it": "Il divorzio è difficile.",
+    "example_cz": "Rozvod je těžký."
+  },
+  {
+    "italian": "la nascita",
+    "czech": "narození",
+    "category": "Rodina a vztahy",
+    "difficulty": "A1",
+    "pronunciation": "la nášita",
+    "example_it": "La nascita di un figlio.",
+    "example_cz": "Narození dítěte."
+  },
+  {
+    "italian": "il battesimo",
+    "czech": "křest",
+    "category": "Rodina a vztahy",
+    "difficulty": "A1",
+    "pronunciation": "il batézimo",
+    "example_it": "Il battesimo del bambino.",
+    "example_cz": "Křest dítěte."
+  },
+  {
+    "italian": "la famiglia allargata",
+    "czech": "rozšířená rodina",
+    "category": "Rodina a vztahy",
+    "difficulty": "A1",
+    "pronunciation": "la famílja alargáta",
+    "example_it": "Una grande famiglia allargata.",
+    "example_cz": "Velká rozšířená rodina."
+  },
+  {
+    "italian": "voler bene",
+    "czech": "mít rád",
+    "category": "Rodina a vztahy",
+    "difficulty": "A1",
+    "pronunciation": "volér béne",
+    "example_it": "Ti voglio bene.",
+    "example_cz": "Mám tě rád."
+  },
+  {
+    "italian": "Come va?",
+    "czech": "Jak to jde?",
+    "category": "Fráze",
+    "difficulty": "A1",
+    "pronunciation": "kóme va",
+    "example_it": "Ciao, come va?",
+    "example_cz": "Ahoj, jak to jde?"
+  },
+  {
+    "italian": "Benissimo!",
+    "czech": "Skvěle!",
+    "category": "Fráze",
+    "difficulty": "A1",
+    "pronunciation": "beníssimo",
+    "example_it": "Come va? Benissimo!",
+    "example_cz": "Jak to jde? Skvěle!"
+  },
+  {
+    "italian": "Più o meno",
+    "czech": "Tak napůl",
+    "category": "Fráze",
+    "difficulty": "A1",
+    "pronunciation": "pjú o méno",
+    "example_it": "Come stai? Più o meno.",
+    "example_cz": "Jak se máš? Tak napůl."
+  },
+  {
+    "italian": "D'accordo",
+    "czech": "Souhlasím / Dobrá",
+    "category": "Fráze",
+    "difficulty": "A1",
+    "pronunciation": "dakórdo",
+    "example_it": "D'accordo, andiamo.",
+    "example_cz": "Dobrá, jdeme."
+  },
+  {
+    "italian": "Che bello!",
+    "czech": "To je krásné!",
+    "category": "Fráze",
+    "difficulty": "A1",
+    "pronunciation": "ke bélo",
+    "example_it": "Che bello questo posto!",
+    "example_cz": "To místo je krásné!"
+  },
+  {
+    "italian": "Non importa",
+    "czech": "Nevadí / Na tom nezáleží",
+    "category": "Fráze",
+    "difficulty": "A1",
+    "pronunciation": "non impórta",
+    "example_it": "Non importa, lascia stare.",
+    "example_cz": "Nevadí, nech to být."
+  },
+  {
+    "italian": "Che peccato!",
+    "czech": "Jaká škoda!",
+    "category": "Fráze",
+    "difficulty": "A1",
+    "pronunciation": "ke pekáto",
+    "example_it": "Che peccato che non puoi venire!",
+    "example_cz": "Škoda, že nemůžeš přijít!"
+  },
+  {
+    "italian": "In bocca al lupo!",
+    "czech": "Hodně štěstí!",
+    "category": "Fráze",
+    "difficulty": "A1",
+    "pronunciation": "in bóka al lúpo",
+    "example_it": "In bocca al lupo per l'esame!",
+    "example_cz": "Hodně štěstí u zkoušky!"
+  },
+  {
+    "italian": "Crepi!",
+    "czech": "Díky! (odpověď)",
+    "category": "Fráze",
+    "difficulty": "A1",
+    "pronunciation": "krépi",
+    "example_it": "In bocca al lupo! Crepi!",
+    "example_cz": "Hodně štěstí! Díky!"
+  },
+  {
+    "italian": "Salute!",
+    "czech": "Na zdraví!",
+    "category": "Fráze",
+    "difficulty": "A1",
+    "pronunciation": "salúte",
+    "example_it": "Salute! Cin cin!",
+    "example_cz": "Na zdraví! Přípitek!"
+  },
+  {
+    "italian": "Auguri!",
+    "czech": "Blahopřání!",
+    "category": "Fráze",
+    "difficulty": "A1",
+    "pronunciation": "augúri",
+    "example_it": "Buon compleanno! Auguri!",
+    "example_cz": "Šťastné narozeniny! Blahopřání!"
+  },
+  {
+    "italian": "Mi scusi",
+    "czech": "Promiňte (formální)",
+    "category": "Fráze",
+    "difficulty": "A1",
+    "pronunciation": "mi skúzi",
+    "example_it": "Mi scusi, dov'è la stazione?",
+    "example_cz": "Promiňte, kde je nádraží?"
+  },
+  {
+    "italian": "Permesso",
+    "czech": "S dovolením",
+    "category": "Fráze",
+    "difficulty": "A1",
+    "pronunciation": "permésso",
+    "example_it": "Permesso, posso passare?",
+    "example_cz": "S dovolením, mohu projít?"
+  },
+  {
+    "italian": "Che ora è?",
+    "czech": "Kolik je hodin?",
+    "category": "Fráze",
+    "difficulty": "A1",
+    "pronunciation": "ke óra é",
+    "example_it": "Scusa, che ora è?",
+    "example_cz": "Promiň, kolik je hodin?"
+  },
+  {
+    "italian": "Ho fame",
+    "czech": "Mám hlad",
+    "category": "Fráze",
+    "difficulty": "A1",
+    "pronunciation": "o fáme",
+    "example_it": "Ho molta fame.",
+    "example_cz": "Mám velký hlad."
+  },
+  {
+    "italian": "Ho sete",
+    "czech": "Mám žízeň",
+    "category": "Fráze",
+    "difficulty": "A1",
+    "pronunciation": "o séte",
+    "example_it": "Ho sete, vorrei dell'acqua.",
+    "example_cz": "Mám žízeň, chtěl bych vodu."
+  },
+  {
+    "italian": "Sono stanco",
+    "czech": "Jsem unavený",
+    "category": "Fráze",
+    "difficulty": "A1",
+    "pronunciation": "sóno stánko",
+    "example_it": "Sono molto stanco.",
+    "example_cz": "Jsem velmi unavený."
+  },
+  {
+    "italian": "Sto cercando",
+    "czech": "Hledám",
+    "category": "Fráze",
+    "difficulty": "A1",
+    "pronunciation": "sto čerkándo",
+    "example_it": "Sto cercando il museo.",
+    "example_cz": "Hledám muzeum."
+  },
+  {
+    "italian": "Vorrei",
+    "czech": "Chtěl bych",
+    "category": "Fráze",
+    "difficulty": "A1",
+    "pronunciation": "voréi",
+    "example_it": "Vorrei un caffè.",
+    "example_cz": "Chtěl bych kávu."
+  },
+  {
+    "italian": "Potrebbe",
+    "czech": "Mohl byste",
+    "category": "Fráze",
+    "difficulty": "A1",
+    "pronunciation": "potrébe",
+    "example_it": "Potrebbe aiutarmi?",
+    "example_cz": "Mohl byste mi pomoci?"
+  },
+  {
+    "italian": "Va bene",
+    "czech": "V pořádku / Dobře",
+    "category": "Fráze",
+    "difficulty": "A1",
+    "pronunciation": "va béne",
+    "example_it": "Va bene, ci vediamo.",
+    "example_cz": "Dobře, uvidíme se."
+  },
+  {
+    "italian": "Magari!",
+    "czech": "Kéž by!",
+    "category": "Fráze",
+    "difficulty": "A1",
+    "pronunciation": "magári",
+    "example_it": "Magari potessi venire!",
+    "example_cz": "Kéž bych mohl přijít!"
+  },
+  {
+    "italian": "Basta!",
+    "czech": "Stačí!",
+    "category": "Fráze",
+    "difficulty": "A1",
+    "pronunciation": "básta",
+    "example_it": "Basta, non ne posso più.",
+    "example_cz": "Stačí, už nemůžu."
+  },
+  {
+    "italian": "Andiamo!",
+    "czech": "Pojďme!",
+    "category": "Fráze",
+    "difficulty": "A1",
+    "pronunciation": "andjámo",
+    "example_it": "Dai, andiamo!",
+    "example_cz": "Tak, pojďme!"
+  },
+  {
+    "italian": "Aspetta!",
+    "czech": "Počkej!",
+    "category": "Fráze",
+    "difficulty": "A1",
+    "pronunciation": "aspéta",
+    "example_it": "Aspetta un momento!",
+    "example_cz": "Počkej chvilku!"
+  },
+  {
+    "italian": "la felpa",
+    "czech": "mikina",
+    "category": "Oblečení a móda",
+    "difficulty": "A1",
+    "pronunciation": "la félpa",
+    "example_it": "La felpa è calda.",
+    "example_cz": "Mikina je teplá."
+  },
+  {
+    "italian": "il pigiama",
+    "czech": "pyžamo",
+    "category": "Oblečení a móda",
+    "difficulty": "A1",
+    "pronunciation": "il pidžáma",
+    "example_it": "Metto il pigiama.",
+    "example_cz": "Oblékám si pyžamo."
+  },
+  {
+    "italian": "il costume da bagno",
+    "czech": "plavky",
+    "category": "Oblečení a móda",
+    "difficulty": "A1",
+    "pronunciation": "il kostúme da báňo",
+    "example_it": "Porto il costume da bagno.",
+    "example_cz": "Beru si plavky."
+  },
+  {
+    "italian": "la canottiera",
+    "czech": "nátělník / tílko",
+    "category": "Oblečení a móda",
+    "difficulty": "A1",
+    "pronunciation": "la kanotjéra",
+    "example_it": "In estate porto la canottiera.",
+    "example_cz": "V létě nosím tílko."
+  },
+  {
+    "italian": "il giubbotto",
+    "czech": "bunda (zimní)",
+    "category": "Oblečení a móda",
+    "difficulty": "A1",
+    "pronunciation": "il džubóto",
+    "example_it": "Il giubbotto è impermeabile.",
+    "example_cz": "Bunda je nepromokavá."
+  },
+  {
+    "italian": "la tuta",
+    "czech": "tepláky / overal",
+    "category": "Oblečení a móda",
+    "difficulty": "A1",
+    "pronunciation": "la túta",
+    "example_it": "La tuta da ginnastica.",
+    "example_cz": "Tepláky na cvičení."
+  },
+  {
+    "italian": "i calzini",
+    "czech": "ponožky",
+    "category": "Oblečení a móda",
+    "difficulty": "A1",
+    "pronunciation": "i kalcíni",
+    "example_it": "I calzini sono sporchi.",
+    "example_cz": "Ponožky jsou špinavé."
+  },
+  {
+    "italian": "le pantofole",
+    "czech": "bačkory",
+    "category": "Oblečení a móda",
+    "difficulty": "A1",
+    "pronunciation": "le pantófole",
+    "example_it": "Metto le pantofole a casa.",
+    "example_cz": "Doma si obouvám bačkory."
+  },
+  {
+    "italian": "le ciabatte",
+    "czech": "žabky (na nohy)",
+    "category": "Oblečení a móda",
+    "difficulty": "A1",
+    "pronunciation": "le čabáte",
+    "example_it": "Le ciabatte per la spiaggia.",
+    "example_cz": "Žabky na pláž."
+  },
+  {
+    "italian": "il reggiseno",
+    "czech": "podprsenka",
+    "category": "Oblečení a móda",
+    "difficulty": "A1",
+    "pronunciation": "il redžiséno",
+    "example_it": "Un reggiseno sportivo.",
+    "example_cz": "Sportovní podprsenka."
+  },
+  {
+    "italian": "la moda",
+    "czech": "móda",
+    "category": "Oblečení a móda",
+    "difficulty": "A1",
+    "pronunciation": "la móda",
+    "example_it": "La moda cambia.",
+    "example_cz": "Móda se mění."
+  },
+  {
+    "italian": "elegante",
+    "czech": "elegantní",
+    "category": "Oblečení a móda",
+    "difficulty": "A1",
+    "pronunciation": "elegánte",
+    "example_it": "Un vestito elegante.",
+    "example_cz": "Elegantní šaty."
+  },
+  {
+    "italian": "sportivo",
+    "czech": "sportovní",
+    "category": "Oblečení a móda",
+    "difficulty": "A1",
+    "pronunciation": "sportívo",
+    "example_it": "Uno stile sportivo.",
+    "example_cz": "Sportovní styl."
+  },
+  {
+    "italian": "comodo",
+    "czech": "pohodlný",
+    "category": "Oblečení a móda",
+    "difficulty": "A1",
+    "pronunciation": "kómodo",
+    "example_it": "Le scarpe sono comode.",
+    "example_cz": "Boty jsou pohodlné."
+  },
+  {
+    "italian": "stretto",
+    "czech": "úzký / těsný",
+    "category": "Oblečení a móda",
+    "difficulty": "A1",
+    "pronunciation": "stréto",
+    "example_it": "La gonna è troppo stretta.",
+    "example_cz": "Sukně je příliš těsná."
+  },
+  {
+    "italian": "largo",
+    "czech": "široký / volný",
+    "category": "Oblečení a móda",
+    "difficulty": "A1",
+    "pronunciation": "largo",
+    "example_it": "I pantaloni sono larghi.",
+    "example_cz": "Kalhoty jsou volné."
+  },
+  {
+    "italian": "la taglia",
+    "czech": "velikost (oblečení)",
+    "category": "Oblečení a móda",
+    "difficulty": "A1",
+    "pronunciation": "la tálja",
+    "example_it": "Che taglia porti?",
+    "example_cz": "Jakou nosíš velikost?"
+  },
+  {
+    "italian": "provare",
+    "czech": "vyzkoušet si",
+    "category": "Oblečení a móda",
+    "difficulty": "A1",
+    "pronunciation": "prováre",
+    "example_it": "Posso provare questo?",
+    "example_cz": "Mohu si toto vyzkoušet?"
+  },
+  {
+    "italian": "lo sconto",
+    "czech": "sleva",
+    "category": "Oblečení a móda",
+    "difficulty": "A1",
+    "pronunciation": "lo skónto",
+    "example_it": "C'è uno sconto del 50%.",
+    "example_cz": "Je sleva 50%."
+  },
+  {
+    "italian": "il saldo",
+    "czech": "výprodej",
+    "category": "Oblečení a móda",
+    "difficulty": "A1",
+    "pronunciation": "il sáldo",
+    "example_it": "I saldi estivi.",
+    "example_cz": "Letní výprodeje."
+  }
+]
