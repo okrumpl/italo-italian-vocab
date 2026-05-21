@@ -105,16 +105,19 @@ export const Lesson: React.FC<LessonProps> = ({ category, lessonSize = 10, onClo
 
       const rand = Math.random();
       const hasExample = word.example_it && word.example_it.trim().length > 3;
+      // Scrambled POUZE pro slova která uživatel už zná (box >= 2)
+      // Nová slova (box 0-1) dostanou typing nebo multiple-choice
+      const canScramble = hasExample && (word.box ?? 0) >= 2;
 
       if (rand < 0.3) {
         generated.push({ word, type: 'multiple-choice-it-to-cz', options: getRandomOptions(word.czech, allCzWords) });
       } else if (rand < 0.6) {
         generated.push({ word, type: 'multiple-choice-cz-to-it', options: getRandomOptions(word.italian, allItWords) });
-      } else if (rand < 0.85 || !hasExample) {
-        // Typing je fallback i když nemá example_it
+      } else if (rand < 0.85 || !canScramble) {
+        // Typing je fallback pro všechna nová slova i slova bez example_it
         generated.push({ word, type: 'typing' });
       } else {
-        // Scrambled jen pokud má validní příkladovou větu
+        // Scrambled jen pokud má validní příkladovou větu A uživatel slovo už zná
         const sentence = word.example_it;
         const wordsInSentence = sentence.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?]/g, '').split(' ').filter(Boolean);
         if (wordsInSentence.length < 2) {
@@ -795,75 +798,69 @@ export const Lesson: React.FC<LessonProps> = ({ category, lessonSize = 10, onClo
       backgroundColor: 'var(--surface)', overflow: 'hidden',
     }}>
 
-      {/* Header */}
+      {/* Header — s iOS safe area paddingem */}
       <header style={{
-        display: 'flex', alignItems: 'center', gap: 14,
-        padding: '14px 20px',
+        display: 'flex', alignItems: 'center', gap: 12,
+        paddingTop: 'max(14px, env(safe-area-inset-top))',
+        paddingBottom: 12,
+        paddingLeft: 16,
+        paddingRight: 16,
         borderBottom: '1px solid var(--border)',
         backgroundColor: 'var(--surface)',
         flexShrink: 0,
       }}>
+        {/* X tlačítko — větší touch target pro mobil */}
         <button
           onClick={() => {
             if (confirm('Opravdu chcete odejít? Ztratíte pokrok v této lekci.')) onClose();
           }}
           style={{
-            width: 36, height: 36, borderRadius: 10, border: 'none',
+            width: 44, height: 44, borderRadius: 12, border: 'none',
             backgroundColor: 'var(--surface-2)', cursor: 'pointer',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             color: 'var(--text-2)', flexShrink: 0, transition: 'background 0.1s',
+            // Větší prostor pro prst
+            touchAction: 'manipulation',
           }}
         >
-          <X size={18} />
+          <X size={20} />
         </button>
-        <div className="progress-bar-container" style={{ flex: 1 }}>
+        <div className="progress-bar-container" style={{ flex: 1, height: 8 }}>
           <div className="progress-bar-fill" style={{ width: `${progressPercent}%` }} />
         </div>
-        {/* Score counter ✓/✗ */}
+        {/* Score counter ✓/✗ + počítadlo */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexShrink: 0 }}>
           {scoreCorrect > 0 && (
-            <span style={{ fontSize: 12, fontWeight: 700, color: 'var(--correct-fg)' }}>✓{scoreCorrect}</span>
+            <span style={{ fontSize: 13, fontWeight: 700, color: 'var(--correct-fg)' }}>✓{scoreCorrect}</span>
           )}
           {scoreWrong > 0 && (
-            <span style={{ fontSize: 12, fontWeight: 700, color: 'var(--wrong-fg)' }}>✗{scoreWrong}</span>
+            <span style={{ fontSize: 13, fontWeight: 700, color: 'var(--wrong-fg)' }}>✗{scoreWrong}</span>
           )}
-          <span style={{ fontSize: 12, fontWeight: 600, color: 'var(--text-3)' }}>
+          <span style={{ fontSize: 12, fontWeight: 600, color: 'var(--text-3)', minWidth: 36, textAlign: 'right' }}>
             {currentIdx + 1}/{exercises.length}
           </span>
         </div>
       </header>
 
       {/* Main content */}
-      <main style={{ flex: 1, overflowY: 'auto', padding: '20px 20px 8px', display: 'flex', flexDirection: 'column' }}>
+      <main style={{ flex: 1, overflowY: 'auto', padding: '14px 20px 8px', display: 'flex', flexDirection: 'column' }}>
 
-        {/* Mascot hint bubble (non-flashcard, non-matching) */}
+        {/* Kompaktní instrukce — bez maskota, šetří místo */}
         {currentExercise.type !== 'matching' && currentExercise.type !== 'flashcard' && (
           <div style={{
-            display: 'flex', alignItems: 'center', gap: 12,
-            backgroundColor: 'var(--surface-2)', borderRadius: 16,
-            padding: '12px 14px', marginBottom: 20, border: '1px solid var(--border)',
+            display: 'flex', alignItems: 'center', gap: 10,
+            marginBottom: 14,
           }}>
-            <Mascot state={mascotState} size={56} className="flex-shrink-0" />
-            <div style={{
-              flex: 1, backgroundColor: 'var(--surface)', borderRadius: 12,
-              padding: '10px 14px', border: '1px solid var(--border)',
-              fontSize: 14, fontWeight: 600, color: 'var(--text-2)',
-              position: 'relative',
+            <Mascot state={mascotState} size={38} className="flex-shrink-0" />
+            <span style={{
+              fontSize: 13, fontWeight: 600, color: 'var(--text-3)',
+              lineHeight: 1.3,
             }}>
-              {/* Bubble arrow */}
-              <div style={{
-                position: 'absolute', left: -6, top: 14,
-                width: 10, height: 10,
-                backgroundColor: 'var(--surface)',
-                border: '1px solid var(--border)',
-                borderRight: 'none', borderTop: 'none',
-                transform: 'rotate(45deg)',
-              }} />
               {currentExercise.type === 'typing' && 'Přelož toto české slovo do italštiny.'}
               {currentExercise.type === 'multiple-choice-it-to-cz' && 'Vyber správný český překlad.'}
               {currentExercise.type === 'multiple-choice-cz-to-it' && 'Vyber správný italský překlad.'}
               {currentExercise.type === 'scrambled-sentence' && 'Poskládej slova do správného pořadí.'}
-            </div>
+            </span>
           </div>
         )}
 
