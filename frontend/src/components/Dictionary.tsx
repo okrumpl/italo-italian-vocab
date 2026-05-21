@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Search, Volume2, X, Star, HelpCircle } from 'lucide-react';
 import { speakItalian } from '../utils/audio';
+import { apiFetch } from '../utils/api';
 
 interface Word {
   id: number;
@@ -40,11 +41,17 @@ export const Dictionary: React.FC = () => {
   const [selectedWordDetail, setSelectedWordDetail] = useState<Word | null>(null);
 
   useEffect(() => {
-    fetch('/api/dictionary')
-      .then(r => r.json())
-      .then(setWords)
-      .catch(console.error)
-      .finally(() => setLoading(false));
+    const loadData = async () => {
+      try {
+        const data = await apiFetch('/api/dictionary');
+        setWords(data);
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    loadData();
   }, []);
 
   const categoriesList = ['all', ...Array.from(new Set(words.map(w => w.category))).sort()];

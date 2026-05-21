@@ -4,6 +4,7 @@ import { Dashboard } from './components/Dashboard';
 import { Dictionary } from './components/Dictionary';
 import { Stats } from './components/Stats';
 import { Lesson } from './components/Lesson';
+import { ProfilePicker } from './components/ProfilePicker';
 
 type ScreenState = 'dashboard' | 'dictionary' | 'stats' | 'lesson';
 
@@ -14,10 +15,27 @@ const NAV_ITEMS = [
 ];
 
 export default function App() {
+  const [userId, setUserId] = useState<number | null>(() => {
+    const saved = localStorage.getItem('userId');
+    return saved ? parseInt(saved) : null;
+  });
+  
   const [activeScreen, setActiveScreen] = useState<ScreenState>('dashboard');
   const [lessonCategory, setLessonCategory] = useState<string | null>(null);
   const [lessonSize, setLessonSize] = useState<number>(10);
   const [refreshKey, setRefreshKey] = useState(0);
+
+  const handleSelectUser = (id: number) => {
+    localStorage.setItem('userId', id.toString());
+    setUserId(id);
+    setActiveScreen('dashboard');
+    setRefreshKey(prev => prev + 1);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('userId');
+    setUserId(null);
+  };
 
   const handleCloseLesson = () => {
     setActiveScreen('dashboard');
@@ -43,13 +61,17 @@ export default function App() {
       case 'dictionary':
         return <Dictionary />;
       case 'stats':
-        return <Stats />;
+        return <Stats onLogout={handleLogout} />;
       case 'lesson':
         return <Lesson category={lessonCategory} lessonSize={lessonSize} onClose={handleCloseLesson} />;
       default:
         return <Dashboard onStartLesson={handleStartLesson} onStartQuickReview={handleStartQuickReview} />;
     }
   };
+
+  if (!userId) {
+    return <ProfilePicker onSelect={handleSelectUser} />;
+  }
 
   return (
     <div className="w-full flex-1 flex flex-col relative" style={{ height: '100dvh', overflow: 'hidden' }}>

@@ -17,7 +17,12 @@ import {
   getDailyGoalStatus,
   setDailyGoal,
   incrementStat,
-  getAchievements
+  getAchievements,
+  getUsers,
+  createUser,
+  deleteUser,
+  verifyUserPin,
+  updateUserLastActive
 } from './db.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -31,12 +36,74 @@ app.use(express.json());
 const frontendDistPath = path.join(__dirname, '../frontend/dist');
 app.use(express.static(frontendDistPath));
 
-// Endpointy API
+// Middleware pro získání userId z hlaviček (výchozí 1)
+const getUserId = (req) => {
+  const headerId = req.headers['x-user-id'];
+  const parsed = parseInt(headerId);
+  return !isNaN(parsed) && parsed > 0 ? parsed : 1;
+};
 
-// Získání statistik uživatele
+// ─── USER ENDPOINTS ─────────────────────────────────────────────────────────
+
+app.get('/api/users', async (req, res) => {
+  try {
+    const users = await getUsers();
+    res.json(users);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Chyba při načítání profilů.' });
+  }
+});
+
+app.post('/api/users', async (req, res) => {
+  try {
+    const { name, avatar, pin } = req.body;
+    if (!name || name.trim() === '') {
+      return res.status(400).json({ error: 'Jméno je povinné.' });
+    }
+    const user = await createUser(name.trim(), avatar || '👤', pin || null);
+    res.json(user);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Chyba při vytváření profilu.' });
+  }
+});
+
+app.delete('/api/users/:id', async (req, res) => {
+  try {
+    const userId = parseInt(req.params.id);
+    await deleteUser(userId);
+    res.json({ success: true });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Chyba při mazání profilu.' });
+  }
+});
+
+app.post('/api/users/:id/verify-pin', async (req, res) => {
+  try {
+    const userId = parseInt(req.params.id);
+    const { pin } = req.body;
+    const isValid = await verifyUserPin(userId, pin);
+    if (isValid) {
+      await updateUserLastActive(userId);
+      res.json({ success: true });
+    } else {
+      res.status(401).json({ error: 'Nesprávný PIN.' });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Chyba při ověřování PINu.' });
+  }
+});
+
+
+// ─── API ENDPOINTS (předáváme userId) ───────────────────────────────────────
+
 app.get('/api/stats', async (req, res) => {
   try {
-    const stats = await getUserStats();
+    const userId = getUserId(req);
+    const stats = await getUserStats(userId);
     res.json(stats);
   } catch (error) {
     console.error(error);
@@ -44,10 +111,10 @@ app.get('/api/stats', async (req, res) => {
   }
 });
 
-// Získání všech kategorií
 app.get('/api/categories', async (req, res) => {
   try {
-    const categories = await getCategories();
+    const userId = getUserId(req);
+    const categories = await getCategories(userId);
     res.json(categories);
   } catch (error) {
     console.error(error);
@@ -55,12 +122,12 @@ app.get('/api/categories', async (req, res) => {
   }
 });
 
-// Získání slovíček pro lekci v konkrétní kategorii
 app.get('/api/lesson/:category', async (req, res) => {
   try {
+    const userId = getUserId(req);
     const category = req.params.category;
     const size = Math.min(Math.max(parseInt(req.query.size) || 10, 5), 20);
-    const words = await getWordsForLesson(category, size);
+    const words = await getWordsForLesson(category, size, userId);
     res.json(words);
   } catch (error) {
     console.error(error);
@@ -68,10 +135,10 @@ app.get('/api/lesson/:category', async (req, res) => {
   }
 });
 
-// Získání slovíček pro rychlé procvičování (napříč kategoriemi)
 app.get('/api/lesson-quick', async (req, res) => {
   try {
-    const words = await getQuickReviewWords(10);
+    const userId = getUserId(req);
+    const words = await getQuickReviewWords(10, userId);
     res.json(words);
   } catch (error) {
     console.error(error);
@@ -79,9 +146,9 @@ app.get('/api/lesson-quick', async (req, res) => {
   }
 });
 
-// Dokončení lekce - hromadné uložení výsledků
 app.post('/api/lesson/complete', async (req, res) => {
   try {
+    const userId = getUserId(req);
     const { category, answers } = req.body;
     
     if (!answers || !Array.isArray(answers)) {
@@ -91,55 +158,39 @@ app.post('/api/lesson/complete', async (req, res) => {
     let xpEarned = 0;
     const results = [];
 
-    // 1. Zpracování každé odpovědi
     for (const answer of answers) {
       const { wordId, isCorrect } = answer;
 
-      // Validace
       if (!Number.isInteger(wordId) || wordId <= 0) {
         return res.status(400).json({ error: `Neplatné wordId: ${wordId}` });
       }
-      if (typeof isCorrect !== 'boolean') {
-        return res.status(400).json({ error: `isCorrect musí být boolean.` });
-      }
 
-      const progress = await updateWordProgress(wordId, isCorrect);
+      const progress = await updateWordProgress(wordId, isCorrect, userId);
       results.push(progress);
 
       if (isCorrect) {
-        // Diferenciované XP dle boxu slova
         const box = progress.newBox || 1;
-        if (box <= 1) {
-          xpEarned += 12; // nové slovo
-        } else if (box <= 3) {
-          xpEarned += 10; // procvičování
-        } else {
-          xpEarned += 6;  // review pokročilého slova
-        }
+        if (box <= 1) xpEarned += 12;
+        else if (box <= 3) xpEarned += 10;
+        else xpEarned += 6;
       }
     }
 
-    // 2. Bonus za dokončení lekce
-    xpEarned += 15;
+    xpEarned += 15; // Bonus za dokončení
 
-    // 3. Uložení XP a aktualizace streaku
-    const xpStatus = await addXP(xpEarned);
-    const streakStatus = await updateStreak();
+    const xpStatus = await addXP(xpEarned, userId);
+    const streakStatus = await updateStreak(userId);
 
-    // 4. Zaznamenání session pro heatmapu + denní cíl
     const wordsCorrect = answers.filter(a => a.isCorrect).length;
-    await recordSession(category, answers.length, wordsCorrect, xpEarned);
+    await recordSession(category, answers.length, wordsCorrect, xpEarned, userId);
 
-    // 5. Quick quiz counter
-    if (!category) await incrementStat('quiz_count');
+    if (!category) await incrementStat('quiz_count', userId);
 
-    // 6. Perfect lesson counter (100% přesnost, ne quick review)
     if (category && wordsCorrect === answers.length && answers.length >= 5) {
-      await incrementStat('perfect_lessons');
+      await incrementStat('perfect_lessons', userId);
     }
 
-    // 7. Získání nových statistik
-    const newStats = await getUserStats();
+    const newStats = await getUserStats(userId);
 
     res.json({
       xpEarned,
@@ -155,10 +206,10 @@ app.post('/api/lesson/complete', async (req, res) => {
   }
 });
 
-// Achievements
 app.get('/api/achievements', async (req, res) => {
   try {
-    const achievements = await getAchievements();
+    const userId = getUserId(req);
+    const achievements = await getAchievements(userId);
     res.json(achievements);
   } catch (error) {
     console.error(error);
@@ -166,10 +217,10 @@ app.get('/api/achievements', async (req, res) => {
   }
 });
 
-// Activity heatmap (35 dní)
 app.get('/api/heatmap', async (req, res) => {
   try {
-    const data = await getActivityHeatmap();
+    const userId = getUserId(req);
+    const data = await getActivityHeatmap(userId);
     res.json(data);
   } catch (error) {
     console.error(error);
@@ -177,10 +228,10 @@ app.get('/api/heatmap', async (req, res) => {
   }
 });
 
-// Denní cíl — GET status + PUT nastavení
 app.get('/api/daily-goal', async (req, res) => {
   try {
-    const status = await getDailyGoalStatus();
+    const userId = getUserId(req);
+    const status = await getDailyGoalStatus(userId);
     res.json(status);
   } catch (error) {
     console.error(error);
@@ -190,8 +241,9 @@ app.get('/api/daily-goal', async (req, res) => {
 
 app.put('/api/daily-goal', async (req, res) => {
   try {
+    const userId = getUserId(req);
     const { goal } = req.body;
-    const newGoal = await setDailyGoal(goal);
+    const newGoal = await setDailyGoal(goal, userId);
     res.json({ goal: newGoal });
   } catch (error) {
     console.error(error);
@@ -199,10 +251,10 @@ app.put('/api/daily-goal', async (req, res) => {
   }
 });
 
-// Získání kompletního slovníku pro vyhledávání
 app.get('/api/dictionary', async (req, res) => {
   try {
-    const dictionary = await getDictionaryWords();
+    const userId = getUserId(req);
+    const dictionary = await getDictionaryWords(userId);
     res.json(dictionary);
   } catch (error) {
     console.error(error);

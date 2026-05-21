@@ -6,6 +6,7 @@ import {
   Building2, GraduationCap, BookA, Tag, ChevronRight, X, SlidersHorizontal
 } from 'lucide-react';
 import { Mascot } from './Mascot';
+import { apiFetch } from '../utils/api';
 
 interface CategoryData {
   category: string;
@@ -64,13 +65,11 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLesson, onStartQuic
     try {
       setLoading(true);
       setError(null);
-      const [catRes, statsRes, goalRes] = await Promise.all([
-        fetch('/api/categories'),
-        fetch('/api/stats'),
-        fetch('/api/daily-goal'),
+      const [catData, statsData, goalData] = await Promise.all([
+        apiFetch('/api/categories'),
+        apiFetch('/api/stats'),
+        apiFetch('/api/daily-goal')
       ]);
-      if (!catRes.ok || !statsRes.ok) throw new Error('Nepodařilo se načíst data.');
-      const [catData, statsData, goalData] = await Promise.all([catRes.json(), statsRes.json(), goalRes.json()]);
       setCategories(catData);
       setStats(statsData);
       setDailyGoal(goalData);

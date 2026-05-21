@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { X, Volume2, CheckCircle2, AlertCircle, Keyboard, Zap, Flame, Trophy, RotateCcw } from 'lucide-react';
 import { Mascot, MascotState } from './Mascot';
 import { playSound, speakItalian, shuffle } from '../utils/audio';
+import { apiFetch } from '../utils/api';
 
 interface Word {
   id: number;
@@ -81,9 +82,8 @@ export const Lesson: React.FC<LessonProps> = ({ category, lessonSize = 10, onClo
         const url = category
           ? `/api/lesson/${encodeURIComponent(category)}?size=${lessonSize}`
           : '/api/lesson-quick';
-        const res = await fetch(url);
-        if (!res.ok) throw new Error('Nepodařilo se stáhnout slova lekce.');
-        const data = await res.json();
+        const data = await apiFetch(url);
+        if (!data) throw new Error('Nepodařilo se stáhnout slova lekce.');
         setWords(data);
         generateExercises(data);
       } catch (error) {
@@ -278,14 +278,14 @@ export const Lesson: React.FC<LessonProps> = ({ category, lessonSize = 10, onClo
   const submitLessonResults = async () => {
     setSaving(true);
     try {
-      const answers = words.map(w => ({ wordId: w.id, isCorrect: !failedWordIds.has(w.id) }));
-      const res = await fetch('/api/lesson/complete', {
+      const answersToSubmit = words.map(w => ({ wordId: w.id, isCorrect: !failedWordIds.has(w.id) }));
+      const data = await apiFetch('/api/lesson/complete', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ category, answers }),
+        body: JSON.stringify({
+          category,
+          answers: answersToSubmit
+        }),
       });
-      if (!res.ok) throw new Error('Nepodařilo se uložit pokrok.');
-      const data = await res.json();
       setResultsData(data); setCompleted(true); setMascotState('excited');
       playSound('complete'); triggerConfetti();
     } catch (err) {

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Trophy, Zap, Flame, Star, Layers, Target, AlertTriangle, Lock, CheckCircle2, SlidersHorizontal } from 'lucide-react';
+import { Trophy, Zap, Flame, Star, Layers, Target, AlertTriangle, Lock, CheckCircle2, SlidersHorizontal, Settings, LogOut } from 'lucide-react';
 import { Mascot } from './Mascot';
 import { speakItalian } from '../utils/audio';
+import { apiFetch } from '../utils/api';
 
 interface UserStats {
   xp: number;
@@ -28,11 +29,8 @@ interface HeatmapDay {
   lessons: number;
 }
 
-interface DailyGoal {
-  goal: number;
-  practiced: number;
-  percent: number;
-  done: boolean;
+interface StatsProps {
+  onLogout?: () => void;
 }
 
 const StatCard: React.FC<{
@@ -111,41 +109,56 @@ const ActivityHeatmap: React.FC<{ days: HeatmapDay[] }> = ({ days }) => {
   );
 };
 
-export const Stats: React.FC = () => {
+export const Stats: React.FC<StatsProps> = ({ onLogout }) => {
   const [stats, setStats] = useState<UserStats | null>(null);
   const [achievements, setAchievements] = useState<Achievement[]>([]);
   const [heatmap, setHeatmap] = useState<HeatmapDay[]>([]);
-  const [dailyGoal, setDailyGoal] = useState<DailyGoal | null>(null);
+  const [dailyGoal, setDailyGoal] = useState<number | null>(null);
+  const [dailyProgress, setDailyProgress] = useState<{practiced: number, percent: number, done: boolean} | null>(null);
   const [loading, setLoading] = useState(true);
   const [goalEditing, setGoalEditing] = useState(false);
   const [goalInput, setGoalInput] = useState('');
+  const [showSettings, setShowSettings] = useState(false);
 
   useEffect(() => {
-    Promise.all([
-      fetch('/api/stats').then(r => r.json()),
-      fetch('/api/achievements').then(r => r.json()),
-      fetch('/api/heatmap').then(r => r.json()),
-      fetch('/api/daily-goal').then(r => r.json()),
-    ]).then(([s, a, h, g]) => {
-      setStats(s);
-      setAchievements(a);
-      setHeatmap(h);
-      setDailyGoal(g);
-      setGoalInput(String(g.goal));
-    }).catch(console.error).finally(() => setLoading(false));
+    const loadData = async () => {
+      try {
+        const [statsData, achievementsData, heatmapData, goalData] = await Promise.all([
+          apiFetch('/api/stats'),
+          apiFetch('/api/achievements'),
+          apiFetch('/api/heatmap'),
+          apiFetch('/api/daily-goal')
+        ]);
+        setStats(statsData);
+        setAchievements(achievementsData);
+        setHeatmap(heatmapData);
+        setDailyGoal(goalData.goal);
+        setDailyProgress({ practiced: goalData.practiced, percent: goalData.percent, done: goalData.done });
+        setGoalInput(String(goalData.goal));
+      } catch (err) {
+        console.error('Nepodařilo se načíst data:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    loadData();
   }, []);
 
   const handleSaveGoal = async () => {
-    const n = parseInt(goalInput);
-    if (isNaN(n) || n < 5 || n > 50) return;
-    const res = await fetch('/api/daily-goal', {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ goal: n }),
-    });
-    const data = await res.json();
-    setDailyGoal(prev => prev ? { ...prev, goal: data.goal } : prev);
-    setGoalEditing(false);
+    const newGoal = parseInt(goalInput);
+    if (isNaN(newGoal) || newGoal < 5 || newGoal > 50) return;
+    try {
+      const data = await apiFetch('/api/daily-goal', {
+        method: 'PUT',
+        body: JSON.stringify({ goal: newGoal })
+      });
+      setDailyGoal(data.goal);
+      setShowSettings(false);
+      setGoalEditing(false);
+    } catch (error) {
+      console.error(error);
+      alert('Nepodařilo se uložit cíl');
+    }
   };
 
   if (loading) {
@@ -174,10 +187,27 @@ export const Stats: React.FC = () => {
         backgroundColor: 'var(--surface)',
         borderBottom: '1px solid var(--border)',
         padding: '16px 20px',
+        display: 'flex', justifyContent: 'space-between', alignItems: 'center'
       }}>
         <h1 style={{ fontSize: 20, fontWeight: 800, color: 'var(--text)', letterSpacing: '-0.3px' }}>
           Můj profil
         </h1>
+        <div style={{ display: 'flex', gap: 10 }}>
+          <button
+            onClick={() => setShowSettings(!showSettings)}
+            style={{ padding: '8px', borderRadius: 12, backgroundColor: 'var(--surface-2)', border: 'none', color: 'var(--text)', cursor: 'pointer' }}
+          >
+            <Settings size={20} />
+          </button>
+          {onLogout && (
+            <button
+              onClick={onLogout}
+              style={{ padding: '8px', borderRadius: 12, backgroundColor: 'var(--wrong-bg)', border: 'none', color: 'var(--wrong-border)', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 6 }}
+            >
+              <LogOut size={20} />
+            </button>
+          )}
+        </div>
       </header>
 
       <div style={{ padding: '20px 20px 24px', display: 'flex', flexDirection: 'column', gap: 16 }}>
@@ -226,7 +256,7 @@ export const Stats: React.FC = () => {
         </div>
 
         {/* Denní cíl */}
-        {dailyGoal && (
+        {dailyGoal && dailyProgress && (
           <div style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 16, padding: 20, boxShadow: 'var(--shadow-sm)' }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
@@ -268,24 +298,24 @@ export const Stats: React.FC = () => {
                 <circle cx="30" cy="30" r="24" fill="none" stroke="var(--border)" strokeWidth="5" />
                 <circle
                   cx="30" cy="30" r="24" fill="none"
-                  stroke={dailyGoal.done ? '#f59e0b' : 'var(--green-500)'}
+                  stroke={dailyProgress.done ? '#f59e0b' : 'var(--green-500)'}
                   strokeWidth="5"
                   strokeDasharray={2 * Math.PI * 24}
-                  strokeDashoffset={2 * Math.PI * 24 * (1 - dailyGoal.percent / 100)}
+                  strokeDashoffset={2 * Math.PI * 24 * (1 - dailyProgress.percent / 100)}
                   strokeLinecap="round"
                   transform="rotate(-90 30 30)"
                   style={{ transition: 'stroke-dashoffset 0.6s ease' }}
                 />
-                <text x="30" y="35" textAnchor="middle" fontSize="12" fontWeight="800" fill={dailyGoal.done ? '#f59e0b' : 'var(--text)'}>
-                  {dailyGoal.percent}%
+                <text x="30" y="35" textAnchor="middle" fontSize="12" fontWeight="800" fill={dailyProgress.done ? '#f59e0b' : 'var(--text)'}>
+                  {dailyProgress.percent}%
                 </text>
               </svg>
               <div>
                 <p style={{ fontSize: 15, fontWeight: 700, color: 'var(--text)', marginBottom: 3 }}>
-                  {dailyGoal.done ? '🎉 Cíl splněn!' : `${dailyGoal.practiced} / ${dailyGoal.goal} slov`}
+                  {dailyProgress.done ? '🎉 Cíl splněn!' : `${dailyProgress.practiced} / ${dailyGoal} slov`}
                 </p>
                 <p style={{ fontSize: 12, color: 'var(--text-3)' }}>
-                  {dailyGoal.done ? 'Skvělá práce! Pokračuj dál.' : `Ještě ${dailyGoal.goal - dailyGoal.practiced} slov do cíle`}
+                  {dailyProgress.done ? 'Skvělá práce! Pokračuj dál.' : `Ještě ${dailyGoal - dailyProgress.practiced} slov do cíle`}
                 </p>
               </div>
             </div>
