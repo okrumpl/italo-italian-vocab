@@ -597,12 +597,10 @@ export const Lesson: React.FC<LessonProps> = ({ category, lessonSize = 10, onClo
         const exPairs = currentExercise.matchingPairs ?? [];
 
         return (
-          <div className="animate-pop" style={{ display: 'flex', flexDirection: 'column', flex: 1, paddingTop: 8 }}>
-            <p className="section-label" style={{ marginBottom: 6 }}>Přiřaď dvojice</p>
-            <p style={{ fontSize: 14, color: 'var(--text-2)', marginBottom: 20 }}>
-              Spáruj italská slova s jejich překlady
-            </p>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
+          <div className="animate-pop" style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
+            <p className="section-label" style={{ marginBottom: 12 }}>Přiřaď dvojice</p>
+            {/* Dvojsloupcová mřížka — vyplní celý dostupný prostor */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, flex: 1 }}>
               {/* Italian column */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                 {itWords.map(word => {
@@ -615,12 +613,19 @@ export const Lesson: React.FC<LessonProps> = ({ category, lessonSize = 10, onClo
                       onClick={() => handleMatchingClick(word, 'it')}
                       className={`card-option${matched ? ' correct' : selected ? ' selected' : ''}`}
                       style={{
-                        fontSize: 13, padding: '12px 12px',
-                        opacity: matched ? 0.45 : 1,
+                        flex: 1,
+                        fontSize: 15, fontWeight: 700,
+                        padding: '0 12px',
+                        opacity: matched ? 0.4 : 1,
                         cursor: matched ? 'default' : 'pointer',
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        textAlign: 'center', lineHeight: 1.3,
+                        minHeight: 52,
+                        transition: 'all 0.15s',
+                        transform: selected ? 'scale(0.97)' : 'scale(1)',
                       }}
                     >
-                      <span>{word}</span>
+                      {word}
                     </button>
                   );
                 })}
@@ -628,7 +633,6 @@ export const Lesson: React.FC<LessonProps> = ({ category, lessonSize = 10, onClo
               {/* Czech column */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                 {czWords.map(word => {
-                  // Najdi italský ekvivalent pro tento český výraz
                   const itEquiv = exPairs.find(p => p.czech === word)?.italian ?? '';
                   const matched = itEquiv ? matchedPairs.includes(itEquiv) : false;
                   const selected = selectedCzWord === word;
@@ -639,12 +643,19 @@ export const Lesson: React.FC<LessonProps> = ({ category, lessonSize = 10, onClo
                       onClick={() => handleMatchingClick(word, 'cz')}
                       className={`card-option${matched ? ' correct' : selected ? ' selected' : ''}`}
                       style={{
-                        fontSize: 13, padding: '12px 12px',
-                        opacity: matched ? 0.45 : 1,
+                        flex: 1,
+                        fontSize: 15, fontWeight: 700,
+                        padding: '0 12px',
+                        opacity: matched ? 0.4 : 1,
                         cursor: matched ? 'default' : 'pointer',
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        textAlign: 'center', lineHeight: 1.3,
+                        minHeight: 52,
+                        transition: 'all 0.15s',
+                        transform: selected ? 'scale(0.97)' : 'scale(1)',
                       }}
                     >
-                      <span>{word}</span>
+                      {word}
                     </button>
                   );
                 })}
