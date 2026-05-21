@@ -185,6 +185,17 @@ export const Lesson: React.FC<LessonProps> = ({ category, lessonSize = 10, onClo
 
   const handleInsertChar = (char: string) => setTypedAnswer(prev => prev + char);
 
+  const normalizeString = (str: string) => {
+    return str
+      .normalize('NFD')                   // odstraní diakritiku
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/['’]/g, '')               // odstraní apostrofy
+      .replace(/[^a-zA-Z0-9 ]/g, '')      // odstraní interpunkci
+      .trim()
+      .toLowerCase()
+      .replace(/\s+/g, ' ');              // vícenásobné mezery
+  };
+
   const handleCheck = () => {
     if (checked) return;
     let correct = false;
@@ -195,7 +206,7 @@ export const Lesson: React.FC<LessonProps> = ({ category, lessonSize = 10, onClo
     } else if (currentExercise.type === 'multiple-choice-cz-to-it') {
       correct = selectedOption === currentExercise.word.italian;
     } else if (currentExercise.type === 'typing') {
-      correct = typedAnswer.trim().toLowerCase() === currentExercise.word.italian.trim().toLowerCase();
+      correct = normalizeString(typedAnswer) === normalizeString(currentExercise.word.italian);
     } else if (currentExercise.type === 'scrambled-sentence') {
       const assembled = selectedPuzzleWords.join(' ').toLowerCase().replace(/[.,]/g, '');
       correct = assembled === (currentExercise.targetSentence?.toLowerCase().replace(/[.,]/g, '') || '');

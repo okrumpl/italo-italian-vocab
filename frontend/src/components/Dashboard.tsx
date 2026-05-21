@@ -168,19 +168,20 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLesson, onStartQuic
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
       }}>
         {/* Streak */}
-        <button 
-          onClick={onNavigateToProfile}
+        <div 
+          onClick={() => onNavigateToProfile()}
           className="header-stat-btn"
-          style={{ display: 'flex', alignItems: 'center', gap: 6, background: 'none', border: 'none', cursor: 'pointer', padding: 4, borderRadius: 12, transition: 'background 0.2s' }}
+          role="button"
+          style={{ display: 'flex', alignItems: 'center', gap: 6, cursor: 'pointer', padding: 4, borderRadius: 12, transition: 'background 0.2s' }}
         >
-          <div style={{ width: 36, height: 36, borderRadius: 10, backgroundColor: 'var(--orange-50)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <div style={{ width: 36, height: 36, borderRadius: 10, backgroundColor: 'var(--orange-50)', display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none' }}>
             <Flame size={18} style={{ color: 'var(--orange)', fill: 'var(--orange)' }} />
           </div>
-          <div style={{ textAlign: 'left' }}>
+          <div style={{ textAlign: 'left', pointerEvents: 'none' }}>
             <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--text)', lineHeight: 1.1 }}>{stats?.streak ?? 0}</div>
             <div style={{ fontSize: 10, fontWeight: 600, color: 'var(--text-3)', letterSpacing: '0.4px' }}>SÉRIE</div>
           </div>
-        </button>
+        </div>
 
         {/* App title */}
         <span style={{ fontSize: 17, fontWeight: 800, color: 'var(--text)', letterSpacing: '-0.3px' }}>
@@ -189,33 +190,35 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLesson, onStartQuic
 
         {/* XP + Level */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-          <button 
-            onClick={onNavigateToProfile}
+          <div 
+            onClick={() => onNavigateToProfile()}
             className="header-stat-btn"
-            style={{ display: 'flex', alignItems: 'center', gap: 5, background: 'none', border: 'none', cursor: 'pointer', padding: 4, borderRadius: 12, transition: 'background 0.2s' }}
+            role="button"
+            style={{ display: 'flex', alignItems: 'center', gap: 5, cursor: 'pointer', padding: 4, borderRadius: 12, transition: 'background 0.2s' }}
           >
-            <div style={{ width: 36, height: 36, borderRadius: 10, backgroundColor: 'var(--sky-50)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div style={{ width: 36, height: 36, borderRadius: 10, backgroundColor: 'var(--sky-50)', display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none' }}>
               <Zap size={18} style={{ color: 'var(--sky)', fill: 'var(--sky)' }} />
             </div>
-            <div style={{ textAlign: 'left' }}>
+            <div style={{ textAlign: 'left', pointerEvents: 'none' }}>
               <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--text)', lineHeight: 1.1 }}>{stats?.xp ?? 0}</div>
               <div style={{ fontSize: 10, fontWeight: 600, color: 'var(--text-3)', letterSpacing: '0.4px' }}>XP</div>
             </div>
-          </button>
+          </div>
 
-          <button 
-            onClick={onNavigateToProfile}
+          <div 
+            onClick={() => onNavigateToProfile()}
             className="header-stat-btn"
-            style={{ display: 'flex', alignItems: 'center', gap: 5, background: 'none', border: 'none', cursor: 'pointer', padding: 4, borderRadius: 12, transition: 'background 0.2s' }}
+            role="button"
+            style={{ display: 'flex', alignItems: 'center', gap: 5, cursor: 'pointer', padding: 4, borderRadius: 12, transition: 'background 0.2s' }}
           >
-            <div style={{ width: 36, height: 36, borderRadius: 10, backgroundColor: 'var(--yellow-50)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div style={{ width: 36, height: 36, borderRadius: 10, backgroundColor: 'var(--yellow-50)', display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none' }}>
               <Trophy size={18} style={{ color: 'var(--yellow)', fill: 'var(--yellow)' }} />
             </div>
-            <div style={{ textAlign: 'left' }}>
+            <div style={{ textAlign: 'left', pointerEvents: 'none' }}>
               <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--text)', lineHeight: 1.1 }}>{stats?.level ?? 1}</div>
               <div style={{ fontSize: 10, fontWeight: 600, color: 'var(--text-3)', letterSpacing: '0.4px' }}>LVL</div>
             </div>
-          </button>
+          </div>
         </div>
       </header>
 
