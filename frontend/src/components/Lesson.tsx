@@ -25,13 +25,12 @@ interface LessonProps {
   onClose: () => void;
 }
 
-type QuestionType = 'flashcard' | 'multiple-choice-it-to-cz' | 'multiple-choice-cz-to-it' | 'typing' | 'scrambled-sentence' | 'matching';
+type QuestionType = 'flashcard' | 'multiple-choice-it-to-cz' | 'multiple-choice-cz-to-it' | 'typing' | 'fill-in-the-blank' | 'matching';
 
 interface Exercise {
   word: Word;
   type: QuestionType;
   options?: string[];
-  scrambledWords?: string[];
   targetSentence?: string;
   targetSentenceTranslation?: string;
   matchingItWords?: string[];   // pre-computed, stabilní — nesmí se re-generovat
@@ -55,7 +54,6 @@ export const Lesson: React.FC<LessonProps> = ({ category, lessonSize = 10, onClo
 
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [typedAnswer, setTypedAnswer] = useState('');
-  const [selectedPuzzleWords, setSelectedPuzzleWords] = useState<string[]>([]);
 
   const [selectedItWord, setSelectedItWord] = useState<string | null>(null);
   const [selectedCzWord, setSelectedCzWord] = useState<string | null>(null);
@@ -108,34 +106,23 @@ export const Lesson: React.FC<LessonProps> = ({ category, lessonSize = 10, onClo
 
       const rand = Math.random();
       const hasExample = word.example_it && word.example_it.trim().length > 3;
-      // Scrambled POUZE pro slova která uživatel už zná (box >= 2)
-      // Nová slova (box 0-1) dostanou typing nebo multiple-choice
-      const canScramble = hasExample && (word.box ?? 0) >= 2;
+      // Fill-in-the-blank POUZE pro slova která uživatel už zná (box >= 2)
+      const canFillBlank = hasExample && (word.box ?? 0) >= 2;
 
       if (rand < 0.3) {
         generated.push({ word, type: 'multiple-choice-it-to-cz', options: getRandomOptions(word.czech, allCzWords) });
       } else if (rand < 0.6) {
         generated.push({ word, type: 'multiple-choice-cz-to-it', options: getRandomOptions(word.italian, allItWords) });
-      } else if (rand < 0.85 || !canScramble) {
-        // Typing je fallback pro všechna nová slova i slova bez example_it
+      } else if (rand < 0.85 || !canFillBlank) {
         generated.push({ word, type: 'typing' });
       } else {
-        // Scrambled jen pokud má validní příkladovou větu A uživatel slovo už zná
         const sentence = word.example_it;
-        const wordsInSentence = sentence.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?]/g, '').split(' ').filter(Boolean);
-        if (wordsInSentence.length < 2) {
+        if (!sentence.toLowerCase().includes(word.italian.toLowerCase())) {
           generated.push({ word, type: 'typing' });
         } else {
-          const scrambled = [...wordsInSentence];
-          const distractorPool = loadedWords
-            .filter(w => w.id !== word.id)
-            .flatMap(w => w.italian.split(' '))
-            .filter(w => !wordsInSentence.includes(w));
-          const pickedDistractors = shuffle([...new Set(distractorPool)]).slice(0, 2);
-          scrambled.push(...pickedDistractors);
           generated.push({
-            word, type: 'scrambled-sentence',
-            scrambledWords: shuffle(scrambled),
+            word, type: 'fill-in-the-blank',
+            options: getRandomOptions(word.italian, allItWords),
             targetSentence: sentence,
             targetSentenceTranslation: word.example_cz,
           });
@@ -178,7 +165,7 @@ export const Lesson: React.FC<LessonProps> = ({ category, lessonSize = 10, onClo
 
   const handleSpeak = () => {
     if (!currentExercise) return;
-    speakItalian(currentExercise.type === 'scrambled-sentence'
+    speakItalian(currentExercise.type === 'fill-in-the-blank'
       ? currentExercise.targetSentence || ''
       : currentExercise.word.italian);
   };
@@ -207,11 +194,10 @@ export const Lesson: React.FC<LessonProps> = ({ category, lessonSize = 10, onClo
       correct = selectedOption === currentExercise.word.italian;
     } else if (currentExercise.type === 'typing') {
       correct = normalizeString(typedAnswer) === normalizeString(currentExercise.word.italian);
-    } else if (currentExercise.type === 'scrambled-sentence') {
-      const assembled = selectedPuzzleWords.join(' ').toLowerCase().replace(/[.,]/g, '');
-      correct = assembled === (currentExercise.targetSentence?.toLowerCase().replace(/[.,]/g, '') || '');
+    } else if (currentExercise.type === 'fill-in-the-blank') {
+      correct = selectedOption === currentExercise.word.italian;
     } else if (currentExercise.type === 'matching') {
-      correct = matchedPairs.length === Math.min(words.length, 5);
+      correct = matchedPairs.length === (currentExercise.matchingPairs?.length || 5);
     }
 
     setIsCorrect(correct);
@@ -249,12 +235,13 @@ export const Lesson: React.FC<LessonProps> = ({ category, lessonSize = 10, onClo
   };
 
   const checkMatchingPair = (itVal: string, czVal: string) => {
-    // Ověř párování oproti pre-computed matchingPairs z exercise objektu
+    if (checked) return;
     const pairs = exercises[currentIdx]?.matchingPairs ?? [];
-    const totalPairs = exercises[currentIdx]?.matchingItWords?.length ?? Math.min(words.length, 5);
+    const totalPairs = pairs.length || 5;
     const isPair = pairs.length > 0
       ? pairs.some(p => p.italian === itVal && p.czech === czVal)
       : words.some(w => w.italian === itVal && w.czech === czVal);
+      
     if (isPair) {
       const newMatched = [...matchedPairs, itVal];
       setMatchedPairs(newMatched);
@@ -264,8 +251,11 @@ export const Lesson: React.FC<LessonProps> = ({ category, lessonSize = 10, onClo
         setIsCorrect(true); setChecked(true); setMascotState('happy'); playSound('correct');
       }
     } else {
-      setSelectedItWord(null); setSelectedCzWord(null);
       playSound('match-incorrect');
+      if ('vibrate' in navigator) navigator.vibrate(40);
+      setTimeout(() => {
+        setSelectedItWord(null); setSelectedCzWord(null);
+      }, 500);
     }
   };
 
@@ -273,7 +263,8 @@ export const Lesson: React.FC<LessonProps> = ({ category, lessonSize = 10, onClo
     if (!isCorrect && currentExercise.type !== 'flashcard') {
       setExercises(prev => [...prev, currentExercise]);
     }
-    setSelectedOption(null); setTypedAnswer(''); setSelectedPuzzleWords([]);
+    setSelectedOption(null);
+    setTypedAnswer('');
     setSelectedItWord(null); setSelectedCzWord(null); setMatchedPairs([]);
     setChecked(false); setIsCorrect(false); setMascotState('idle');
 
@@ -329,8 +320,8 @@ export const Lesson: React.FC<LessonProps> = ({ category, lessonSize = 10, onClo
     if (currentExercise.type === 'flashcard') return true;
     if (currentExercise.type === 'multiple-choice-it-to-cz' || currentExercise.type === 'multiple-choice-cz-to-it') return selectedOption !== null;
     if (currentExercise.type === 'typing') return typedAnswer.trim() !== '';
-    if (currentExercise.type === 'scrambled-sentence') return selectedPuzzleWords.length > 0;
-    if (currentExercise.type === 'matching') return matchedPairs.length === Math.min(words.length, 5);
+    if (currentExercise.type === 'fill-in-the-blank') return selectedOption !== null;
+    if (currentExercise.type === 'matching') return matchedPairs.length === (currentExercise.matchingPairs?.length || 5);
     return false;
   };
 
@@ -533,72 +524,67 @@ export const Lesson: React.FC<LessonProps> = ({ category, lessonSize = 10, onClo
           </div>
         );
 
-      case 'scrambled-sentence':
+      case 'fill-in-the-blank': {
+        const sentence = currentExercise.targetSentence || '';
+        const targetWord = currentExercise.word.italian;
+        // Nahradíme cílové slovo (case-insensitive) za podtržítka
+        const regex = new RegExp(`\\b${targetWord}\\b`, 'i');
+        const blankedSentence = sentence.replace(regex, '_________');
+
         return (
           <div className="animate-pop" style={{ display: 'flex', flexDirection: 'column', flex: 1, paddingTop: 8 }}>
-            <p className="section-label" style={{ marginBottom: 6 }}>Sestav italskou větu</p>
-            <p style={{ fontSize: 15, color: 'var(--text-2)', fontStyle: 'italic', marginBottom: 18 }}>
-              „{currentExercise.targetSentenceTranslation}"
-            </p>
-
-            {/* Drop area */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
+              <button
+                onClick={handleSpeak}
+                style={{
+                  width: 46, height: 46, borderRadius: 12, flexShrink: 0,
+                  backgroundColor: 'var(--sky-50)', border: 'none', cursor: 'pointer',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--sky)',
+                }}
+              >
+                <Volume2 size={22} />
+              </button>
+              <h3 style={{ fontSize: 20, fontWeight: 700, color: 'var(--text)', lineHeight: 1.4 }}>
+                Doplň slovo:
+              </h3>
+            </div>
+            
             <div style={{
-              minHeight: 72, padding: '12px 14px',
-              backgroundColor: 'var(--surface-2)',
-              border: `2px dashed ${checked ? 'transparent' : 'var(--border-2)'}`,
-              borderRadius: 14,
-              display: 'flex', flexWrap: 'wrap', gap: 8, alignItems: 'center',
-              marginBottom: 20,
+              backgroundColor: 'var(--surface-2)', padding: '20px 16px', borderRadius: 16,
+              marginBottom: 12, border: '1px solid var(--border)', textAlign: 'center'
             }}>
-              {selectedPuzzleWords.length === 0 && !checked && (
-                <span style={{ fontSize: 14, color: 'var(--text-3)' }}>Klikni na slova níže…</span>
-              )}
-              {selectedPuzzleWords.map((word, idx) => (
-                <button
-                  key={`sel-${word}-${idx}`}
-                  disabled={checked}
-                  onClick={() => setSelectedPuzzleWords(prev => prev.filter((_, i) => i !== idx))}
-                  style={{
-                    padding: '8px 14px', borderRadius: 10,
-                    backgroundColor: 'var(--surface)', border: '1.5px solid var(--border)',
-                    fontSize: 15, fontWeight: 700, color: 'var(--text)',
-                    cursor: 'pointer', fontFamily: 'var(--font)',
-                  }}
-                >
-                  {word}
-                </button>
-              ))}
+              <p style={{ fontSize: 22, fontWeight: 700, color: 'var(--text)', marginBottom: 8, lineHeight: 1.4 }}>
+                {blankedSentence}
+              </p>
+              <p style={{ fontSize: 15, color: 'var(--text-2)', fontStyle: 'italic' }}>
+                „{currentExercise.targetSentenceTranslation}"
+              </p>
             </div>
 
-            {/* Word tiles */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, justifyContent: 'center' }}>
-              {currentExercise.scrambledWords?.map((word, idx) => {
-                const usedCount = selectedPuzzleWords.filter(w => w === word).length;
-                const totalCount = currentExercise.scrambledWords?.filter(w => w === word).length || 0;
-                const isUsed = usedCount >= totalCount;
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginTop: 'auto' }}>
+              {currentExercise.options?.map(option => {
+                const sel = selectedOption === option;
+                let cls = 'card-option';
+                if (checked) {
+                  if (option === currentExercise.word.italian) cls += ' correct';
+                  else if (sel) cls += ' incorrect';
+                } else if (sel) cls += ' selected';
+
                 return (
                   <button
-                    key={`tile-${word}-${idx}`}
-                    disabled={checked || isUsed}
-                    onClick={() => setSelectedPuzzleWords(prev => [...prev, word])}
-                    style={{
-                      padding: '9px 16px', borderRadius: 10,
-                      backgroundColor: isUsed ? 'var(--surface-2)' : 'var(--surface)',
-                      border: `1.5px solid ${isUsed ? 'var(--border)' : 'var(--border-2)'}`,
-                      fontSize: 15, fontWeight: 700,
-                      color: isUsed ? 'var(--text-3)' : 'var(--text)',
-                      cursor: isUsed ? 'default' : 'pointer',
-                      transition: 'all 0.1s', fontFamily: 'var(--font)',
-                      opacity: isUsed ? 0.45 : 1,
-                    }}
+                    key={`opt-${option}`}
+                    disabled={checked}
+                    onClick={() => setSelectedOption(option)}
+                    className={cls}
                   >
-                    {word}
+                    <span style={{ fontSize: 16, fontWeight: 700 }}>{option}</span>
                   </button>
                 );
               })}
             </div>
           </div>
         );
+      }
 
       case 'matching': {
         // Čte předpočítaná slova z exercise objektu — NE shuffle při renderu
@@ -625,15 +611,16 @@ export const Lesson: React.FC<LessonProps> = ({ category, lessonSize = 10, onClo
                       className={`card-option${matched ? ' correct' : selected ? ' selected' : ''}`}
                       style={{
                         flex: 1,
-                        fontSize: 15, fontWeight: 700,
+                        fontSize: 17, fontWeight: 700,
                         padding: '0 12px',
-                        opacity: matched ? 0.4 : 1,
+                        opacity: matched ? 0.3 : 1,
                         cursor: matched ? 'default' : 'pointer',
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        textAlign: 'center', lineHeight: 1.3,
-                        minHeight: 52,
+                        textAlign: 'center', lineHeight: 1.2,
+                        minHeight: 64,
                         transition: 'all 0.15s',
-                        transform: selected ? 'scale(0.97)' : 'scale(1)',
+                        transform: selected ? 'scale(0.96)' : 'scale(1)',
+                        wordBreak: 'break-word',
                       }}
                     >
                       {word}
@@ -655,15 +642,16 @@ export const Lesson: React.FC<LessonProps> = ({ category, lessonSize = 10, onClo
                       className={`card-option${matched ? ' correct' : selected ? ' selected' : ''}`}
                       style={{
                         flex: 1,
-                        fontSize: 15, fontWeight: 700,
+                        fontSize: 17, fontWeight: 700,
                         padding: '0 12px',
-                        opacity: matched ? 0.4 : 1,
+                        opacity: matched ? 0.3 : 1,
                         cursor: matched ? 'default' : 'pointer',
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        textAlign: 'center', lineHeight: 1.3,
-                        minHeight: 52,
+                        textAlign: 'center', lineHeight: 1.2,
+                        minHeight: 64,
                         transition: 'all 0.15s',
-                        transform: selected ? 'scale(0.97)' : 'scale(1)',
+                        transform: selected ? 'scale(0.96)' : 'scale(1)',
+                        wordBreak: 'break-word',
                       }}
                     >
                       {word}
@@ -843,14 +831,14 @@ export const Lesson: React.FC<LessonProps> = ({ category, lessonSize = 10, onClo
 
       {/* Header — s iOS safe area paddingem */}
       <header style={{
-        display: 'flex', alignItems: 'center', gap: 12,
-        paddingTop: 'max(14px, env(safe-area-inset-top))',
-        paddingBottom: 12,
-        paddingLeft: 16,
+        display: 'flex',
+        alignItems: 'center',
+        padding: 'max(16px, env(safe-area-inset-top)) 16px 10px',
         paddingRight: 16,
         borderBottom: '1px solid var(--border)',
         backgroundColor: 'var(--surface)',
         flexShrink: 0,
+        gap: 12,
       }}>
         {/* X tlačítko — větší touch target pro mobil */}
         <button
@@ -868,7 +856,7 @@ export const Lesson: React.FC<LessonProps> = ({ category, lessonSize = 10, onClo
         >
           <X size={20} />
         </button>
-        <div className="progress-bar-container" style={{ flex: 1, height: 8 }}>
+        <div className="progress-bar-container" style={{ flex: 1, height: 8, minWidth: 0 }}>
           <div className="progress-bar-fill" style={{ width: `${progressPercent}%` }} />
         </div>
         {/* Score counter ✓/✗ + počítadlo */}
@@ -902,7 +890,7 @@ export const Lesson: React.FC<LessonProps> = ({ category, lessonSize = 10, onClo
               {currentExercise.type === 'typing' && 'Přelož toto české slovo do italštiny.'}
               {currentExercise.type === 'multiple-choice-it-to-cz' && 'Vyber správný český překlad.'}
               {currentExercise.type === 'multiple-choice-cz-to-it' && 'Vyber správný italský překlad.'}
-              {currentExercise.type === 'scrambled-sentence' && 'Poskládej slova do správného pořadí.'}
+              {currentExercise.type === 'fill-in-the-blank' && 'Doplň chybějící slovo.'}
             </span>
           </div>
         )}
@@ -947,9 +935,7 @@ export const Lesson: React.FC<LessonProps> = ({ category, lessonSize = 10, onClo
                     <p style={{ fontSize: 15, fontWeight: 800, color: 'var(--wrong-fg)', textDecoration: 'underline', marginTop: 2 }}>
                       {currentExercise.type === 'multiple-choice-it-to-cz'
                         ? currentExercise.word.czech
-                        : currentExercise.type === 'scrambled-sentence'
-                          ? currentExercise.targetSentence
-                          : currentExercise.word.italian}
+                        : currentExercise.word.italian}
                     </p>
                   </div>
                 </>
