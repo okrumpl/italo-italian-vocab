@@ -1,182 +1,1143 @@
 [
-  {"italian":"la cabina armadio","czech":"šatna (místnost)","category":"Dům a domácnost"},
-  {"italian":"la mansarda","czech":"podkrovní byt","category":"Dům a domácnost"},
-  {"italian":"il seminterrato","czech":"suterén","category":"Dům a domácnost"},
-
-  {"italian":"il collant termico","czech":"termolegíny","category":"Oblečení a móda"},
-  {"italian":"la maglia termica","czech":"termoprádlo (triko)","category":"Oblečení a móda"},
-
-  {"italian":"la pressione arteriosa","czech":"arteriální tlak","category":"Tělo a zdraví"},
-  {"italian":"il polpastrello","czech":"bříško prstu","category":"Tělo a zdraví"},
-
-  {"italian":"il tramonto","czech":"západ slunce","category":"Čas a dny"},
-  {"italian":"l'alba","czech":"úsvit","category":"Čas a dny"},
-  {"italian":"il crepuscolo","czech":"soumrak","category":"Čas a dny"},
-
-  {"italian":"il ghiacciaio","czech":"ledovec","category":"Počasí"},
-  {"italian":"l'effetto serra","czech":"skleníkový efekt","category":"Počasí"},
-  {"italian":"la depressione atmosferica","czech":"atmosferická níže","category":"Počasí"},
-  {"italian":"l'anticiclone","czech":"anticyklona","category":"Počasí"},
-  {"italian":"l'allerta meteo","czech":"meteorologická výstraha","category":"Počasí"},
-  {"italian":"la corrente fredda","czech":"studená fronta","category":"Počasí"},
-  {"italian":"la corrente calda","czech":"teplá fronta","category":"Počasí"},
-  {"italian":"il tempo variabile","czech":"proměnlivé počasí","category":"Počasí"},
-  {"italian":"la grandine grossa","czech":"velké kroupy","category":"Počasí"},
-  {"italian":"la nebbia fitta","czech":"hustá mlha","category":"Počasí"},
-  {"italian":"il terremoto","czech":"zemětřesení","category":"Počasí"},
-  {"italian":"l'eruzione vulcanica","czech":"sopečná erupce","category":"Počasí"},
-  {"italian":"la slavina","czech":"lavina","category":"Počasí"},
-
-  {"italian":"la sedia a rotelle","czech":"invalidní vozík","category":"Tělo a zdraví"},
-  {"italian":"le stampelle","czech":"berle","category":"Tělo a zdraví"},
-  {"italian":"il tutore ortopedico","czech":"ortopedická dlaha","category":"Tělo a zdraví"},
-
-  {"italian":"il cappellino da baseball","czech":"baseballová čepice","category":"Oblečení a móda"},
-  {"italian":"il trench coat","czech":"trench kabát","category":"Oblečení a móda"},
-
-  {"italian":"il grano","czech":"pšenice, obiloviny","category":"Jídlo a pití"},
-
-  {"italian":"la stazione di servizio","czech":"čerpací stanice","category":"Město a doprava"},
-  {"italian":"il marciapiede","czech":"chodník","category":"Město a doprava"},
-  {"italian":"la tangenziale","czech":"obchvat (silnice)","category":"Město a doprava"},
-  {"italian":"il bypass stradale","czech":"silniční obchvat","category":"Město a doprava"},
-  {"italian":"il tram","czech":"tramvaj","category":"Město a doprava"},
-  {"italian":"il passante ferroviario","czech":"příměstský vlak","category":"Město a doprava"},
-  {"italian":"la metropolitana","czech":"metro","category":"Město a doprava"},
-  {"italian":"il taxi condiviso","czech":"sdílené taxi","category":"Město a doprava"},
-  {"italian":"il carpooling","czech":"sdílení automobilu","category":"Město a doprava"},
-  {"italian":"la bici elettrica","czech":"elektrické kolo","category":"Město a doprava"},
-  {"italian":"il monopattino elettrico","czech":"elektrická koloběžka","category":"Město a doprava"},
-  {"italian":"la corsia preferenziale","czech":"vyhrazený jízdní pruh","category":"Město a doprava"},
-  {"italian":"il limite di velocità","czech":"omezení rychlosti","category":"Město a doprava"},
-  {"italian":"l'autovelox","czech":"radar (měření rychlosti)","category":"Město a doprava"},
-  {"italian":"la telecamera di sorveglianza","czech":"bezpečnostní kamera","category":"Město a doprava"},
-  {"italian":"il rivelatore di fumo","czech":"detektor kouře","category":"Město a doprava"},
-
-  {"italian":"la destinazione","czech":"cílové místo","category":"Cestování"},
-  {"italian":"il clima locale","czech":"místní podnebí","category":"Cestování"},
-  {"italian":"il tour operator","czech":"cestovní kancelář (velkoobchod)","category":"Cestování"},
-  {"italian":"il pacchetto vacanze","czech":"dovolenkový balíček","category":"Cestování"},
-  {"italian":"la vacanza all-inclusive","czech":"dovolená all-inclusive","category":"Cestování"},
-  {"italian":"la crociera","czech":"výletní plavba","category":"Cestování"},
-  {"italian":"il noleggio auto","czech":"půjčovna aut","category":"Cestování"},
-  {"italian":"il camper","czech":"karavan","category":"Cestování"},
-  {"italian":"la tenda da campeggio","czech":"stanování, stan","category":"Cestování"},
-  {"italian":"l'agriturismo","czech":"agroturismus","category":"Cestování"},
-  {"italian":"il turismo sostenibile","czech":"udržitelný cestovní ruch","category":"Cestování"},
-  {"italian":"il viaggio di lavoro","czech":"pracovní cesta","category":"Cestování"},
-  {"italian":"la guida di viaggio","czech":"cestovní průvodce (kniha)","category":"Cestování"},
-  {"italian":"la macchina fotografica","czech":"fotoaparát","category":"Cestování"},
-  {"italian":"gli auricolari","czech":"sluchátka","category":"Cestování"},
-  {"italian":"il caricabatterie","czech":"nabíječka","category":"Cestování"},
-  {"italian":"l'adattatore di corrente","czech":"cestovní adaptér","category":"Cestování"},
-  {"italian":"la sim card","czech":"SIM karta","category":"Cestování"},
-  {"italian":"il wifi in hotel","czech":"hotelová wifi","category":"Cestování"},
-  {"italian":"l'ufficio del turismo","czech":"turistické informační centrum","category":"Cestování"},
-  {"italian":"la sagra","czech":"místní festival, pouť","category":"Cestování"},
-  {"italian":"il patrimonio UNESCO","czech":"UNESCO dědictví","category":"Cestování"},
-  {"italian":"il sito archeologico","czech":"archeologické naleziště","category":"Cestování"},
-  {"italian":"la rovina","czech":"zřícenina","category":"Cestování"},
-  {"italian":"il castello","czech":"hrad, zámek","category":"Cestování"},
-  {"italian":"l'isola","czech":"ostrov","category":"Cestování"},
-
-  {"italian":"il parco avventura","czech":"lanové centrum","category":"Volný čas a sport"},
-  {"italian":"il bowling","czech":"bowling","category":"Volný čas a sport"},
-  {"italian":"il biliardo","czech":"biliár","category":"Volný čas a sport"},
-  {"italian":"il ping pong","czech":"stolní tenis","category":"Volný čas a sport"},
-  {"italian":"il badminton","czech":"badminton","category":"Volný čas a sport"},
-  {"italian":"il rugby","czech":"rugby","category":"Volný čas a sport"},
-  {"italian":"l'handball","czech":"házená","category":"Volný čas a sport"},
-  {"italian":"il baseball","czech":"baseball","category":"Volný čas a sport"},
-  {"italian":"il canottaggio","czech":"veslování","category":"Volný čas a sport"},
-  {"italian":"la vela","czech":"plachtění","category":"Volný čas a sport"},
-  {"italian":"la canoa","czech":"kanoistika","category":"Volný čas a sport"},
-  {"italian":"il windsurf","czech":"windsurfing","category":"Volný čas a sport"},
-  {"italian":"il kitesurf","czech":"kitesurfing","category":"Volný čas a sport"},
-  {"italian":"il triathlon","czech":"triatlon","category":"Volný čas a sport"},
-  {"italian":"la maratona","czech":"maraton","category":"Volný čas a sport"},
-  {"italian":"il trekking","czech":"trekking","category":"Volný čas a sport"},
-  {"italian":"l'alpinismo","czech":"horolezectví","category":"Volný čas a sport"},
-  {"italian":"il bungee jumping","czech":"bungee jumping","category":"Volný čas a sport"},
-  {"italian":"il rafting","czech":"rafting","category":"Volný čas a sport"},
-  {"italian":"la ceramica","czech":"keramika","category":"Volný čas a sport"},
-  {"italian":"il ricamo","czech":"vyšívání","category":"Volný čas a sport"},
-  {"italian":"il lavoro a maglia","czech":"pletení","category":"Volný čas a sport"},
-  {"italian":"il falcone","czech":"sokol (pták)","category":"Volný čas a sport"},
-
-  {"italian":"il substantivo verbale","czech":"slovesné podstatné jméno","category":"Gramatika"},
-
-  {"italian":"il colore complementare","czech":"doplňková barva","category":"Barvy"},
-  {"italian":"il colore primario","czech":"primární barva","category":"Barvy"},
-  {"italian":"il colore secondario","czech":"sekundární barva","category":"Barvy"},
-  {"italian":"il colore caldo","czech":"teplá barva","category":"Barvy"},
-  {"italian":"il colore freddo","czech":"studená barva","category":"Barvy"},
-  {"italian":"la sfumatura","czech":"odstín","category":"Barvy"},
-  {"italian":"il tono","czech":"tón (barvy)","category":"Barvy"},
-  {"italian":"la tinta","czech":"barva, nátěr","category":"Barvy"},
-  {"italian":"lo smalto colorato","czech":"barevný lak","category":"Barvy"},
-  {"italian":"acquerello","czech":"akvarelová barva","category":"Barvy"},
-  {"italian":"il chiaroscuro","czech":"šerosvit","category":"Barvy"},
-  {"italian":"bicolore","czech":"dvoubarevný","category":"Barvy"},
-
-  {"italian":"il reddito","czech":"příjem","category":"Základy"},
-  {"italian":"la spesa","czech":"výdaj, nákup","category":"Základy"},
-  {"italian":"il risparmio","czech":"úspora","category":"Základy"},
-  {"italian":"il debito","czech":"dluh","category":"Základy"},
-  {"italian":"la tassa","czech":"daň","category":"Základy"},
-  {"italian":"il fisco","czech":"finanční správa","category":"Základy"},
-  {"italian":"la burocrazia","czech":"byrokracie","category":"Základy"},
-  {"italian":"il documento","czech":"dokument","category":"Základy"},
-  {"italian":"la firma","czech":"podpis","category":"Základy"},
-
-  {"italian":"l'ottimista","czech":"optimista","category":"Emoce a vlastnosti"},
-  {"italian":"il pessimista","czech":"pesimista","category":"Emoce a vlastnosti"},
-  {"italian":"l'egoista","czech":"egoista","category":"Emoce a vlastnosti"},
-  {"italian":"l'altruista","czech":"altruista","category":"Emoce a vlastnosti"},
-  {"italian":"la contentezza profonda","czech":"hluboká spokojenost","category":"Emoce a vlastnosti"},
-
-  {"italian":"il nome completo","czech":"celé jméno","category":"Fráze"},
-  {"italian":"la data di nascita","czech":"datum narození","category":"Fráze"},
-  {"italian":"il luogo di nascita","czech":"místo narození","category":"Fráze"},
-  {"italian":"la nazionalità","czech":"státní příslušnost","category":"Fráze"},
-  {"italian":"il numero di telefono","czech":"telefonní číslo","category":"Fráze"},
-  {"italian":"l'indirizzo e-mail","czech":"e-mailová adresa","category":"Fráze"},
-
-  {"italian":"il sindaco","czech":"starosta","category":"Přídavná jména"},
-  {"italian":"aggressivo","czech":"agresivní","category":"Přídavná jména"},
-  {"italian":"passivo","czech":"pasivní","category":"Přídavná jména"},
-  {"italian":"attivo","czech":"aktivní","category":"Přídavná jména"},
-  {"italian":"creativo","czech":"kreativní","category":"Přídavná jména"},
-  {"italian":"distratto","czech":"roztržitý","category":"Přídavná jména"},
-  {"italian":"concentrato","czech":"soustředěný","category":"Přídavná jména"},
-  {"italian":"motivato","czech":"motivovaný","category":"Přídavná jména"},
-  {"italian":"ambizioso","czech":"ambiciózní","category":"Přídavná jména"},
-  {"italian":"responsabile","czech":"zodpovědný","category":"Přídavná jména"},
-  {"italian":"irresponsabile","czech":"nezodpovědný","category":"Přídavná jména"},
-  {"italian":"affidabile","czech":"spolehlivý","category":"Přídavná jména"},
-  {"italian":"imprevedibile","czech":"nepředvídatelný","category":"Přídavná jména"},
-  {"italian":"efficiente","czech":"efektivní","category":"Přídavná jména"},
-
-  {"italian":"il cuoco professionista","czech":"profesionální kuchař","category":"Práce a povolání"},
-  {"italian":"il sommelier","czech":"sommelier","category":"Práce a povolání"},
-  {"italian":"il pasticciere","czech":"cukrář","category":"Práce a povolání"},
-  {"italian":"il fornaio","czech":"pekař","category":"Práce a povolání"},
-  {"italian":"il macellaio","czech":"řezník","category":"Práce a povolání"},
-  {"italian":"il pescivendolo","czech":"rybář (prodejce ryb)","category":"Práce a povolání"},
-  {"italian":"il fruttivendolo","czech":"zelinář","category":"Práce a povolání"},
-  {"italian":"il barista","czech":"barista, barman","category":"Práce a povolání"},
-  {"italian":"il gestore","czech":"správce, provozovatel","category":"Práce a povolání"},
-  {"italian":"il commercialista","czech":"daňový poradce","category":"Práce a povolání"},
-  {"italian":"il notaio","czech":"notář","category":"Práce a povolání"},
-  {"italian":"il giudice","czech":"soudce","category":"Práce a povolání"},
-  {"italian":"il procuratore","czech":"prokurátor","category":"Práce a povolání"},
-  {"italian":"l'assistente sociale","czech":"sociální pracovník","category":"Práce a povolání"},
-  {"italian":"lo psicologo","czech":"psycholog","category":"Práce a povolání"},
-  {"italian":"lo psichiatra","czech":"psychiatr","category":"Práce a povolání"},
-  {"italian":"il fisioterapista","czech":"fyzioterapeut","category":"Práce a povolání"},
-  {"italian":"il radiologo","czech":"radiolog","category":"Práce a povolání"},
-  {"italian":"il cardiologo","czech":"kardiolog","category":"Práce a povolání"},
-  {"italian":"il pediatra","czech":"pediatr","category":"Práce a povolání"},
-  {"italian":"il ginecologo","czech":"gynekolog","category":"Práce a povolání"},
-  {"italian":"il dermatologo","czech":"dermatolog","category":"Práce a povolání"}
+  {
+    "italian": "la cabina armadio",
+    "czech": "šatna (místnost)",
+    "category": "Dům a domácnost",
+    "example_it": "Dov'è la cabina armadio?",
+    "example_cz": "Kde je šatna (místnost)?"
+  },
+  {
+    "italian": "la mansarda",
+    "czech": "podkrovní byt",
+    "category": "Dům a domácnost",
+    "example_it": "Dov'è la mansarda?",
+    "example_cz": "Kde je podkrovní byt?"
+  },
+  {
+    "italian": "il seminterrato",
+    "czech": "suterén",
+    "category": "Dům a domácnost",
+    "example_it": "Dov'è il seminterrato?",
+    "example_cz": "Kde je suterén?"
+  },
+  {
+    "italian": "il collant termico",
+    "czech": "termolegíny",
+    "category": "Oblečení a móda",
+    "example_it": "Dov'è il collant termico?",
+    "example_cz": "Kde je termolegíny?"
+  },
+  {
+    "italian": "la maglia termica",
+    "czech": "termoprádlo (triko)",
+    "category": "Oblečení a móda",
+    "example_it": "Dov'è la maglia termica?",
+    "example_cz": "Kde je termoprádlo (triko)?"
+  },
+  {
+    "italian": "la pressione arteriosa",
+    "czech": "arteriální tlak",
+    "category": "Tělo a zdraví",
+    "example_it": "Dov'è la pressione arteriosa?",
+    "example_cz": "Kde je arteriální tlak?"
+  },
+  {
+    "italian": "il polpastrello",
+    "czech": "bříško prstu",
+    "category": "Tělo a zdraví",
+    "example_it": "Dov'è il polpastrello?",
+    "example_cz": "Kde je bříško prstu?"
+  },
+  {
+    "italian": "il tramonto",
+    "czech": "západ slunce",
+    "category": "Čas a dny",
+    "example_it": "Dov'è il tramonto?",
+    "example_cz": "Kde je západ slunce?"
+  },
+  {
+    "italian": "l'alba",
+    "czech": "úsvit",
+    "category": "Čas a dny",
+    "example_it": "Dov'è l'alba?",
+    "example_cz": "Kde je úsvit?"
+  },
+  {
+    "italian": "il crepuscolo",
+    "czech": "soumrak",
+    "category": "Čas a dny",
+    "example_it": "Dov'è il crepuscolo?",
+    "example_cz": "Kde je soumrak?"
+  },
+  {
+    "italian": "il ghiacciaio",
+    "czech": "ledovec",
+    "category": "Počasí",
+    "example_it": "Dov'è il ghiacciaio?",
+    "example_cz": "Kde je ledovec?"
+  },
+  {
+    "italian": "l'effetto serra",
+    "czech": "skleníkový efekt",
+    "category": "Počasí",
+    "example_it": "Dov'è l'effetto serra?",
+    "example_cz": "Kde je skleníkový efekt?"
+  },
+  {
+    "italian": "la depressione atmosferica",
+    "czech": "atmosferická níže",
+    "category": "Počasí",
+    "example_it": "Dov'è la depressione atmosferica?",
+    "example_cz": "Kde je atmosferická níže?"
+  },
+  {
+    "italian": "l'anticiclone",
+    "czech": "anticyklona",
+    "category": "Počasí",
+    "example_it": "Dov'è l'anticiclone?",
+    "example_cz": "Kde je anticyklona?"
+  },
+  {
+    "italian": "l'allerta meteo",
+    "czech": "meteorologická výstraha",
+    "category": "Počasí",
+    "example_it": "Dov'è l'allerta meteo?",
+    "example_cz": "Kde je meteorologická výstraha?"
+  },
+  {
+    "italian": "la corrente fredda",
+    "czech": "studená fronta",
+    "category": "Počasí",
+    "example_it": "Dov'è la corrente fredda?",
+    "example_cz": "Kde je studená fronta?"
+  },
+  {
+    "italian": "la corrente calda",
+    "czech": "teplá fronta",
+    "category": "Počasí",
+    "example_it": "Dov'è la corrente calda?",
+    "example_cz": "Kde je teplá fronta?"
+  },
+  {
+    "italian": "il tempo variabile",
+    "czech": "proměnlivé počasí",
+    "category": "Počasí",
+    "example_it": "Dov'è il tempo variabile?",
+    "example_cz": "Kde je proměnlivé počasí?"
+  },
+  {
+    "italian": "la grandine grossa",
+    "czech": "velké kroupy",
+    "category": "Počasí",
+    "example_it": "Dov'è la grandine grossa?",
+    "example_cz": "Kde je velké kroupy?"
+  },
+  {
+    "italian": "la nebbia fitta",
+    "czech": "hustá mlha",
+    "category": "Počasí",
+    "example_it": "Dov'è la nebbia fitta?",
+    "example_cz": "Kde je hustá mlha?"
+  },
+  {
+    "italian": "il terremoto",
+    "czech": "zemětřesení",
+    "category": "Počasí",
+    "example_it": "Dov'è il terremoto?",
+    "example_cz": "Kde je zemětřesení?"
+  },
+  {
+    "italian": "l'eruzione vulcanica",
+    "czech": "sopečná erupce",
+    "category": "Počasí",
+    "example_it": "Dov'è l'eruzione vulcanica?",
+    "example_cz": "Kde je sopečná erupce?"
+  },
+  {
+    "italian": "la slavina",
+    "czech": "lavina",
+    "category": "Počasí",
+    "example_it": "Dov'è la slavina?",
+    "example_cz": "Kde je lavina?"
+  },
+  {
+    "italian": "la sedia a rotelle",
+    "czech": "invalidní vozík",
+    "category": "Tělo a zdraví",
+    "example_it": "Dov'è la sedia a rotelle?",
+    "example_cz": "Kde je invalidní vozík?"
+  },
+  {
+    "italian": "le stampelle",
+    "czech": "berle",
+    "category": "Tělo a zdraví",
+    "example_it": "Dov'è le stampelle?",
+    "example_cz": "Kde je berle?"
+  },
+  {
+    "italian": "il tutore ortopedico",
+    "czech": "ortopedická dlaha",
+    "category": "Tělo a zdraví",
+    "example_it": "Dov'è il tutore ortopedico?",
+    "example_cz": "Kde je ortopedická dlaha?"
+  },
+  {
+    "italian": "il cappellino da baseball",
+    "czech": "baseballová čepice",
+    "category": "Oblečení a móda",
+    "example_it": "Dov'è il cappellino da baseball?",
+    "example_cz": "Kde je baseballová čepice?"
+  },
+  {
+    "italian": "il trench coat",
+    "czech": "trench kabát",
+    "category": "Oblečení a móda",
+    "example_it": "Dov'è il trench coat?",
+    "example_cz": "Kde je trench kabát?"
+  },
+  {
+    "italian": "il grano",
+    "czech": "pšenice, obiloviny",
+    "category": "Jídlo a pití",
+    "example_it": "Dov'è il grano?",
+    "example_cz": "Kde je pšenice, obiloviny?"
+  },
+  {
+    "italian": "la stazione di servizio",
+    "czech": "čerpací stanice",
+    "category": "Město a doprava",
+    "example_it": "Dov'è la stazione di servizio?",
+    "example_cz": "Kde je čerpací stanice?"
+  },
+  {
+    "italian": "il marciapiede",
+    "czech": "chodník",
+    "category": "Město a doprava",
+    "example_it": "Dov'è il marciapiede?",
+    "example_cz": "Kde je chodník?"
+  },
+  {
+    "italian": "la tangenziale",
+    "czech": "obchvat (silnice)",
+    "category": "Město a doprava",
+    "example_it": "Dov'è la tangenziale?",
+    "example_cz": "Kde je obchvat (silnice)?"
+  },
+  {
+    "italian": "il bypass stradale",
+    "czech": "silniční obchvat",
+    "category": "Město a doprava",
+    "example_it": "Dov'è il bypass stradale?",
+    "example_cz": "Kde je silniční obchvat?"
+  },
+  {
+    "italian": "il tram",
+    "czech": "tramvaj",
+    "category": "Město a doprava",
+    "example_it": "Dov'è il tram?",
+    "example_cz": "Kde je tramvaj?"
+  },
+  {
+    "italian": "il passante ferroviario",
+    "czech": "příměstský vlak",
+    "category": "Město a doprava",
+    "example_it": "Dov'è il passante ferroviario?",
+    "example_cz": "Kde je příměstský vlak?"
+  },
+  {
+    "italian": "la metropolitana",
+    "czech": "metro",
+    "category": "Město a doprava",
+    "example_it": "Dov'è la metropolitana?",
+    "example_cz": "Kde je metro?"
+  },
+  {
+    "italian": "il taxi condiviso",
+    "czech": "sdílené taxi",
+    "category": "Město a doprava",
+    "example_it": "Dov'è il taxi condiviso?",
+    "example_cz": "Kde je sdílené taxi?"
+  },
+  {
+    "italian": "il carpooling",
+    "czech": "sdílení automobilu",
+    "category": "Město a doprava",
+    "example_it": "Dov'è il carpooling?",
+    "example_cz": "Kde je sdílení automobilu?"
+  },
+  {
+    "italian": "la bici elettrica",
+    "czech": "elektrické kolo",
+    "category": "Město a doprava",
+    "example_it": "Dov'è la bici elettrica?",
+    "example_cz": "Kde je elektrické kolo?"
+  },
+  {
+    "italian": "il monopattino elettrico",
+    "czech": "elektrická koloběžka",
+    "category": "Město a doprava",
+    "example_it": "Dov'è il monopattino elettrico?",
+    "example_cz": "Kde je elektrická koloběžka?"
+  },
+  {
+    "italian": "la corsia preferenziale",
+    "czech": "vyhrazený jízdní pruh",
+    "category": "Město a doprava",
+    "example_it": "Dov'è la corsia preferenziale?",
+    "example_cz": "Kde je vyhrazený jízdní pruh?"
+  },
+  {
+    "italian": "il limite di velocità",
+    "czech": "omezení rychlosti",
+    "category": "Město a doprava",
+    "example_it": "Dov'è il limite di velocità?",
+    "example_cz": "Kde je omezení rychlosti?"
+  },
+  {
+    "italian": "l'autovelox",
+    "czech": "radar (měření rychlosti)",
+    "category": "Město a doprava",
+    "example_it": "Dov'è l'autovelox?",
+    "example_cz": "Kde je radar (měření rychlosti)?"
+  },
+  {
+    "italian": "la telecamera di sorveglianza",
+    "czech": "bezpečnostní kamera",
+    "category": "Město a doprava",
+    "example_it": "Dov'è la telecamera di sorveglianza?",
+    "example_cz": "Kde je bezpečnostní kamera?"
+  },
+  {
+    "italian": "il rivelatore di fumo",
+    "czech": "detektor kouře",
+    "category": "Město a doprava",
+    "example_it": "Dov'è il rivelatore di fumo?",
+    "example_cz": "Kde je detektor kouře?"
+  },
+  {
+    "italian": "la destinazione",
+    "czech": "cílové místo",
+    "category": "Cestování",
+    "example_it": "Dov'è la destinazione?",
+    "example_cz": "Kde je cílové místo?"
+  },
+  {
+    "italian": "il clima locale",
+    "czech": "místní podnebí",
+    "category": "Cestování",
+    "example_it": "Dov'è il clima locale?",
+    "example_cz": "Kde je místní podnebí?"
+  },
+  {
+    "italian": "il tour operator",
+    "czech": "cestovní kancelář (velkoobchod)",
+    "category": "Cestování",
+    "example_it": "Dov'è il tour operator?",
+    "example_cz": "Kde je cestovní kancelář (velkoobchod)?"
+  },
+  {
+    "italian": "il pacchetto vacanze",
+    "czech": "dovolenkový balíček",
+    "category": "Cestování",
+    "example_it": "Dov'è il pacchetto vacanze?",
+    "example_cz": "Kde je dovolenkový balíček?"
+  },
+  {
+    "italian": "la vacanza all-inclusive",
+    "czech": "dovolená all-inclusive",
+    "category": "Cestování",
+    "example_it": "Dov'è la vacanza all-inclusive?",
+    "example_cz": "Kde je dovolená all-inclusive?"
+  },
+  {
+    "italian": "la crociera",
+    "czech": "výletní plavba",
+    "category": "Cestování",
+    "example_it": "Dov'è la crociera?",
+    "example_cz": "Kde je výletní plavba?"
+  },
+  {
+    "italian": "il noleggio auto",
+    "czech": "půjčovna aut",
+    "category": "Cestování",
+    "example_it": "Dov'è il noleggio auto?",
+    "example_cz": "Kde je půjčovna aut?"
+  },
+  {
+    "italian": "il camper",
+    "czech": "karavan",
+    "category": "Cestování",
+    "example_it": "Dov'è il camper?",
+    "example_cz": "Kde je karavan?"
+  },
+  {
+    "italian": "la tenda da campeggio",
+    "czech": "stanování, stan",
+    "category": "Cestování",
+    "example_it": "Dov'è la tenda da campeggio?",
+    "example_cz": "Kde je stanování, stan?"
+  },
+  {
+    "italian": "l'agriturismo",
+    "czech": "agroturismus",
+    "category": "Cestování",
+    "example_it": "Dov'è l'agriturismo?",
+    "example_cz": "Kde je agroturismus?"
+  },
+  {
+    "italian": "il turismo sostenibile",
+    "czech": "udržitelný cestovní ruch",
+    "category": "Cestování",
+    "example_it": "Dov'è il turismo sostenibile?",
+    "example_cz": "Kde je udržitelný cestovní ruch?"
+  },
+  {
+    "italian": "il viaggio di lavoro",
+    "czech": "pracovní cesta",
+    "category": "Cestování",
+    "example_it": "Dov'è il viaggio di lavoro?",
+    "example_cz": "Kde je pracovní cesta?"
+  },
+  {
+    "italian": "la guida di viaggio",
+    "czech": "cestovní průvodce (kniha)",
+    "category": "Cestování",
+    "example_it": "Dov'è la guida di viaggio?",
+    "example_cz": "Kde je cestovní průvodce (kniha)?"
+  },
+  {
+    "italian": "la macchina fotografica",
+    "czech": "fotoaparát",
+    "category": "Cestování",
+    "example_it": "Dov'è la macchina fotografica?",
+    "example_cz": "Kde je fotoaparát?"
+  },
+  {
+    "italian": "gli auricolari",
+    "czech": "sluchátka",
+    "category": "Cestování",
+    "example_it": "Dov'è gli auricolari?",
+    "example_cz": "Kde je sluchátka?"
+  },
+  {
+    "italian": "il caricabatterie",
+    "czech": "nabíječka",
+    "category": "Cestování",
+    "example_it": "Dov'è il caricabatterie?",
+    "example_cz": "Kde je nabíječka?"
+  },
+  {
+    "italian": "l'adattatore di corrente",
+    "czech": "cestovní adaptér",
+    "category": "Cestování",
+    "example_it": "Dov'è l'adattatore di corrente?",
+    "example_cz": "Kde je cestovní adaptér?"
+  },
+  {
+    "italian": "la sim card",
+    "czech": "SIM karta",
+    "category": "Cestování",
+    "example_it": "Dov'è la sim card?",
+    "example_cz": "Kde je sim karta?"
+  },
+  {
+    "italian": "il wifi in hotel",
+    "czech": "hotelová wifi",
+    "category": "Cestování",
+    "example_it": "Dov'è il wifi in hotel?",
+    "example_cz": "Kde je hotelová wifi?"
+  },
+  {
+    "italian": "l'ufficio del turismo",
+    "czech": "turistické informační centrum",
+    "category": "Cestování",
+    "example_it": "Dov'è l'ufficio del turismo?",
+    "example_cz": "Kde je turistické informační centrum?"
+  },
+  {
+    "italian": "la sagra",
+    "czech": "místní festival, pouť",
+    "category": "Cestování",
+    "example_it": "Dov'è la sagra?",
+    "example_cz": "Kde je místní festival, pouť?"
+  },
+  {
+    "italian": "il patrimonio UNESCO",
+    "czech": "UNESCO dědictví",
+    "category": "Cestování",
+    "example_it": "Dov'è il patrimonio unesco?",
+    "example_cz": "Kde je unesco dědictví?"
+  },
+  {
+    "italian": "il sito archeologico",
+    "czech": "archeologické naleziště",
+    "category": "Cestování",
+    "example_it": "Dov'è il sito archeologico?",
+    "example_cz": "Kde je archeologické naleziště?"
+  },
+  {
+    "italian": "la rovina",
+    "czech": "zřícenina",
+    "category": "Cestování",
+    "example_it": "Dov'è la rovina?",
+    "example_cz": "Kde je zřícenina?"
+  },
+  {
+    "italian": "il castello",
+    "czech": "hrad, zámek",
+    "category": "Cestování",
+    "example_it": "Dov'è il castello?",
+    "example_cz": "Kde je hrad, zámek?"
+  },
+  {
+    "italian": "l'isola",
+    "czech": "ostrov",
+    "category": "Cestování",
+    "example_it": "Dov'è l'isola?",
+    "example_cz": "Kde je ostrov?"
+  },
+  {
+    "italian": "il parco avventura",
+    "czech": "lanové centrum",
+    "category": "Volný čas a sport",
+    "example_it": "Dov'è il parco avventura?",
+    "example_cz": "Kde je lanové centrum?"
+  },
+  {
+    "italian": "il bowling",
+    "czech": "bowling",
+    "category": "Volný čas a sport",
+    "example_it": "Dov'è il bowling?",
+    "example_cz": "Kde je bowling?"
+  },
+  {
+    "italian": "il biliardo",
+    "czech": "biliár",
+    "category": "Volný čas a sport",
+    "example_it": "Dov'è il biliardo?",
+    "example_cz": "Kde je biliár?"
+  },
+  {
+    "italian": "il ping pong",
+    "czech": "stolní tenis",
+    "category": "Volný čas a sport",
+    "example_it": "Dov'è il ping pong?",
+    "example_cz": "Kde je stolní tenis?"
+  },
+  {
+    "italian": "il badminton",
+    "czech": "badminton",
+    "category": "Volný čas a sport",
+    "example_it": "Dov'è il badminton?",
+    "example_cz": "Kde je badminton?"
+  },
+  {
+    "italian": "il rugby",
+    "czech": "rugby",
+    "category": "Volný čas a sport",
+    "example_it": "Dov'è il rugby?",
+    "example_cz": "Kde je rugby?"
+  },
+  {
+    "italian": "l'handball",
+    "czech": "házená",
+    "category": "Volný čas a sport",
+    "example_it": "Dov'è l'handball?",
+    "example_cz": "Kde je házená?"
+  },
+  {
+    "italian": "il baseball",
+    "czech": "baseball",
+    "category": "Volný čas a sport",
+    "example_it": "Dov'è il baseball?",
+    "example_cz": "Kde je baseball?"
+  },
+  {
+    "italian": "il canottaggio",
+    "czech": "veslování",
+    "category": "Volný čas a sport",
+    "example_it": "Dov'è il canottaggio?",
+    "example_cz": "Kde je veslování?"
+  },
+  {
+    "italian": "la vela",
+    "czech": "plachtění",
+    "category": "Volný čas a sport",
+    "example_it": "Dov'è la vela?",
+    "example_cz": "Kde je plachtění?"
+  },
+  {
+    "italian": "la canoa",
+    "czech": "kanoistika",
+    "category": "Volný čas a sport",
+    "example_it": "Dov'è la canoa?",
+    "example_cz": "Kde je kanoistika?"
+  },
+  {
+    "italian": "il windsurf",
+    "czech": "windsurfing",
+    "category": "Volný čas a sport",
+    "example_it": "Dov'è il windsurf?",
+    "example_cz": "Kde je windsurfing?"
+  },
+  {
+    "italian": "il kitesurf",
+    "czech": "kitesurfing",
+    "category": "Volný čas a sport",
+    "example_it": "Dov'è il kitesurf?",
+    "example_cz": "Kde je kitesurfing?"
+  },
+  {
+    "italian": "il triathlon",
+    "czech": "triatlon",
+    "category": "Volný čas a sport",
+    "example_it": "Dov'è il triathlon?",
+    "example_cz": "Kde je triatlon?"
+  },
+  {
+    "italian": "la maratona",
+    "czech": "maraton",
+    "category": "Volný čas a sport",
+    "example_it": "Dov'è la maratona?",
+    "example_cz": "Kde je maraton?"
+  },
+  {
+    "italian": "il trekking",
+    "czech": "trekking",
+    "category": "Volný čas a sport",
+    "example_it": "Dov'è il trekking?",
+    "example_cz": "Kde je trekking?"
+  },
+  {
+    "italian": "l'alpinismo",
+    "czech": "horolezectví",
+    "category": "Volný čas a sport",
+    "example_it": "Dov'è l'alpinismo?",
+    "example_cz": "Kde je horolezectví?"
+  },
+  {
+    "italian": "il bungee jumping",
+    "czech": "bungee jumping",
+    "category": "Volný čas a sport",
+    "example_it": "Dov'è il bungee jumping?",
+    "example_cz": "Kde je bungee jumping?"
+  },
+  {
+    "italian": "il rafting",
+    "czech": "rafting",
+    "category": "Volný čas a sport",
+    "example_it": "Dov'è il rafting?",
+    "example_cz": "Kde je rafting?"
+  },
+  {
+    "italian": "la ceramica",
+    "czech": "keramika",
+    "category": "Volný čas a sport",
+    "example_it": "Dov'è la ceramica?",
+    "example_cz": "Kde je keramika?"
+  },
+  {
+    "italian": "il ricamo",
+    "czech": "vyšívání",
+    "category": "Volný čas a sport",
+    "example_it": "Dov'è il ricamo?",
+    "example_cz": "Kde je vyšívání?"
+  },
+  {
+    "italian": "il lavoro a maglia",
+    "czech": "pletení",
+    "category": "Volný čas a sport",
+    "example_it": "Dov'è il lavoro a maglia?",
+    "example_cz": "Kde je pletení?"
+  },
+  {
+    "italian": "il falcone",
+    "czech": "sokol (pták)",
+    "category": "Volný čas a sport",
+    "example_it": "Dov'è il falcone?",
+    "example_cz": "Kde je sokol (pták)?"
+  },
+  {
+    "italian": "il substantivo verbale",
+    "czech": "slovesné podstatné jméno",
+    "category": "Gramatika",
+    "example_it": "il substantivo verbale.",
+    "example_cz": "slovesné podstatné jméno."
+  },
+  {
+    "italian": "il colore complementare",
+    "czech": "doplňková barva",
+    "category": "Barvy",
+    "example_it": "Questo è molto il colore complementare.",
+    "example_cz": "Tohle je velmi doplňková barva."
+  },
+  {
+    "italian": "il colore primario",
+    "czech": "primární barva",
+    "category": "Barvy",
+    "example_it": "Questo è molto il colore primario.",
+    "example_cz": "Tohle je velmi primární barva."
+  },
+  {
+    "italian": "il colore secondario",
+    "czech": "sekundární barva",
+    "category": "Barvy",
+    "example_it": "Questo è molto il colore secondario.",
+    "example_cz": "Tohle je velmi sekundární barva."
+  },
+  {
+    "italian": "il colore caldo",
+    "czech": "teplá barva",
+    "category": "Barvy",
+    "example_it": "Questo è molto il colore caldo.",
+    "example_cz": "Tohle je velmi teplá barva."
+  },
+  {
+    "italian": "il colore freddo",
+    "czech": "studená barva",
+    "category": "Barvy",
+    "example_it": "Questo è molto il colore freddo.",
+    "example_cz": "Tohle je velmi studená barva."
+  },
+  {
+    "italian": "la sfumatura",
+    "czech": "odstín",
+    "category": "Barvy",
+    "example_it": "Questo è molto la sfumatura.",
+    "example_cz": "Tohle je velmi odstín."
+  },
+  {
+    "italian": "il tono",
+    "czech": "tón (barvy)",
+    "category": "Barvy",
+    "example_it": "Questo è molto il tono.",
+    "example_cz": "Tohle je velmi tón (barvy)."
+  },
+  {
+    "italian": "la tinta",
+    "czech": "barva, nátěr",
+    "category": "Barvy",
+    "example_it": "Questo è molto la tinta.",
+    "example_cz": "Tohle je velmi barva, nátěr."
+  },
+  {
+    "italian": "lo smalto colorato",
+    "czech": "barevný lak",
+    "category": "Barvy",
+    "example_it": "Questo è molto lo smalto colorato.",
+    "example_cz": "Tohle je velmi barevný lak."
+  },
+  {
+    "italian": "acquerello",
+    "czech": "akvarelová barva",
+    "category": "Barvy",
+    "example_it": "Questo è molto acquerello.",
+    "example_cz": "Tohle je velmi akvarelová barva."
+  },
+  {
+    "italian": "il chiaroscuro",
+    "czech": "šerosvit",
+    "category": "Barvy",
+    "example_it": "Questo è molto il chiaroscuro.",
+    "example_cz": "Tohle je velmi šerosvit."
+  },
+  {
+    "italian": "bicolore",
+    "czech": "dvoubarevný",
+    "category": "Barvy",
+    "example_it": "Questo è molto bicolore.",
+    "example_cz": "Tohle je velmi dvoubarevný."
+  },
+  {
+    "italian": "il reddito",
+    "czech": "příjem",
+    "category": "Základy",
+    "example_it": "Dov'è il reddito?",
+    "example_cz": "Kde je příjem?"
+  },
+  {
+    "italian": "la spesa",
+    "czech": "výdaj, nákup",
+    "category": "Základy",
+    "example_it": "Dov'è la spesa?",
+    "example_cz": "Kde je výdaj, nákup?"
+  },
+  {
+    "italian": "il risparmio",
+    "czech": "úspora",
+    "category": "Základy",
+    "example_it": "Dov'è il risparmio?",
+    "example_cz": "Kde je úspora?"
+  },
+  {
+    "italian": "il debito",
+    "czech": "dluh",
+    "category": "Základy",
+    "example_it": "Dov'è il debito?",
+    "example_cz": "Kde je dluh?"
+  },
+  {
+    "italian": "la tassa",
+    "czech": "daň",
+    "category": "Základy",
+    "example_it": "Dov'è la tassa?",
+    "example_cz": "Kde je daň?"
+  },
+  {
+    "italian": "il fisco",
+    "czech": "finanční správa",
+    "category": "Základy",
+    "example_it": "Dov'è il fisco?",
+    "example_cz": "Kde je finanční správa?"
+  },
+  {
+    "italian": "la burocrazia",
+    "czech": "byrokracie",
+    "category": "Základy",
+    "example_it": "Dov'è la burocrazia?",
+    "example_cz": "Kde je byrokracie?"
+  },
+  {
+    "italian": "il documento",
+    "czech": "dokument",
+    "category": "Základy",
+    "example_it": "Dov'è il documento?",
+    "example_cz": "Kde je dokument?"
+  },
+  {
+    "italian": "la firma",
+    "czech": "podpis",
+    "category": "Základy",
+    "example_it": "Dov'è la firma?",
+    "example_cz": "Kde je podpis?"
+  },
+  {
+    "italian": "l'ottimista",
+    "czech": "optimista",
+    "category": "Emoce a vlastnosti",
+    "example_it": "Questo è molto l'ottimista.",
+    "example_cz": "Tohle je velmi optimista."
+  },
+  {
+    "italian": "il pessimista",
+    "czech": "pesimista",
+    "category": "Emoce a vlastnosti",
+    "example_it": "Questo è molto il pessimista.",
+    "example_cz": "Tohle je velmi pesimista."
+  },
+  {
+    "italian": "l'egoista",
+    "czech": "egoista",
+    "category": "Emoce a vlastnosti",
+    "example_it": "Questo è molto l'egoista.",
+    "example_cz": "Tohle je velmi egoista."
+  },
+  {
+    "italian": "l'altruista",
+    "czech": "altruista",
+    "category": "Emoce a vlastnosti",
+    "example_it": "Questo è molto l'altruista.",
+    "example_cz": "Tohle je velmi altruista."
+  },
+  {
+    "italian": "la contentezza profonda",
+    "czech": "hluboká spokojenost",
+    "category": "Emoce a vlastnosti",
+    "example_it": "Questo è molto la contentezza profonda.",
+    "example_cz": "Tohle je velmi hluboká spokojenost."
+  },
+  {
+    "italian": "il nome completo",
+    "czech": "celé jméno",
+    "category": "Fráze",
+    "example_it": "il nome completo.",
+    "example_cz": "celé jméno."
+  },
+  {
+    "italian": "la data di nascita",
+    "czech": "datum narození",
+    "category": "Fráze",
+    "example_it": "la data di nascita.",
+    "example_cz": "datum narození."
+  },
+  {
+    "italian": "il luogo di nascita",
+    "czech": "místo narození",
+    "category": "Fráze",
+    "example_it": "il luogo di nascita.",
+    "example_cz": "místo narození."
+  },
+  {
+    "italian": "la nazionalità",
+    "czech": "státní příslušnost",
+    "category": "Fráze",
+    "example_it": "la nazionalità.",
+    "example_cz": "státní příslušnost."
+  },
+  {
+    "italian": "il numero di telefono",
+    "czech": "telefonní číslo",
+    "category": "Fráze",
+    "example_it": "il numero di telefono.",
+    "example_cz": "telefonní číslo."
+  },
+  {
+    "italian": "l'indirizzo e-mail",
+    "czech": "e-mailová adresa",
+    "category": "Fráze",
+    "example_it": "l'indirizzo e-mail.",
+    "example_cz": "e-mailová adresa."
+  },
+  {
+    "italian": "il sindaco",
+    "czech": "starosta",
+    "category": "Přídavná jména",
+    "example_it": "Questo è molto il sindaco.",
+    "example_cz": "Tohle je velmi starosta."
+  },
+  {
+    "italian": "aggressivo",
+    "czech": "agresivní",
+    "category": "Přídavná jména",
+    "example_it": "Questo è molto aggressivo.",
+    "example_cz": "Tohle je velmi agresivní."
+  },
+  {
+    "italian": "passivo",
+    "czech": "pasivní",
+    "category": "Přídavná jména",
+    "example_it": "Questo è molto passivo.",
+    "example_cz": "Tohle je velmi pasivní."
+  },
+  {
+    "italian": "attivo",
+    "czech": "aktivní",
+    "category": "Přídavná jména",
+    "example_it": "Questo è molto attivo.",
+    "example_cz": "Tohle je velmi aktivní."
+  },
+  {
+    "italian": "creativo",
+    "czech": "kreativní",
+    "category": "Přídavná jména",
+    "example_it": "Questo è molto creativo.",
+    "example_cz": "Tohle je velmi kreativní."
+  },
+  {
+    "italian": "distratto",
+    "czech": "roztržitý",
+    "category": "Přídavná jména",
+    "example_it": "Questo è molto distratto.",
+    "example_cz": "Tohle je velmi roztržitý."
+  },
+  {
+    "italian": "concentrato",
+    "czech": "soustředěný",
+    "category": "Přídavná jména",
+    "example_it": "Questo è molto concentrato.",
+    "example_cz": "Tohle je velmi soustředěný."
+  },
+  {
+    "italian": "motivato",
+    "czech": "motivovaný",
+    "category": "Přídavná jména",
+    "example_it": "Questo è molto motivato.",
+    "example_cz": "Tohle je velmi motivovaný."
+  },
+  {
+    "italian": "ambizioso",
+    "czech": "ambiciózní",
+    "category": "Přídavná jména",
+    "example_it": "Questo è molto ambizioso.",
+    "example_cz": "Tohle je velmi ambiciózní."
+  },
+  {
+    "italian": "responsabile",
+    "czech": "zodpovědný",
+    "category": "Přídavná jména",
+    "example_it": "Questo è molto responsabile.",
+    "example_cz": "Tohle je velmi zodpovědný."
+  },
+  {
+    "italian": "irresponsabile",
+    "czech": "nezodpovědný",
+    "category": "Přídavná jména",
+    "example_it": "Questo è molto irresponsabile.",
+    "example_cz": "Tohle je velmi nezodpovědný."
+  },
+  {
+    "italian": "affidabile",
+    "czech": "spolehlivý",
+    "category": "Přídavná jména",
+    "example_it": "Questo è molto affidabile.",
+    "example_cz": "Tohle je velmi spolehlivý."
+  },
+  {
+    "italian": "imprevedibile",
+    "czech": "nepředvídatelný",
+    "category": "Přídavná jména",
+    "example_it": "Questo è molto imprevedibile.",
+    "example_cz": "Tohle je velmi nepředvídatelný."
+  },
+  {
+    "italian": "efficiente",
+    "czech": "efektivní",
+    "category": "Přídavná jména",
+    "example_it": "Questo è molto efficiente.",
+    "example_cz": "Tohle je velmi efektivní."
+  },
+  {
+    "italian": "il cuoco professionista",
+    "czech": "profesionální kuchař",
+    "category": "Práce a povolání",
+    "example_it": "Dov'è il cuoco professionista?",
+    "example_cz": "Kde je profesionální kuchař?"
+  },
+  {
+    "italian": "il sommelier",
+    "czech": "sommelier",
+    "category": "Práce a povolání",
+    "example_it": "Dov'è il sommelier?",
+    "example_cz": "Kde je sommelier?"
+  },
+  {
+    "italian": "il pasticciere",
+    "czech": "cukrář",
+    "category": "Práce a povolání",
+    "example_it": "Dov'è il pasticciere?",
+    "example_cz": "Kde je cukrář?"
+  },
+  {
+    "italian": "il fornaio",
+    "czech": "pekař",
+    "category": "Práce a povolání",
+    "example_it": "Dov'è il fornaio?",
+    "example_cz": "Kde je pekař?"
+  },
+  {
+    "italian": "il macellaio",
+    "czech": "řezník",
+    "category": "Práce a povolání",
+    "example_it": "Dov'è il macellaio?",
+    "example_cz": "Kde je řezník?"
+  },
+  {
+    "italian": "il pescivendolo",
+    "czech": "rybář (prodejce ryb)",
+    "category": "Práce a povolání",
+    "example_it": "Dov'è il pescivendolo?",
+    "example_cz": "Kde je rybář (prodejce ryb)?"
+  },
+  {
+    "italian": "il fruttivendolo",
+    "czech": "zelinář",
+    "category": "Práce a povolání",
+    "example_it": "Dov'è il fruttivendolo?",
+    "example_cz": "Kde je zelinář?"
+  },
+  {
+    "italian": "il barista",
+    "czech": "barista, barman",
+    "category": "Práce a povolání",
+    "example_it": "Dov'è il barista?",
+    "example_cz": "Kde je barista, barman?"
+  },
+  {
+    "italian": "il gestore",
+    "czech": "správce, provozovatel",
+    "category": "Práce a povolání",
+    "example_it": "Dov'è il gestore?",
+    "example_cz": "Kde je správce, provozovatel?"
+  },
+  {
+    "italian": "il commercialista",
+    "czech": "daňový poradce",
+    "category": "Práce a povolání",
+    "example_it": "Dov'è il commercialista?",
+    "example_cz": "Kde je daňový poradce?"
+  },
+  {
+    "italian": "il notaio",
+    "czech": "notář",
+    "category": "Práce a povolání",
+    "example_it": "Dov'è il notaio?",
+    "example_cz": "Kde je notář?"
+  },
+  {
+    "italian": "il giudice",
+    "czech": "soudce",
+    "category": "Práce a povolání",
+    "example_it": "Dov'è il giudice?",
+    "example_cz": "Kde je soudce?"
+  },
+  {
+    "italian": "il procuratore",
+    "czech": "prokurátor",
+    "category": "Práce a povolání",
+    "example_it": "Dov'è il procuratore?",
+    "example_cz": "Kde je prokurátor?"
+  },
+  {
+    "italian": "l'assistente sociale",
+    "czech": "sociální pracovník",
+    "category": "Práce a povolání",
+    "example_it": "Dov'è l'assistente sociale?",
+    "example_cz": "Kde je sociální pracovník?"
+  },
+  {
+    "italian": "lo psicologo",
+    "czech": "psycholog",
+    "category": "Práce a povolání",
+    "example_it": "Dov'è lo psicologo?",
+    "example_cz": "Kde je psycholog?"
+  },
+  {
+    "italian": "lo psichiatra",
+    "czech": "psychiatr",
+    "category": "Práce a povolání",
+    "example_it": "Dov'è lo psichiatra?",
+    "example_cz": "Kde je psychiatr?"
+  },
+  {
+    "italian": "il fisioterapista",
+    "czech": "fyzioterapeut",
+    "category": "Práce a povolání",
+    "example_it": "Dov'è il fisioterapista?",
+    "example_cz": "Kde je fyzioterapeut?"
+  },
+  {
+    "italian": "il radiologo",
+    "czech": "radiolog",
+    "category": "Práce a povolání",
+    "example_it": "Dov'è il radiologo?",
+    "example_cz": "Kde je radiolog?"
+  },
+  {
+    "italian": "il cardiologo",
+    "czech": "kardiolog",
+    "category": "Práce a povolání",
+    "example_it": "Dov'è il cardiologo?",
+    "example_cz": "Kde je kardiolog?"
+  },
+  {
+    "italian": "il pediatra",
+    "czech": "pediatr",
+    "category": "Práce a povolání",
+    "example_it": "Dov'è il pediatra?",
+    "example_cz": "Kde je pediatr?"
+  },
+  {
+    "italian": "il ginecologo",
+    "czech": "gynekolog",
+    "category": "Práce a povolání",
+    "example_it": "Dov'è il ginecologo?",
+    "example_cz": "Kde je gynekolog?"
+  },
+  {
+    "italian": "il dermatologo",
+    "czech": "dermatolog",
+    "category": "Práce a povolání",
+    "example_it": "Dov'è il dermatologo?",
+    "example_cz": "Kde je dermatolog?"
+  }
 ]
