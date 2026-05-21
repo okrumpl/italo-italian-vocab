@@ -33,9 +33,10 @@ interface DailyGoal {
 }
 
 interface DashboardProps {
-  onStartLesson: (category: string, size: number) => void;
+  onStartLesson: (category: string, size?: number) => void;
   onStartQuickReview: () => void;
-  refreshKey?: number;
+  onNavigateToProfile: () => void;
+  refreshKey: number;
 }
 
 type SortMode = 'progress' | 'alpha';
@@ -51,7 +52,7 @@ function getGreeting(streak: number): { title: string; sub: string } {
   return { title: 'Buonasera! 🌙', sub: 'Večerní opakování je nejefektivnější.' };
 }
 
-export const Dashboard: React.FC<DashboardProps> = ({ onStartLesson, onStartQuickReview, refreshKey }) => {
+export const Dashboard: React.FC<DashboardProps> = ({ onStartLesson, onStartQuickReview, onNavigateToProfile, refreshKey }) => {
   const [categories, setCategories] = useState<CategoryData[]>([]);
   const [stats, setStats] = useState<UserStats | null>(null);
   const [dailyGoal, setDailyGoal] = useState<DailyGoal | null>(null);
@@ -82,11 +83,18 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLesson, onStartQuic
 
   useEffect(() => { fetchData(); }, [refreshKey]);
 
-  // ── Třídění kategorií ─────────────────────────────────────────────────────
   const sortedCategories = useMemo(() => {
-    if (sortMode === 'alpha') return [...categories].sort((a, b) => a.category.localeCompare(b.category, 'cs'));
-    // 'progress': rozkoukané nahoře, pak nové, pak hotové dole
     return [...categories].sort((a, b) => {
+      if (sortMode === 'alpha') {
+        return a.category.localeCompare(b.category, 'cs');
+      }
+
+      if (sortMode === 'progress') {
+        const pA = a.totalWords > 0 ? a.masteredWords / a.totalWords : 0;
+        const pB = b.totalWords > 0 ? b.masteredWords / b.totalWords : 0;
+        if (pA !== pB) return pB - pA;
+      }
+      
       const scoreA = a.masteredWords === a.totalWords && a.totalWords > 0 ? -1 : a.startedWords > 0 ? 1 : 0;
       const scoreB = b.masteredWords === b.totalWords && b.totalWords > 0 ? -1 : b.startedWords > 0 ? 1 : 0;
       if (scoreB !== scoreA) return scoreB - scoreA;
@@ -160,15 +168,19 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLesson, onStartQuic
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
       }}>
         {/* Streak */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+        <button 
+          onClick={onNavigateToProfile}
+          className="header-stat-btn"
+          style={{ display: 'flex', alignItems: 'center', gap: 6, background: 'none', border: 'none', cursor: 'pointer', padding: 4, borderRadius: 12, transition: 'background 0.2s' }}
+        >
           <div style={{ width: 36, height: 36, borderRadius: 10, backgroundColor: 'var(--orange-50)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <Flame size={18} style={{ color: 'var(--orange)', fill: 'var(--orange)' }} />
           </div>
-          <div>
+          <div style={{ textAlign: 'left' }}>
             <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--text)', lineHeight: 1.1 }}>{stats?.streak ?? 0}</div>
             <div style={{ fontSize: 10, fontWeight: 600, color: 'var(--text-3)', letterSpacing: '0.4px' }}>SÉRIE</div>
           </div>
-        </div>
+        </button>
 
         {/* App title */}
         <span style={{ fontSize: 17, fontWeight: 800, color: 'var(--text)', letterSpacing: '-0.3px' }}>
@@ -177,24 +189,33 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLesson, onStartQuic
 
         {/* XP + Level */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+          <button 
+            onClick={onNavigateToProfile}
+            className="header-stat-btn"
+            style={{ display: 'flex', alignItems: 'center', gap: 5, background: 'none', border: 'none', cursor: 'pointer', padding: 4, borderRadius: 12, transition: 'background 0.2s' }}
+          >
             <div style={{ width: 36, height: 36, borderRadius: 10, backgroundColor: 'var(--sky-50)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <Zap size={18} style={{ color: 'var(--sky)', fill: 'var(--sky)' }} />
             </div>
-            <div>
+            <div style={{ textAlign: 'left' }}>
               <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--text)', lineHeight: 1.1 }}>{stats?.xp ?? 0}</div>
               <div style={{ fontSize: 10, fontWeight: 600, color: 'var(--text-3)', letterSpacing: '0.4px' }}>XP</div>
             </div>
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+          </button>
+
+          <button 
+            onClick={onNavigateToProfile}
+            className="header-stat-btn"
+            style={{ display: 'flex', alignItems: 'center', gap: 5, background: 'none', border: 'none', cursor: 'pointer', padding: 4, borderRadius: 12, transition: 'background 0.2s' }}
+          >
             <div style={{ width: 36, height: 36, borderRadius: 10, backgroundColor: 'var(--yellow-50)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <Trophy size={18} style={{ color: 'var(--yellow)', fill: 'var(--yellow)' }} />
             </div>
-            <div>
+            <div style={{ textAlign: 'left' }}>
               <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--text)', lineHeight: 1.1 }}>{stats?.level ?? 1}</div>
               <div style={{ fontSize: 10, fontWeight: 600, color: 'var(--text-3)', letterSpacing: '0.4px' }}>LVL</div>
             </div>
-          </div>
+          </button>
         </div>
       </header>
 

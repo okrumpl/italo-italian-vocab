@@ -8,23 +8,32 @@ interface MascotProps {
   className?: string;
 }
 
-export const Mascot: React.FC<MascotProps> = ({ state = 'idle', size = 160, className = '' }) => {
+export const Mascot: React.FC<MascotProps> = ({ state: parentState = 'idle', size = 160, className = '' }) => {
   const [blink, setBlink] = useState(false);
   const [wave, setWave] = useState(false);
+  const [localState, setLocalState] = useState<MascotState | null>(null);
+
+  const state = localState || parentState;
 
   useEffect(() => {
     if (state !== 'idle') return;
     const blinkInterval = setInterval(() => {
       setBlink(true);
-      setTimeout(() => setBlink(false), 180);
-    }, 3500);
-    // Občasné zamávání
+      setTimeout(() => setBlink(false), 200);
+    }, 2500 + Math.random() * 2000); // častější a víc náhodné mrkání
+
     const waveInterval = setInterval(() => {
       setWave(true);
-      setTimeout(() => setWave(false), 700);
-    }, 6000);
+      setTimeout(() => setWave(false), 800);
+    }, 4500 + Math.random() * 3000); // častější mávání
+
     return () => { clearInterval(blinkInterval); clearInterval(waveInterval); };
   }, [state]);
+
+  const handleInteraction = () => {
+    setLocalState('excited');
+    setTimeout(() => setLocalState(null), 1500);
+  };
 
   const getAnimationClass = () => {
     switch (state) {
@@ -41,8 +50,9 @@ export const Mascot: React.FC<MascotProps> = ({ state = 'idle', size = 160, clas
 
   return (
     <div
+      onClick={handleInteraction}
       className={`${getAnimationClass()} ${className}`}
-      style={{ width: size, height: size, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}
+      style={{ width: size, height: size, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, cursor: 'pointer', transition: 'transform 0.2s' }}
     >
       <svg viewBox="0 0 200 220" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
         <defs>

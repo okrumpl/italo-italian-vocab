@@ -57,7 +57,12 @@ export default function App() {
   const renderScreen = () => {
     switch (activeScreen) {
       case 'dashboard':
-        return <Dashboard onStartLesson={handleStartLesson} onStartQuickReview={handleStartQuickReview} refreshKey={refreshKey} />;
+        return <Dashboard 
+          onStartLesson={handleStartLesson} 
+          onStartQuickReview={handleStartQuickReview} 
+          onNavigateToProfile={() => setActiveScreen('stats')}
+          refreshKey={refreshKey} 
+        />;
       case 'dictionary':
         return <Dictionary />;
       case 'stats':
@@ -65,7 +70,12 @@ export default function App() {
       case 'lesson':
         return <Lesson category={lessonCategory} lessonSize={lessonSize} onClose={handleCloseLesson} />;
       default:
-        return <Dashboard onStartLesson={handleStartLesson} onStartQuickReview={handleStartQuickReview} />;
+        return <Dashboard 
+          onStartLesson={handleStartLesson} 
+          onStartQuickReview={handleStartQuickReview} 
+          onNavigateToProfile={() => setActiveScreen('stats')}
+          refreshKey={refreshKey} 
+        />;
     }
   };
 
