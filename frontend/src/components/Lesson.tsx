@@ -33,6 +33,9 @@ interface Exercise {
   scrambledWords?: string[];
   targetSentence?: string;
   targetSentenceTranslation?: string;
+  matchingItWords?: string[];   // pre-computed, stabilní — nesmí se re-generovat
+  matchingCzWords?: string[];   // pre-computed, stabilní
+  matchingPairs?: Array<{ italian: string; czech: string }>; // mapování pro vyhodnocení
 }
 
 interface ResultsData {
@@ -140,11 +143,23 @@ export const Lesson: React.FC<LessonProps> = ({ category, lessonSize = 10, onClo
       }
     });
 
-    // Matching cvičení — náhodných 5 slov, ne první abecedně
+    // Matching cvičení — slova se vyberou JEDNOU při generování a uloží do exercise objektu
+    // (nikdy ne při renderu, jinak by se přemíchávala při každém kliknutí)
     if (loadedWords.length >= 4) {
       const mid = Math.floor(generated.length / 2);
       const matchingWord = shuffle(loadedWords)[0];
-      generated.splice(mid, 0, { word: matchingWord, type: 'matching' });
+      const limit = Math.min(loadedWords.length, 5);
+      const picked = shuffle([...loadedWords]).slice(0, limit);
+      const matchingItWords = [...picked].map(w => w.italian).sort();
+      const matchingCzWords = [...picked].map(w => w.czech).sort();
+      const matchingPairs = picked.map(w => ({ italian: w.italian, czech: w.czech }));
+      generated.splice(mid, 0, {
+        word: matchingWord,
+        type: 'matching',
+        matchingItWords,
+        matchingCzWords,
+        matchingPairs,
+      });
     }
 
     setExercises(generated);
@@ -223,13 +238,18 @@ export const Lesson: React.FC<LessonProps> = ({ category, lessonSize = 10, onClo
   };
 
   const checkMatchingPair = (itVal: string, czVal: string) => {
-    const isPair = words.some(w => w.italian === itVal && w.czech === czVal);
+    // Ověř párování oproti pre-computed matchingPairs z exercise objektu
+    const pairs = exercises[currentIdx]?.matchingPairs ?? [];
+    const totalPairs = exercises[currentIdx]?.matchingItWords?.length ?? Math.min(words.length, 5);
+    const isPair = pairs.length > 0
+      ? pairs.some(p => p.italian === itVal && p.czech === czVal)
+      : words.some(w => w.italian === itVal && w.czech === czVal);
     if (isPair) {
       const newMatched = [...matchedPairs, itVal];
       setMatchedPairs(newMatched);
       setSelectedItWord(null); setSelectedCzWord(null);
       playSound('match-correct');
-      if (newMatched.length === Math.min(words.length, 5)) {
+      if (newMatched.length === totalPairs) {
         setIsCorrect(true); setChecked(true); setMascotState('happy'); playSound('correct');
       }
     } else {
@@ -570,11 +590,11 @@ export const Lesson: React.FC<LessonProps> = ({ category, lessonSize = 10, onClo
         );
 
       case 'matching': {
-        const limit = Math.min(words.length, 5);
-        // Náhodný výběr slov, ne první abecedně
-        const matchingWords = shuffle([...words]).slice(0, limit);
-        const itWords = [...matchingWords].map(w => w.italian).sort();
-        const czWords = [...matchingWords].map(w => w.czech).sort();
+        // Čte předpočítaná slova z exercise objektu — NE shuffle při renderu
+        const itWords = currentExercise.matchingItWords ?? [];
+        const czWords = currentExercise.matchingCzWords ?? [];
+        // pairs: pro zjištění stavu "matched" v české kolumně
+        const exPairs = currentExercise.matchingPairs ?? [];
 
         return (
           <div className="animate-pop" style={{ display: 'flex', flexDirection: 'column', flex: 1, paddingTop: 8 }}>
@@ -608,8 +628,9 @@ export const Lesson: React.FC<LessonProps> = ({ category, lessonSize = 10, onClo
               {/* Czech column */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                 {czWords.map(word => {
-                  const mw = matchingWords.find(w => w.czech === word);
-                  const matched = mw ? matchedPairs.includes(mw.italian) : false;
+                  // Najdi italský ekvivalent pro tento český výraz
+                  const itEquiv = exPairs.find(p => p.czech === word)?.italian ?? '';
+                  const matched = itEquiv ? matchedPairs.includes(itEquiv) : false;
                   const selected = selectedCzWord === word;
                   return (
                     <button
