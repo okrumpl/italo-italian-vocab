@@ -24,6 +24,13 @@ interface UserStats {
   words_total: number;
 }
 
+interface DailyGoal {
+  goal: number;
+  practiced: number;
+  percent: number;
+  done: boolean;
+}
+
 interface DashboardProps {
   onStartLesson: (category: string, size: number) => void;
   onStartQuickReview: () => void;
@@ -46,6 +53,7 @@ function getGreeting(streak: number): { title: string; sub: string } {
 export const Dashboard: React.FC<DashboardProps> = ({ onStartLesson, onStartQuickReview, refreshKey }) => {
   const [categories, setCategories] = useState<CategoryData[]>([]);
   const [stats, setStats] = useState<UserStats | null>(null);
+  const [dailyGoal, setDailyGoal] = useState<DailyGoal | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<CategoryData | null>(null);
@@ -56,14 +64,16 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLesson, onStartQuic
     try {
       setLoading(true);
       setError(null);
-      const [catRes, statsRes] = await Promise.all([
+      const [catRes, statsRes, goalRes] = await Promise.all([
         fetch('/api/categories'),
         fetch('/api/stats'),
+        fetch('/api/daily-goal'),
       ]);
       if (!catRes.ok || !statsRes.ok) throw new Error('Nepodařilo se načíst data.');
-      const [catData, statsData] = await Promise.all([catRes.json(), statsRes.json()]);
+      const [catData, statsData, goalData] = await Promise.all([catRes.json(), statsRes.json(), goalRes.json()]);
       setCategories(catData);
       setStats(statsData);
+      setDailyGoal(goalData);
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : 'Nepodařilo se načíst data.');
     } finally {
@@ -209,6 +219,30 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLesson, onStartQuic
               {greeting.sub}
             </p>
           </div>
+          {/* Denní cíl ring */}
+          {dailyGoal && (
+            <div style={{ flexShrink: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2 }}>
+              <svg width="48" height="48" viewBox="0 0 48 48">
+                <circle cx="24" cy="24" r="18" fill="none" stroke="var(--border)" strokeWidth="4" />
+                <circle
+                  cx="24" cy="24" r="18" fill="none"
+                  stroke={dailyGoal.done ? '#f59e0b' : 'var(--green-500)'}
+                  strokeWidth="4"
+                  strokeDasharray={2 * Math.PI * 18}
+                  strokeDashoffset={2 * Math.PI * 18 * (1 - dailyGoal.percent / 100)}
+                  strokeLinecap="round"
+                  transform="rotate(-90 24 24)"
+                />
+                <text x="24" y="29" textAnchor="middle" fontSize="11" fontWeight="800"
+                  fill={dailyGoal.done ? '#f59e0b' : 'var(--text)'}>
+                  {dailyGoal.done ? '✓' : `${dailyGoal.percent}%`}
+                </text>
+              </svg>
+              <span style={{ fontSize: 9, fontWeight: 600, color: 'var(--text-3)', textTransform: 'uppercase', letterSpacing: '0.3px' }}>
+                {dailyGoal.done ? 'Hotovo!' : 'Cíl'}
+              </span>
+            </div>
+          )}
         </div>
 
         {/* Quick review button */}

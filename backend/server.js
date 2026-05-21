@@ -11,7 +11,13 @@ import {
   updateWordProgress,
   addXP,
   updateStreak,
-  getDictionaryWords
+  getDictionaryWords,
+  recordSession,
+  getActivityHeatmap,
+  getDailyGoalStatus,
+  setDailyGoal,
+  incrementStat,
+  getAchievements
 } from './db.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -114,13 +120,25 @@ app.post('/api/lesson/complete', async (req, res) => {
     }
 
     // 2. Bonus za dokončení lekce
-    xpEarned += 15; // 15 XP za dokončení celé lekce
+    xpEarned += 15;
 
     // 3. Uložení XP a aktualizace streaku
     const xpStatus = await addXP(xpEarned);
     const streakStatus = await updateStreak();
 
-    // 4. Získání nových statistik
+    // 4. Zaznamenání session pro heatmapu + denní cíl
+    const wordsCorrect = answers.filter(a => a.isCorrect).length;
+    await recordSession(category, answers.length, wordsCorrect, xpEarned);
+
+    // 5. Quick quiz counter
+    if (!category) await incrementStat('quiz_count');
+
+    // 6. Perfect lesson counter (100% přesnost, ne quick review)
+    if (category && wordsCorrect === answers.length && answers.length >= 5) {
+      await incrementStat('perfect_lessons');
+    }
+
+    // 7. Získání nových statistik
     const newStats = await getUserStats();
 
     res.json({
@@ -134,6 +152,50 @@ app.post('/api/lesson/complete', async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Chyba při ukládání výsledků lekce.' });
+  }
+});
+
+// Achievements
+app.get('/api/achievements', async (req, res) => {
+  try {
+    const achievements = await getAchievements();
+    res.json(achievements);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Chyba při načítání achievementů.' });
+  }
+});
+
+// Activity heatmap (35 dní)
+app.get('/api/heatmap', async (req, res) => {
+  try {
+    const data = await getActivityHeatmap();
+    res.json(data);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Chyba při načítání heatmapy.' });
+  }
+});
+
+// Denní cíl — GET status + PUT nastavení
+app.get('/api/daily-goal', async (req, res) => {
+  try {
+    const status = await getDailyGoalStatus();
+    res.json(status);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Chyba při načítání denního cíle.' });
+  }
+});
+
+app.put('/api/daily-goal', async (req, res) => {
+  try {
+    const { goal } = req.body;
+    const newGoal = await setDailyGoal(goal);
+    res.json({ goal: newGoal });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Chyba při nastavení denního cíle.' });
   }
 });
 

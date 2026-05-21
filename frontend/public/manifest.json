@@ -1,0 +1,20 @@
+{
+  "name": "Italo – Italština",
+  "short_name": "Italo",
+  "description": "Výuka italských slovíček metodou Leitnerova systému.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#22c55e",
+  "icons": [
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "lifestyle"],
+  "lang": "cs"
+}

@@ -54,6 +54,16 @@ export async function initDatabase() {
       key TEXT PRIMARY KEY,
       value TEXT
     );
+
+    CREATE TABLE IF NOT EXISTS sessions (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      date TEXT NOT NULL,
+      category TEXT,
+      words_practiced INTEGER DEFAULT 0,
+      words_correct INTEGER DEFAULT 0,
+      xp_earned INTEGER DEFAULT 0,
+      completed_at TEXT DEFAULT (datetime('now'))
+    );
   `);
 
   // Výkonnostní indexy
@@ -139,7 +149,10 @@ export async function initDatabase() {
     { key: 'xp', value: '0' },
     { key: 'streak', value: '0' },
     { key: 'last_active_date', value: '' },
-    { key: 'level', value: '1' }
+    { key: 'level', value: '1' },
+    { key: 'daily_goal', value: '10' },
+    { key: 'quiz_count', value: '0' },
+    { key: 'perfect_lessons', value: '0' },
   ];
 
   for (const stat of stats) {
@@ -475,3 +488,164 @@ export async function getDictionaryWords() {
   `;
   return await db.all(query);
 }
+
+// Uložení dokončené lekce do sessions (pro heatmapu)
+export async function recordSession(category, wordsPracticed, wordsCorrect, xpEarned) {
+  const todayStr = new Date().toISOString().split('T')[0];
+  await db.run(`
+    INSERT INTO sessions (date, category, words_practiced, words_correct, xp_earned)
+    VALUES (?, ?, ?, ?, ?)
+  `, todayStr, category || 'Quick Review', wordsPracticed, wordsCorrect, xpEarned);
+}
+
+// Aktivitní heatmapa — posledních 35 dní (5 řádků × 7 sloupců)
+export async function getActivityHeatmap() {
+  const rows = await db.all(`
+    SELECT date, SUM(words_practiced) as total_words, COUNT(*) as lessons
+    FROM sessions
+    WHERE date >= date('now', '-34 days')
+    GROUP BY date
+    ORDER BY date ASC
+  `);
+  // Vytvoříme mapu date → data
+  const map = {};
+  rows.forEach(r => { map[r.date] = { words: r.total_words, lessons: r.lessons }; });
+
+  // Vygenerujeme pole posledních 35 dní
+  const days = [];
+  for (let i = 34; i >= 0; i--) {
+    const d = new Date();
+    d.setDate(d.getDate() - i);
+    const dateStr = d.toISOString().split('T')[0];
+    days.push({ date: dateStr, words: map[dateStr]?.words || 0, lessons: map[dateStr]?.lessons || 0 });
+  }
+  return days;
+}
+
+// Denní cíl — kolik slov dnes procvičeno vs. cíl
+export async function getDailyGoalStatus() {
+  const stats = await getUserStats();
+  const goal = parseInt(stats.daily_goal) || 10;
+  const todayStr = new Date().toISOString().split('T')[0];
+  const result = await db.get(`
+    SELECT COALESCE(SUM(words_practiced), 0) as practiced
+    FROM sessions WHERE date = ?
+  `, todayStr);
+  const practiced = result?.practiced || 0;
+  return { goal, practiced, percent: Math.min(Math.round((practiced / goal) * 100), 100), done: practiced >= goal };
+}
+
+// Nastavení denního cíle
+export async function setDailyGoal(goal) {
+  const val = Math.min(Math.max(parseInt(goal) || 10, 5), 50);
+  await db.run('UPDATE user_stats SET value = ? WHERE key = "daily_goal"', val.toString());
+  return val;
+}
+
+// Inkrementace čítačů (quiz_count, perfect_lessons)
+export async function incrementStat(key) {
+  await db.run(`UPDATE user_stats SET value = CAST(CAST(value AS INTEGER) + 1 AS TEXT) WHERE key = ?`, key);
+}
+
+// Achievements — dynamicky vypočítáme ze statistik
+export async function getAchievements() {
+  const stats = await getUserStats();
+  const quizCount = parseInt(stats.quiz_count) || 0;
+  const perfectLessons = parseInt(stats.perfect_lessons) || 0;
+
+  // Počet kategorií s alespoň 1 slovem v progress
+  const startedCats = await db.get(`
+    SELECT COUNT(DISTINCT w.category) as count
+    FROM words w JOIN user_progress up ON w.id = up.word_id
+  `);
+
+  const achievements = [
+    {
+      id: 'first_lesson',
+      title: 'První krok',
+      desc: 'Dokonči svoji první lekci',
+      icon: '🎓',
+      unlocked: stats.total_attempts > 0,
+    },
+    {
+      id: 'streak_3',
+      title: 'Rozehřátý',
+      desc: '3 dny v řadě',
+      icon: '🔥',
+      unlocked: stats.streak >= 3,
+    },
+    {
+      id: 'streak_7',
+      title: 'Týdenní hrdina',
+      desc: '7 dní v řadě',
+      icon: '🏆',
+      unlocked: stats.streak >= 7,
+    },
+    {
+      id: 'streak_30',
+      title: 'Italský mistr',
+      desc: '30 dní v řadě',
+      icon: '👑',
+      unlocked: stats.streak >= 30,
+    },
+    {
+      id: 'words_50',
+      title: 'Začátečník',
+      desc: '50 slov naučeno',
+      icon: '📖',
+      unlocked: stats.words_mastered >= 50,
+    },
+    {
+      id: 'words_100',
+      title: 'Lexikograf',
+      desc: '100 slov naučeno',
+      icon: '📚',
+      unlocked: stats.words_mastered >= 100,
+    },
+    {
+      id: 'words_500',
+      title: 'Polyglot',
+      desc: '500 slov naučeno',
+      icon: '🌍',
+      unlocked: stats.words_mastered >= 500,
+    },
+    {
+      id: 'quiz_10',
+      title: 'Blesk',
+      desc: '10× bleskový kvíz',
+      icon: '⚡',
+      unlocked: quizCount >= 10,
+    },
+    {
+      id: 'perfect_3',
+      title: 'Perfekcionista',
+      desc: '3× lekce se 100% přesností',
+      icon: '🎯',
+      unlocked: perfectLessons >= 3,
+    },
+    {
+      id: 'all_categories',
+      title: 'Italofil',
+      desc: 'Rozjet všechny kategorie',
+      icon: '🇮🇹',
+      unlocked: (startedCats?.count || 0) >= 20,
+    },
+    {
+      id: 'level_5',
+      title: 'Veterán',
+      desc: 'Dosáhni levelu 5',
+      icon: '⭐',
+      unlocked: stats.level >= 5,
+    },
+    {
+      id: 'xp_1000',
+      title: 'XP Mistr',
+      desc: 'Získej 1000 XP',
+      icon: '💎',
+      unlocked: stats.xp >= 1000,
+    },
+  ];
+
+  return achievements;
+}
+

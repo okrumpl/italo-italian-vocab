@@ -36,6 +36,7 @@ export const Dictionary: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedFilter, setSelectedFilter] = useState<'all' | 'unstarted' | 'learning' | 'mastered'>('all');
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [selectedBox, setSelectedBox] = useState<number | null>(null);
   const [selectedWordDetail, setSelectedWordDetail] = useState<Word | null>(null);
 
   useEffect(() => {
@@ -60,7 +61,8 @@ export const Dictionary: React.FC = () => {
       selectedFilter === 'unstarted' ? word.box === 0 :
       selectedFilter === 'learning'  ? word.box > 0 && word.box < 5 :
       word.box === 5;
-    return matchesSearch && matchesCat && matchesStatus;
+    const matchesBox = selectedBox === null || word.box === selectedBox;
+    return matchesSearch && matchesCat && matchesStatus && matchesBox;
   });
 
   if (loading) {
@@ -163,6 +165,18 @@ export const Dictionary: React.FC = () => {
               }}
             >
               {cat === 'all' ? 'Vše' : cat}
+            </button>
+          ))}
+        </div>
+
+        {/* Box filter */}
+        <div style={{ display: 'flex', gap: 6, overflowX: 'auto', paddingBottom: 2 }}>
+          <button onClick={() => setSelectedBox(null)} style={{ padding: '5px 12px', borderRadius: 99, border: 'none', fontSize: 11, fontWeight: 700, whiteSpace: 'nowrap', cursor: 'pointer', backgroundColor: selectedBox === null ? 'var(--text)' : 'var(--surface-2)', color: selectedBox === null ? 'var(--surface)' : 'var(--text-2)', fontFamily: 'var(--font)' }}>
+            Box: vše
+          </button>
+          {[1, 2, 3, 4, 5].map(b => (
+            <button key={b} onClick={() => setSelectedBox(selectedBox === b ? null : b)} style={{ padding: '5px 12px', borderRadius: 99, border: 'none', fontSize: 11, fontWeight: 700, whiteSpace: 'nowrap', cursor: 'pointer', backgroundColor: selectedBox === b ? (b === 5 ? 'var(--green-500)' : b <= 2 ? 'var(--orange)' : 'var(--sky)') : 'var(--surface-2)', color: selectedBox === b ? '#fff' : 'var(--text-2)', fontFamily: 'var(--font)' }}>
+              {b === 5 ? '⭐ Box 5' : b <= 2 ? `❗ Box ${b}` : `Box ${b}`}
             </button>
           ))}
         </div>
@@ -330,8 +344,12 @@ export const Dictionary: React.FC = () => {
             }}>
               <div style={{ flex: 1 }}>
                 <div className="section-label" style={{ color: 'var(--sky)', marginBottom: 6 }}>Příklad</div>
-                <p style={{ fontSize: 15, fontWeight: 600, color: 'var(--text)', marginBottom: 4 }}>
-                  {selectedWordDetail.example_it}
+                <p style={{ fontSize: 15, fontWeight: 600, color: 'var(--text)', marginBottom: 4, lineHeight: 1.5 }}>
+                  {selectedWordDetail.example_it.split(new RegExp(`(${selectedWordDetail.italian.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'i')).map((part, i) =>
+                    part.toLowerCase() === selectedWordDetail.italian.toLowerCase()
+                      ? <strong key={i} style={{ color: 'var(--green-600)', textDecoration: 'underline' }}>{part}</strong>
+                      : <span key={i}>{part}</span>
+                  )}
                 </p>
                 <p style={{ fontSize: 13, color: 'var(--text-2)', fontStyle: 'italic' }}>
                   {selectedWordDetail.example_cz}
