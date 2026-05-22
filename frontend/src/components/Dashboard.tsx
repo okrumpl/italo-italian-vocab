@@ -169,7 +169,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLesson, onStartQuic
       }}>
         {/* Streak */}
         <div 
-          onClick={() => onNavigateToProfile()}
+          onClick={() => onNavigateToProfile('streak-section')}
           className="header-stat-btn"
           role="button"
           style={{ display: 'flex', alignItems: 'center', gap: 6, cursor: 'pointer', padding: 4, borderRadius: 12, transition: 'background 0.2s' }}
@@ -191,7 +191,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLesson, onStartQuic
         {/* XP + Level */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
           <div 
-            onClick={() => onNavigateToProfile()}
+            onClick={() => onNavigateToProfile('xp-section')}
             className="header-stat-btn"
             role="button"
             style={{ display: 'flex', alignItems: 'center', gap: 5, cursor: 'pointer', padding: 4, borderRadius: 12, transition: 'background 0.2s' }}
@@ -206,7 +206,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLesson, onStartQuic
           </div>
 
           <div 
-            onClick={() => onNavigateToProfile()}
+            onClick={() => onNavigateToProfile('level-section')}
             className="header-stat-btn"
             role="button"
             style={{ display: 'flex', alignItems: 'center', gap: 5, cursor: 'pointer', padding: 4, borderRadius: 12, transition: 'background 0.2s' }}

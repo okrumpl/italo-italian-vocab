@@ -107,9 +107,12 @@ const ActivityHeatmap: React.FC<{ days: HeatmapDay[] }> = ({ days }) => {
       </div>
     </div>
   );
-};
+interface StatsProps {
+  onLogout?: () => void;
+  targetSection?: string | null;
+}
 
-export const Stats: React.FC<StatsProps> = ({ onLogout }) => {
+export const Stats: React.FC<StatsProps> = ({ onLogout, targetSection }) => {
   const [stats, setStats] = useState<UserStats | null>(null);
   const [achievements, setAchievements] = useState<Achievement[]>([]);
   const [heatmap, setHeatmap] = useState<HeatmapDay[]>([]);
@@ -143,6 +146,24 @@ export const Stats: React.FC<StatsProps> = ({ onLogout }) => {
     };
     loadData();
   }, []);
+
+  useEffect(() => {
+    if (targetSection && !loading) {
+      setTimeout(() => {
+        const el = document.getElementById(targetSection);
+        if (el) {
+          const container = el.closest('.screen-container');
+          if (container) {
+            // Scroll offset pro header uvnitř scroll kontejneru
+            const y = el.getBoundingClientRect().top + container.scrollTop - container.getBoundingClientRect().top - 80;
+            container.scrollTo({ top: y, behavior: 'smooth' });
+          } else {
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      }, 150);
+    }
+  }, [targetSection, loading]);
 
   const handleSaveGoal = async () => {
     const newGoal = parseInt(goalInput);
@@ -235,9 +256,15 @@ export const Stats: React.FC<StatsProps> = ({ onLogout }) => {
 
         {/* Stats grid */}
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
-          <StatCard icon={<Flame size={22} style={{ color: 'var(--orange)', fill: 'var(--orange)' }} />} iconBg="var(--orange-50)" label="Série dní" value={stats?.streak ?? 0} />
-          <StatCard icon={<Zap size={22} style={{ color: 'var(--sky)', fill: 'var(--sky)' }} />} iconBg="var(--sky-50)" label="XP celkem" value={stats?.xp ?? 0} />
-          <StatCard icon={<Trophy size={22} style={{ color: 'var(--yellow)', fill: 'var(--yellow)' }} />} iconBg="var(--yellow-50)" label="Level" value={stats?.level ?? 1} />
+          <div id="streak-section">
+            <StatCard icon={<Flame size={22} style={{ color: 'var(--orange)', fill: 'var(--orange)' }} />} iconBg="var(--orange-50)" label="Série dní" value={stats?.streak ?? 0} />
+          </div>
+          <div id="xp-section">
+            <StatCard icon={<Zap size={22} style={{ color: 'var(--sky)', fill: 'var(--sky)' }} />} iconBg="var(--sky-50)" label="XP celkem" value={stats?.xp ?? 0} />
+          </div>
+          <div id="level-section">
+            <StatCard icon={<Trophy size={22} style={{ color: 'var(--yellow)', fill: 'var(--yellow)' }} />} iconBg="var(--yellow-50)" label="Level" value={stats?.level ?? 1} />
+          </div>
           <StatCard icon={<Star size={22} style={{ color: 'var(--green-500)', fill: 'var(--green-500)' }} />} iconBg="var(--green-50)" label="Naučeno" value={stats?.words_mastered ?? 0} />
         </div>
 

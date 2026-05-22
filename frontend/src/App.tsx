@@ -21,6 +21,7 @@ export default function App() {
   });
   
   const [activeScreen, setActiveScreen] = useState<ScreenState>('dashboard');
+  const [statsTargetSection, setStatsTargetSection] = useState<string | null>(null);
   const [lessonCategory, setLessonCategory] = useState<string | null>(null);
   const [lessonSize, setLessonSize] = useState<number>(10);
   const [refreshKey, setRefreshKey] = useState(0);
@@ -54,26 +55,31 @@ export default function App() {
     setActiveScreen('lesson');
   };
 
+  const handleNavigateToProfile = (section?: string) => {
+    setStatsTargetSection(section || null);
+    setActiveScreen('stats');
+  };
+
   const renderScreen = () => {
     switch (activeScreen) {
       case 'dashboard':
         return <Dashboard 
           onStartLesson={handleStartLesson} 
           onStartQuickReview={handleStartQuickReview} 
-          onNavigateToProfile={() => setActiveScreen('stats')}
+          onNavigateToProfile={handleNavigateToProfile}
           refreshKey={refreshKey} 
         />;
       case 'dictionary':
         return <Dictionary />;
       case 'stats':
-        return <Stats onLogout={handleLogout} />;
+        return <Stats onLogout={handleLogout} targetSection={statsTargetSection} />;
       case 'lesson':
         return <Lesson category={lessonCategory} lessonSize={lessonSize} onClose={handleCloseLesson} />;
       default:
         return <Dashboard 
           onStartLesson={handleStartLesson} 
           onStartQuickReview={handleStartQuickReview} 
-          onNavigateToProfile={() => setActiveScreen('stats')}
+          onNavigateToProfile={handleNavigateToProfile}
           refreshKey={refreshKey} 
         />;
     }
@@ -109,12 +115,16 @@ export default function App() {
             zIndex: 40,
           }}
         >
-          {NAV_ITEMS.map(({ id, label, icon: Icon }) => {
-            const isActive = activeScreen === id;
+          {NAV_ITEMS.map((item) => {
+            const isActive = activeScreen === item.id;
+            const Icon = item.icon;
             return (
               <button
-                key={id}
-                onClick={() => setActiveScreen(id)}
+                key={item.id}
+                onClick={() => {
+                  setStatsTargetSection(null);
+                  setActiveScreen(item.id);
+                }}
                 style={{
                   display: 'flex',
                   flexDirection: 'column',
