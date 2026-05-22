@@ -35,8 +35,8 @@ interface DailyGoal {
 interface DashboardProps {
   onStartLesson: (category: string, size?: number) => void;
   onStartQuickReview: () => void;
-  onNavigateToProfile: () => void;
-  refreshKey: number;
+  onNavigateToProfile: (section?: string) => void;
+  refreshKey?: number;
 }
 
 type SortMode = 'progress' | 'alpha';
@@ -164,44 +164,44 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLesson, onStartQuic
         position: 'sticky', top: 0, zIndex: 30,
         backgroundColor: 'var(--surface)',
         borderBottom: '1px solid var(--border)',
-        padding: '12px 20px',
-        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+        padding: 'max(12px, env(safe-area-inset-top)) 12px 10px',
+        display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 6,
       }}>
         {/* Streak */}
         <div 
           onClick={() => onNavigateToProfile('streak-section')}
           className="header-stat-btn"
           role="button"
-          style={{ display: 'flex', alignItems: 'center', gap: 6, cursor: 'pointer', padding: 4, borderRadius: 12, transition: 'background 0.2s' }}
+          style={{ display: 'flex', alignItems: 'center', gap: 4, cursor: 'pointer', padding: 2, borderRadius: 12, transition: 'background 0.2s', flexShrink: 1, minWidth: 0 }}
         >
-          <div style={{ width: 36, height: 36, borderRadius: 10, backgroundColor: 'var(--orange-50)', display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none' }}>
-            <Flame size={18} style={{ color: 'var(--orange)', fill: 'var(--orange)' }} />
+          <div style={{ width: 32, height: 32, borderRadius: 10, backgroundColor: 'var(--orange-50)', display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none', flexShrink: 0 }}>
+            <Flame size={16} style={{ color: 'var(--orange)', fill: 'var(--orange)' }} />
           </div>
-          <div style={{ textAlign: 'left', pointerEvents: 'none' }}>
+          <div style={{ textAlign: 'left', pointerEvents: 'none', overflow: 'hidden' }}>
             <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--text)', lineHeight: 1.1 }}>{stats?.streak ?? 0}</div>
-            <div style={{ fontSize: 10, fontWeight: 600, color: 'var(--text-3)', letterSpacing: '0.4px' }}>SÉRIE</div>
+            <div style={{ fontSize: 9, fontWeight: 600, color: 'var(--text-3)', letterSpacing: '0.4px', textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap' }}>SÉRIE</div>
           </div>
         </div>
 
         {/* App title */}
-        <span style={{ fontSize: 17, fontWeight: 800, color: 'var(--text)', letterSpacing: '-0.3px' }}>
+        <span style={{ fontSize: 17, fontWeight: 800, color: 'var(--text)', letterSpacing: '-0.3px', flexShrink: 0 }}>
           🇮🇹 Italo
         </span>
 
         {/* XP + Level */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 4, flexShrink: 1, minWidth: 0 }}>
           <div 
             onClick={() => onNavigateToProfile('xp-section')}
             className="header-stat-btn"
             role="button"
-            style={{ display: 'flex', alignItems: 'center', gap: 5, cursor: 'pointer', padding: 4, borderRadius: 12, transition: 'background 0.2s' }}
+            style={{ display: 'flex', alignItems: 'center', gap: 4, cursor: 'pointer', padding: 2, borderRadius: 12, transition: 'background 0.2s', flexShrink: 1, minWidth: 0 }}
           >
-            <div style={{ width: 36, height: 36, borderRadius: 10, backgroundColor: 'var(--sky-50)', display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none' }}>
-              <Zap size={18} style={{ color: 'var(--sky)', fill: 'var(--sky)' }} />
+            <div style={{ width: 32, height: 32, borderRadius: 10, backgroundColor: 'var(--sky-50)', display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none', flexShrink: 0 }}>
+              <Zap size={16} style={{ color: 'var(--sky)', fill: 'var(--sky)' }} />
             </div>
-            <div style={{ textAlign: 'left', pointerEvents: 'none' }}>
+            <div style={{ textAlign: 'left', pointerEvents: 'none', overflow: 'hidden' }}>
               <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--text)', lineHeight: 1.1 }}>{stats?.xp ?? 0}</div>
-              <div style={{ fontSize: 10, fontWeight: 600, color: 'var(--text-3)', letterSpacing: '0.4px' }}>XP</div>
+              <div style={{ fontSize: 9, fontWeight: 600, color: 'var(--text-3)', letterSpacing: '0.4px', textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap' }}>XP</div>
             </div>
           </div>
 
@@ -209,14 +209,14 @@ export const Dashboard: React.FC<DashboardProps> = ({ onStartLesson, onStartQuic
             onClick={() => onNavigateToProfile('level-section')}
             className="header-stat-btn"
             role="button"
-            style={{ display: 'flex', alignItems: 'center', gap: 5, cursor: 'pointer', padding: 4, borderRadius: 12, transition: 'background 0.2s' }}
+            style={{ display: 'flex', alignItems: 'center', gap: 4, cursor: 'pointer', padding: 2, borderRadius: 12, transition: 'background 0.2s', flexShrink: 1, minWidth: 0 }}
           >
-            <div style={{ width: 36, height: 36, borderRadius: 10, backgroundColor: 'var(--yellow-50)', display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none' }}>
-              <Trophy size={18} style={{ color: 'var(--yellow)', fill: 'var(--yellow)' }} />
+            <div style={{ width: 32, height: 32, borderRadius: 10, backgroundColor: 'var(--yellow-50)', display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none', flexShrink: 0 }}>
+              <Trophy size={16} style={{ color: 'var(--yellow)', fill: 'var(--yellow)' }} />
             </div>
-            <div style={{ textAlign: 'left', pointerEvents: 'none' }}>
+            <div style={{ textAlign: 'left', pointerEvents: 'none', overflow: 'hidden' }}>
               <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--text)', lineHeight: 1.1 }}>{stats?.level ?? 1}</div>
-              <div style={{ fontSize: 10, fontWeight: 600, color: 'var(--text-3)', letterSpacing: '0.4px' }}>LVL</div>
+              <div style={{ fontSize: 9, fontWeight: 600, color: 'var(--text-3)', letterSpacing: '0.4px', textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap' }}>LVL</div>
             </div>
           </div>
         </div>

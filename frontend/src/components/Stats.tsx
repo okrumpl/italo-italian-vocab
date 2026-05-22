@@ -107,6 +107,8 @@ const ActivityHeatmap: React.FC<{ days: HeatmapDay[] }> = ({ days }) => {
       </div>
     </div>
   );
+};
+
 interface StatsProps {
   onLogout?: () => void;
   targetSection?: string | null;

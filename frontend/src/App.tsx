@@ -90,7 +90,7 @@ export default function App() {
   }
 
   return (
-    <div className="w-full flex-1 flex flex-col relative" style={{ height: '100dvh', overflow: 'hidden' }}>
+    <div className="w-full flex-1 flex flex-col relative" style={{ height: '100dvh', maxWidth: '100vw', overflowX: 'hidden', overflowY: 'hidden' }}>
 
       {/* Hlavní obsah */}
       <div className="flex-1 overflow-hidden">
@@ -137,23 +137,22 @@ export default function App() {
                   cursor: 'pointer',
                   padding: '8px 4px',
                   borderRadius: '12px',
-                  transition: 'all 0.15s ease',
-                  color: isActive ? 'var(--green-500)' : 'var(--text-3)',
-                  fontFamily: 'var(--font)',
                 }}
               >
                 <Icon
                   size={22}
                   strokeWidth={isActive ? 2.5 : 1.8}
+                  style={{ color: isActive ? 'var(--green-500)' : 'var(--text-3)', transition: 'color 0.2s' }}
                 />
                 <span
                   style={{
                     fontSize: '11px',
                     fontWeight: isActive ? 700 : 500,
                     letterSpacing: '0.1px',
+                    color: isActive ? 'var(--green-600)' : 'var(--text-3)', transition: 'color 0.2s'
                   }}
                 >
-                  {label}
+                  {item.label}
                 </span>
                 {/* Active dot indicator */}
                 {isActive && (
